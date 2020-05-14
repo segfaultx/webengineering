@@ -1,12 +1,15 @@
 import React from 'react';
-import Teamgreeter from "./components/exampleComponent/Teamgreeter"
+import FormComp from "./components/formcomponent/Formcomponent"
+import login from "./components/util/LoginHandler"
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Teamgreeter>Hello, Team!</Teamgreeter>
       </header>
+        <FormComp btnText={"Login"} func={login}
+        />
+
     </div>
   );
 }
