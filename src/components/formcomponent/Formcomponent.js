@@ -7,7 +7,7 @@ import Alert from "react-bootstrap/Alert"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./formComponentStyle.css"
 
-const FormComp = ({btnText, func, errormsg}) => {
+const FormComp = ({btnText, func, errormsg, link}) => {
 
     const [formState, setState] = useState({
         "username": "",
@@ -29,9 +29,9 @@ const FormComp = ({btnText, func, errormsg}) => {
 
     return <Container fluid className={"bgContainer"}>
     <Container className={"formContainer"}>
-        <Row className={"formRowContainer"}>
+        <Row className={"formRowContainer alertContainer"}>
             {showAlert ?
-                <Alert show={showAlert} variant={"danger"} onClose={() => setShowAlert(false)} dismissible={true}>
+                <Alert className={"errorAlert"} show={showAlert} variant={"danger"} onClose={() => setShowAlert(false)} dismissible={true}>
                     <Alert.Heading>Error</Alert.Heading>
                     <p>
                         {errormsg}
@@ -69,6 +69,7 @@ const FormComp = ({btnText, func, errormsg}) => {
                 </Container>
             </Form>
         </Row>
+        <a href={link} className={"formFont registerLink"}>New? Register! </a>
     </Container>
     </Container>
 }
