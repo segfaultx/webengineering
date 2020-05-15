@@ -27,7 +27,8 @@ const FormComp = ({btnText, func, errormsg}) => {
         console.log("made it past")
     }
 
-    return <Container className={"formContainer"}>
+    return <Container fluid className={"bgContainer"}>
+    <Container className={"formContainer"}>
         <Row className={"formRowContainer"}>
             {showAlert ?
                 <Alert show={showAlert} variant={"danger"} onClose={() => setShowAlert(false)} dismissible={true}>
@@ -42,21 +43,23 @@ const FormComp = ({btnText, func, errormsg}) => {
         <Row className={"formRowContainer"}>
             <Form className={"form"}>
                 <Form.Group>
-                    <Form.Label>Email address / User name</Form.Label>
+                    <Form.Label className={"formFont"}>Email address / User name</Form.Label>
                     <Form.Control type="username"
                                   id={"username"}
                                   name={"username"}
                                   placeholder="Enter E-Mail or Username"
                                   value={formState.username || ""}
+                                  className={"formInputfield"}
                                   onChange={(event) => handleChange(event.target.name, event.target.value)}/>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label className={"formFont"}>Password</Form.Label>
                     <Form.Control type="password"
                                   id={"password"}
                                   name={"password"}
                                   placeholder="Password"
                                   value={formState.password || ""}
+                                  className={"formInputfield"}
                                   onChange={(event) => handleChange(event.target.name, event.target.value)}/>
                 </Form.Group>
                 <Container className={"formBtnContainer"}>
@@ -66,7 +69,7 @@ const FormComp = ({btnText, func, errormsg}) => {
                 </Container>
             </Form>
         </Row>
-
+    </Container>
     </Container>
 }
 

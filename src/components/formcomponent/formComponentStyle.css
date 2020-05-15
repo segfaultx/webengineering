@@ -1,8 +1,26 @@
+body {
+
+}
+
+@font-face {
+    font-family: Pieces;
+    src: local("Pieces"), url("../media/fonts/PiecesNfi-LrOn.ttf") format("truetype");
+}
+
+.bgContainer {
+    background-color: green;
+    background-image: url("../media/images/login_background_screen.jpg");
+}
 .formContainer {
     height: 100vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
+
+}
+.formFont {
+    font-family: Pieces;
+    color: darkred;
 }
 .formRowContainer {
     width: 33%
@@ -11,10 +29,25 @@
     display: flex;
     justify-content: center;
 }
+.formInputfield {
+    background-color: grey;
+    border-color: darkred;
+}
+.formInputfield::placeholder {
+    color: white;
+}
 .form {
     align-self: center;
 }
 .formBtn {
+    font-family: Pieces;
+    color: white;
+    background: darkred;
+    border: darkred;
     align-self: center;
     width: 10vw;
+}
+
+.formBtn:hover {
+    background-color: red;
 }
