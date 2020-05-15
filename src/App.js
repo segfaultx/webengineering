@@ -7,9 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
       </header>
-        <FormComp btnText={"Login"} func={login}
-        />
-
+        <FormComp btnText={"Login"} func={login} errormsg={"Invalid credentials"}/>
     </div>
   );
 }
