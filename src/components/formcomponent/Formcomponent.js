@@ -2,17 +2,46 @@ import React, {useState} from "react"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Container"
+import Alert from "react-bootstrap/Alert"
 import "bootstrap/dist/css/bootstrap.min.css"
+import "./formComponentStyle.css"
 
-const FormComp = ({btnText, func}) => {
+const FormComp = ({btnText, func, errormsg}) => {
 
     const [formState, setState] = useState({
         "username": "",
         "password": ""
     })
-    return <div>
-        <Container>
-            <Form>
+    const [showAlert, setShowAlert] = useState(false)
+
+    function handleChange(target, value) {
+        setState({...formState, [target]: value})
+    }
+
+    function handleLogin(username, pass) {
+        if (func(username, pass)) {
+
+        } else {
+            console.log("setShowAlert true")
+            setShowAlert(true)
+        }
+    }
+
+    return <Container className={"formContainer"}>
+        <Row>
+            {showAlert ?
+                <Alert show={showAlert} variant={"danger"} onClose={() => setShowAlert(false)} dismissible={true}>
+                    <Alert.Heading>Error</Alert.Heading>
+                    <p>
+                        {errormsg}
+                    </p>
+                </Alert>
+                :
+                null}
+        </Row>
+        <Row className={"formRowContainer"}>
+            <Form className={"form"}>
                 <Form.Group>
                     <Form.Label>Email address / User name</Form.Label>
                     <Form.Control type="username"
@@ -20,7 +49,7 @@ const FormComp = ({btnText, func}) => {
                                   name={"username"}
                                   placeholder="Enter E-Mail or Username"
                                   value={formState.username || ""}
-                                  onChange={(event) => setState({...formState, "username": event.target.value})}/>
+                                  onChange={(event) => handleChange(event.target.name, event.target.value)}/>
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Password</Form.Label>
@@ -29,12 +58,17 @@ const FormComp = ({btnText, func}) => {
                                   name={"password"}
                                   placeholder="Password"
                                   value={formState.password || ""}
-                                  onChange={(event) => setState({...formState, "password": event.target.value})}/>
+                                  onChange={(event) => handleChange(event.target.name, event.target.value)}/>
                 </Form.Group>
-                <Button variant="primary" onClick={() => func(formState.username, formState.password)}>{btnText}</Button>
+                <Container className={"formBtnContainer"}>
+                    <Button variant="primary"
+                            onClick={() => handleLogin(formState.username, formState.password)}
+                            className={"formBtn"}>{btnText}</Button>
+                </Container>
             </Form>
-        </Container>
-    </div>
+        </Row>
+
+    </Container>
 }
 
 export default FormComp
