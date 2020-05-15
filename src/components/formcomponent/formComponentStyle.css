@@ -6,15 +6,18 @@
 .bgContainer {
     background-image: url("../media/images/login_background_screen.jpg");
 }
+
 .formContainer {
     height: 100vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
-.alertContainer{
+
+.alertContainer {
     min-height: 10vh !important;
 }
+
 .errorAlert {
     max-height: 8vh !important;
     font-family: Pieces, serif;
@@ -23,35 +26,49 @@
     background-color: darkred;
     border: grey;
 }
+
 .formFont {
     font-family: Pieces, serif;
     color: darkred;
     align-self: center;
 }
-.registerLink{
+
+.registerLink {
     margin-top: 3vh;
 }
+
 .registerLink:hover {
     text-decoration: none;
     color: red;
 }
+
 .formRowContainer {
     width: 33%
 }
+
 .formBtnContainer {
     display: flex;
     justify-content: center;
 }
+
 .formInputfield {
     background-color: grey;
     border-color: darkred;
+    color: white;
 }
+
 .formInputfield::placeholder {
     color: white;
 }
+
+.formInputfield:focus {
+    color: grey;
+}
+
 .form {
     align-self: center;
 }
+
 .formBtn {
     font-family: Pieces, serif;
     color: white;
@@ -60,6 +77,7 @@
     align-self: center;
     width: 10vw;
 }
+
 .formBtn:focus {
     background: darkred !important;
     border: darkred;

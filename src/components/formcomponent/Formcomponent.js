@@ -26,51 +26,60 @@ const FormComp = ({btnText, func, errormsg, link}) => {
         }
         console.log("made it past")
     }
+    function checkKeyboardEvent(key){
+        if (key === "Enter"){
+            handleLogin(formState.username, formState.password)
+        }
+    }
 
     return <Container fluid className={"bgContainer"}>
-    <Container className={"formContainer"}>
-        <Row className={"formRowContainer alertContainer"}>
-            {showAlert ?
-                <Alert className={"errorAlert"} show={showAlert} variant={"danger"} onClose={() => setShowAlert(false)} dismissible={true}>
-                    <Alert.Heading>Error</Alert.Heading>
-                    <p>
-                        {errormsg}
-                    </p>
-                </Alert>
-                :
-                null}
-        </Row>
-        <Row className={"formRowContainer"}>
-            <Form className={"form"}>
-                <Form.Group>
-                    <Form.Label className={"formFont"}>Email address / User name</Form.Label>
-                    <Form.Control type="username"
-                                  id={"username"}
-                                  name={"username"}
-                                  placeholder="Enter E-Mail or Username"
-                                  value={formState.username || ""}
-                                  className={"formInputfield"}
-                                  onChange={(event) => handleChange(event.target.name, event.target.value)}/>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label className={"formFont"}>Password</Form.Label>
-                    <Form.Control type="password"
-                                  id={"password"}
-                                  name={"password"}
-                                  placeholder="Password"
-                                  value={formState.password || ""}
-                                  className={"formInputfield"}
-                                  onChange={(event) => handleChange(event.target.name, event.target.value)}/>
-                </Form.Group>
-                <Container className={"formBtnContainer"}>
-                    <Button variant="primary"
-                            onClick={() => handleLogin(formState.username, formState.password)}
-                            className={"formBtn"}>{btnText}</Button>
-                </Container>
-            </Form>
-        </Row>
-        <a href={link} className={"formFont registerLink"}>New? Register! </a>
-    </Container>
+        <Container className={"formContainer"}>
+            <Row className={"formRowContainer alertContainer"}>
+                {showAlert ?
+                    <Alert className={"errorAlert"} show={showAlert} variant={"danger"}
+                           onClose={() => setShowAlert(false)} dismissible={true}>
+                        <Alert.Heading>Error</Alert.Heading>
+                        <p>
+                            {errormsg}
+                        </p>
+                    </Alert>
+                    :
+                    null}
+            </Row>
+            <Row className={"formRowContainer"}>
+                <Form className={"form"}>
+                    <Form.Group>
+                        <Form.Label className={"formFont"}>Email address / User name</Form.Label>
+                        <Form.Control type="username"
+                                      id={"username"}
+                                      name={"username"}
+                                      placeholder="Enter E-Mail or Username"
+                                      value={formState.username || ""}
+                                      className={"formInputfield"}
+                                      onChange={(event) => handleChange(event.target.name, event.target.value)}
+                                      onKeyPress={(event) => checkKeyboardEvent(event.key)}/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label className={"formFont"}>Password</Form.Label>
+                        <Form.Control type="password"
+                                      id={"password"}
+                                      name={"password"}
+                                      placeholder="Password"
+                                      value={formState.password || ""}
+                                      className={"formInputfield"}
+                                      onChange={(event) => handleChange(event.target.name, event.target.value)}
+                                      onKeyPress={(event) => checkKeyboardEvent(event.key)}/>
+                    </Form.Group>
+                    <Container className={"formBtnContainer"}>
+                        <Button variant="primary"
+                                onClick={() => handleLogin(formState.username, formState.password)}
+                                className={"formBtn"} aria-controls={"fade-alert"}
+                                aria-expanded={showAlert}>{btnText}</Button>
+                    </Container>
+                </Form>
+            </Row>
+            <a href={link} className={"formFont registerLink"}>New? Register! </a>
+        </Container>
     </Container>
 }
 
