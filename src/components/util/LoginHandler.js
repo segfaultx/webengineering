@@ -5,14 +5,17 @@ const login = (username, pass) => {
         .then(result => {
             if (result.status === 200) {
                 return result.json()
-            } else {
-                return null
             }
+                throw new Error("Invalid response")
         })
-        .then(jsondata => console.log(jsondata))
-        .catch(error => console.error(error))
-    console.log(username, pass)
-    return false
+        .then(jsondata => {
+            console.log(jsondata)
+            return true
+        })
+        .catch(error => {
+            console.error(error)
+            return false
+        })
 }
 
 export default login
