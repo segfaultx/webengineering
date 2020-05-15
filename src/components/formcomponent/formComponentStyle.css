@@ -1,0 +1,20 @@
+.formContainer {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.formRowContainer {
+    width: 33%
+}
+.formBtnContainer {
+    display: flex;
+    justify-content: center;
+}
+.form {
+    align-self: center;
+}
+.formBtn {
+    align-self: center;
+    width: 10vw;
+}
