@@ -12,6 +12,7 @@ const login = (username, pass) => {
         .then(jsondata => console.log(jsondata))
         .catch(error => console.error(error))
     console.log(username, pass)
+    return false
 }
 
 export default login
