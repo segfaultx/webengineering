@@ -20,16 +20,15 @@ const FormComp = ({btnText, func, errormsg}) => {
     }
 
     function handleLogin(username, pass) {
-        if (func(username, pass)) {
-
-        } else {
-            console.log("setShowAlert true")
+        if (!func(username, pass)) {
             setShowAlert(true)
+            return
         }
+        console.log("made it past")
     }
 
     return <Container className={"formContainer"}>
-        <Row>
+        <Row className={"formRowContainer"}>
             {showAlert ?
                 <Alert show={showAlert} variant={"danger"} onClose={() => setShowAlert(false)} dismissible={true}>
                     <Alert.Heading>Error</Alert.Heading>
