@@ -20,11 +20,13 @@ const FormComp = ({btnText, func, errormsg, link}) => {
     }
 
     function handleLogin(username, pass) {
-        if (!func(username, pass)) {
-            setShowAlert(true)
-            return
-        }
-        console.log("made it past")
+        func(username, pass).then((response) => {
+            if(!response){
+                setShowAlert(true)
+                return
+            }
+            console.log("made it past")
+        })
     }
     function checkKeyboardEvent(key){
         if (key === "Enter"){
