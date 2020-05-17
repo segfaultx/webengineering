@@ -1,16 +1,14 @@
-const login = (username, pass) => {
-    fetch("http://www.mocky.io/v2/5ebdbd303100005f00c5cd23", {
-        method: "POST"
+import Config from "../../config";
+async function loginToServer(username, pass) {
+    return await fetch(`${Config.serverUrl}/users/token`, {
+        method: "POST",
+        body: JSON.stringify({"username": username, "password": pass})
     })
         .then(result => {
             if (result.status === 200) {
                 return result.json()
             }
-                throw new Error("Invalid response")
-        })
-        .then(jsondata => {
-            console.log(jsondata)
-            return true
+                return false
         })
         .catch(error => {
             console.error(error)
@@ -18,4 +16,4 @@ const login = (username, pass) => {
         })
 }
 
-export default login
+export default loginToServer
