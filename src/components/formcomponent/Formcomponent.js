@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import {Link} from "react-router-dom"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Container from "react-bootstrap/Container"
@@ -7,7 +8,7 @@ import Alert from "react-bootstrap/Alert"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./formComponentStyle.css"
 
-const FormComp = ({btnText, func, errormsg, link}) => {
+const FormComp = ({btnText, func, errormsg, link, linkText}) => {
 
     const [formState, setState] = useState({
         "username": "",
@@ -80,7 +81,7 @@ const FormComp = ({btnText, func, errormsg, link}) => {
                     </Container>
                 </Form>
             </Row>
-            <a href={link} className={"formFont registerLink"}>New? Register! </a>
+            <Link to={link} className={"formFont registerLink"}>{linkText}</Link>
         </Container>
     </Container>
 }
