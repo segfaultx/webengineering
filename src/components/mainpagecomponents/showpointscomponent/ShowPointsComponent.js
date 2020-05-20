@@ -1,12 +1,10 @@
 import React from "react";
 import "../mainpagecomponent/mainPageHeaderStyle.css"
-import {Container} from "react-bootstrap";
 
-const ShowPointsComponent=()=>{
-
+const ShowPointsComponent=(value)=>{
     return(
         <div className={"showPoints"}>
-            <h2>Show Points Here</h2>
+            <h2>Blood:{value.blood}</h2>
         </div>
     )
 }

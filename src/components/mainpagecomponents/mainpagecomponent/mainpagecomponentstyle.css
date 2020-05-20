@@ -1,8 +1,6 @@
 .maincontainer{
     display: flex;
-
-    background: black;
-    opacity: 0.5;
+    background: rgba(0,0,0,0.5);
 }
 .gamename{
     display: flex;
@@ -11,34 +9,23 @@
 
 .mainPage{
     color: white;
-}
-
-.playarea{
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.mainPage{
-    flex: 1;
     text-align: center;
 }
 
 .generatorList{
-    background-color: crimson;
-    opacity: 20%;
-    width: 20%;
-    padding: 10px;
+    background: rgba(0,0,0,0.5);
     color: white;
+    margin-left: -20px;
 }
 
 .upgradeList{
-    background-color: crimson;
-    opacity: 20%;
-    width: 20%;
-    color: white;
-    padding: 10px;
     text-align: right;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    margin-left: 15px;
 }
 
 .changeBackground{
+    border: none;
 }
+

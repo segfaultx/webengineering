@@ -1,11 +1,15 @@
 import React from "react";
 import "../mainpagecomponent/mainpagecomponentstyle.css"
+import {Col, Container} from "react-bootstrap";
 
 const GeneratorListComponent =()=>{
     return(
-        <div className="generatorList">
-            <h2>Generator List</h2>
-        </div>
+        <Container className="generatorList">
+            <Col>
+                <br/>
+                <h2>Generator List</h2>
+            </Col>
+        </Container>
     )
 }
 

@@ -1,30 +1,21 @@
 import React from "react";
 import ShowPointsComponent from "../showpointscomponent/ShowPointsComponent";
 import ShowCPSComponent from "../showCPScomponent/ShowCPSComponent";
-import {Container, Row} from "react-bootstrap";
+import {Col, Container} from "react-bootstrap";
 import "./mainPageHeaderStyle.css"
 
 
-const MainPageHeader=()=> {
-
-    /*return(
-        <div>
-            <div style={{background:"black", opacity:0.5}}>
-                <h1 style={{opacity:0.5}}>ClickerGame</h1>
-            </div>
-            <div>
-                <ShowPointsComponent/>
-                <ShowCPSComponent/>
-            </div>
-        </div>
-    )*/
-
+const MainPageHeader=(value)=> {
     return (
 
-       <div className="headercontainer">
-           <ShowPointsComponent className="showPoints"/>
-           <ShowCPSComponent className="showCPS"/>
-       </div>
+       <Container className="headercontainer">
+           <Col>
+               <ShowPointsComponent className="showPoints" blood={value.blood}></ShowPointsComponent>
+           </Col>
+           <Col>
+               <ShowCPSComponent className="showCPS"/>
+           </Col>
+       </Container>
     )
 }
 

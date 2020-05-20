@@ -1,7 +1,7 @@
 import React from 'react';
 import FormComp from "./components/formcomponent/Formcomponent"
 import loginToServer from "./components/util/LoginHandler"
-import MainPage from "./components/mainpagecomponents/mainpagecomponent/MainPageComponent"
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -36,7 +36,7 @@ function App() {
                         <MainPageComponent/>
                     </Route>
                 </Switch>
-                {/*<Redirect to={{pathname: "/login"}}/>*/}
+                <Redirect to={{pathname: "/mainpage"}}/>
 
             </Router>
         </div>
