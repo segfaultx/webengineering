@@ -37,6 +37,7 @@ function App() {
                     </Route>
                 </Switch>
                 {/*<Redirect to={{pathname: "/login"}}/>*/}
+
             </Router>
         </div>
     )
