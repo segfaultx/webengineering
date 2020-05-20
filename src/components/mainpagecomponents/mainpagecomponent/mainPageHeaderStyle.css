@@ -1,0 +1,19 @@
+.headercontainer{
+    display: flex;
+    width: 40%;
+    text-align: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.showCPS{
+    color: white;
+}
+.showPoints{
+    color: white;
+    margin-left: 50px;
+}
+
+.headercontainer > div {
+    flex: 1;
+}

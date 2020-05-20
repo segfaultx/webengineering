@@ -1,12 +1,15 @@
 import React from 'react';
 import FormComp from "./components/formcomponent/Formcomponent"
 import loginToServer from "./components/util/LoginHandler"
+import MainPage from "./components/mainpagecomponents/mainpagecomponent/MainPageComponent"
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Redirect
 } from "react-router-dom"
+import MainPageComponent from "./components/mainpagecomponents/mainpagecomponent/MainPageComponent";
+
 
 function App() {
     return (
@@ -29,8 +32,11 @@ function App() {
                                   link={"/login"}
                                   linkText={"Already have an account? Log in!"}/>
                     </Route>
+                    <Route path={"/mainpage"}>
+                        <MainPageComponent/>
+                    </Route>
                 </Switch>
-                <Redirect to={{pathname: "/login"}}/>
+                {/*<Redirect to={{pathname: "/login"}}/>*/}
             </Router>
         </div>
     )
