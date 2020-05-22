@@ -6,7 +6,9 @@
 
 .showCPS{
     color: white;
+
 }
 .showPoints{
     color: darkred;
+    text-align: center;
 }

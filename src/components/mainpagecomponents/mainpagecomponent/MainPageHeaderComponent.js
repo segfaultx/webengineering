@@ -5,12 +5,12 @@ import {Col, Container} from "react-bootstrap";
 import "./mainPageHeaderStyle.css"
 
 
-const MainPageHeader=(value)=> {
+const MainPageHeader=()=> {
     return (
 
        <Container className="headercontainer">
            <Col>
-               <ShowPointsComponent className="showPoints" blood={value.blood}></ShowPointsComponent>
+               <ShowPointsComponent className="showPoints"/>
            </Col>
            <Col>
                <ShowCPSComponent className="showCPS"/>
