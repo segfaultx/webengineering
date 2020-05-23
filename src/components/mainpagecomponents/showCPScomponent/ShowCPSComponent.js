@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import {CPSContext, CPSContextProvider} from "../mainpagecomponent/cpsContext";
+import {CPSContext} from "../mainpagecomponent/cpsContext";
 import {Button, Container, Row} from "react-bootstrap";
 
 
@@ -9,7 +9,6 @@ const ShowCPSComponent=()=>{
         "generators":[2,5,10,20],
         "gCounter":0,
     })
-
     const {cps,setCPS}= useContext(CPSContext)
     const onClick= ()=> {
         if(generator.gCounter<=generator.generators.length-1){

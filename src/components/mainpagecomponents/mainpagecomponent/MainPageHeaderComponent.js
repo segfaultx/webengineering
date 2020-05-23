@@ -6,6 +6,7 @@ import "./mainPageHeaderStyle.css"
 
 
 const MainPageHeader=()=> {
+
     return (
 
        <Container className="headercontainer">

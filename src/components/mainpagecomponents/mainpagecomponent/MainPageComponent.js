@@ -1,4 +1,4 @@
-import React, {useState,useContext} from "react";
+import React, {useState} from "react";
 import "./mainpagecomponentstyle.css"
 import dImg1 from "../../media/images/login_background_screen.jpg"
 import dImg2 from "../../media/images/UHpNxb.jpg"
@@ -38,7 +38,8 @@ const MainPageComponent=()=>{
         width:"100vw",
         height:"100vh",
         backgroundImage:`url(${backgroundImage.currentBackground})`,
-        backgroundSize:"cover"
+        backgroundSize:"cover",
+        backgroundColor:"black"
     }
 
     return(
