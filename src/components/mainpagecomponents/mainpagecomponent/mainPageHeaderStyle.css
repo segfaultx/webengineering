@@ -1,0 +1,14 @@
+.headercontainer{
+    display: flex;
+    width: 100vw;
+    margin-left: 20px;
+}
+
+.showCPS{
+    color: white;
+
+}
+.showPoints{
+    color: darkred;
+    text-align: center;
+}

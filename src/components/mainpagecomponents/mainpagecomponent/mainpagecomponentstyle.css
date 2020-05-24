@@ -1,0 +1,35 @@
+.maincontainer{
+    display: flex;
+    background: rgba(0,0,0,0.5);
+}
+.wrapper{
+    padding:0px;
+}
+
+.gamename{
+    display: flex;
+    text-align: center;
+    margin-left: 20px;
+}
+
+.mainPage{
+    color: white;
+    text-align: center;
+}
+
+.generatorList{
+    background: rgba(0,0,0,0.5);
+    color: white;
+
+}
+
+.upgradeList{
+    text-align: right;
+    background: rgba(0,0,0,0.5);
+    color: white;
+}
+
+.changeBackground{
+    border: none;
+}
+
