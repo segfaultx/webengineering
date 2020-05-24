@@ -11,6 +11,7 @@ import UpgradeListComponent from "../upgrades/UpgradeListComponent";
 import {Container, Row, Col, Button} from "react-bootstrap";
 import {ClickContextProvider} from "./clickContext";
 import {CPSContextProvider} from "./cpsContext";
+import Cookies from "js-cookie"
 
 
 const MainPageComponent=()=>{
@@ -30,7 +31,7 @@ const MainPageComponent=()=>{
         ws.onclose=()=>{
             console.log("close")
         }
-    })*/
+    })
 
 
     const[backgroundImage,setBackgroundImage]=useState({

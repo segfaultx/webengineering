@@ -2,12 +2,13 @@ import React,{useState, useEffect} from "react"
 import "../mainpagecomponent/mainpagecomponentstyle.css"
 import {Col, Container} from "react-bootstrap"
 import UpgradeComponent from "./UpgradeComponent"
+import Cookies from 'js-cookie'
 
 
 const UpgradeListComponent =()=>{
 
     const [upgradeList, setUpgradeList] = useState([])
-    const [userToken, setUserToken] = useState('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJieWtvZiIsImV4cCI6MTU5MDQwNjI4M30.AMFF4yMsHRFORPs2HOMsEsDjZEQE16wFCaLcKmJ901Y')
+    const [userToken, setUserToken] = useState(Cookies.get('token'))
     const [error, setError] = useState('')
 
     const config = {
