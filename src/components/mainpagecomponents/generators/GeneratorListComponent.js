@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import "../mainpagecomponent/mainpagecomponentstyle.css"
 import {Col, Container} from "react-bootstrap";
 import GeneratorComponent from "./GeneratorComponent"
+import Cookies from "js-cookie";
 
 const GeneratorListComponent =()=>{
 
@@ -13,7 +14,7 @@ const GeneratorListComponent =()=>{
         const requestOptions={
             method:'GET',
             headers:{
-                'Authorization':`Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJieWtvZiIsImV4cCI6MTU5MDM5NjMzOX0.RZjZkMGwn0WA_AZVNOD7WRxA_gkW5HGYZFNsIjIuwCo`           } //bearer token von postman mit bykof 123456
+                'Authorization':`Bearer ${Cookies.get("token")}`           } //bearer token von postman mit bykof 123456
         }
         fetch("http://server.bykovski.de:8000/generators/available",requestOptions)
             .then(response=>response.json())
