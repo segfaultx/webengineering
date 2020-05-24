@@ -18,9 +18,6 @@ import Config from "../../../config"
 
 
 const MainPageComponent=()=>{
-
-    console.log(Cookies.get("token"))
-
     /*const ws= new WebSocket("ws://server.bykovski.de:8000/game/click")
 
     useEffect(()=>{
@@ -37,7 +34,7 @@ const MainPageComponent=()=>{
         ws.onclose=()=>{
             console.log("close")
         }
-    })*/
+    })
 
 
     const[backgroundImage,setBackgroundImage]=useState({
