@@ -30,6 +30,8 @@ async function loginToServer(username, pass){
     await postLoginToServer(username, pass).then(value => token = value)
     if (token !== null){
         Cookie.set("authorization", token.access_token, {httpOnly: true, authorization: "strict", secure:true})
+        return true
     }
+    return false
 }
 export default loginToServer
