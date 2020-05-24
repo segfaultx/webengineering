@@ -21,9 +21,6 @@ const GeneratorListComponent =()=>{
             })
     },[])
 
-    const compareOrder=(a,b)=>{
-        return a-b
-    }
 
     const mapGenerators=()=>{
         let genArray=[]
