@@ -1,29 +1,31 @@
-import React,{useState, useEffect} from "react";
-import axios from 'axios'
+import React,{useState, useEffect} from "react"
 import "../mainpagecomponent/mainpagecomponentstyle.css"
-import {Col, Container} from "react-bootstrap";
-import UpgradeComponent from "./UpgradeComponent";
+import {Col, Container} from "react-bootstrap"
+import UpgradeComponent from "./UpgradeComponent"
 
 
 const UpgradeListComponent =()=>{
 
     const [upgradeList, setUpgradeList] = useState([])
-    const [userToken, setUserToken] = useState('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJieWtvZiIsImV4cCI6MTU5MDM5ODAyNX0.gJMVyD8ZdBU03bIuuRIvLsF2NcEPoXPEp_3TJPOdqzU')
-    const [error, setError] = useState('');
+    const [userToken, setUserToken] = useState('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJieWtvZiIsImV4cCI6MTU5MDQwNjI4M30.AMFF4yMsHRFORPs2HOMsEsDjZEQE16wFCaLcKmJ901Y')
+    const [error, setError] = useState('')
 
     const config = {
+        method: 'GET',
         headers: { Authorization: `Bearer ${userToken}` }
     };
 
     useEffect(() => {
-        axios.get('http://server.bykovski.de:8000/upgrades/available',config)
+        fetch('http://server.bykovski.de:8000/upgrades/available',config)
             .then(response => {
                 if(response.status === 200){
-                    setUpgradeList(response.data)
+                    response.json()
+                        .then(data => setUpgradeList(data))
                 }
             })
             .catch(err => {
                 setError(err.message)
+                console.log(error)
             })
     },[])
 
