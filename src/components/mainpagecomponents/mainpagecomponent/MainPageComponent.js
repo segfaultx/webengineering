@@ -15,7 +15,9 @@ import Cookies from "js-cookie"
 
 
 const MainPageComponent=()=>{
-    /*const ws= new WebSocket("ws://server.bykovski.de:8000/game/click")
+
+    console.log(Cookies.get("token"))
+    /*const ws= new WebSocket(`ws://server.bykovski.de:8000/game/click?token=${Cookies.get("token")}`)
 
     useEffect(()=>{
         ws.onopen=()=>{
