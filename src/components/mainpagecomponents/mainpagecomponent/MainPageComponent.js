@@ -31,7 +31,7 @@ const MainPageComponent=()=>{
         ws.onclose=()=>{
             console.log("close")
         }
-    })
+    })*/
 
 
     const[backgroundImage,setBackgroundImage]=useState({
