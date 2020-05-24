@@ -1,17 +1,20 @@
-import React, { useState,useEffect} from "react";
+import React, { useState,useEffect} from "react"
 import "./mainpagecomponentstyle.css"
 import dImg1 from "../../media/images/login_background_screen.jpg"
 import dImg2 from "../../media/images/UHpNxb.jpg"
 import dImg3 from "../../media/images/kJVa6H.jpg"
 import dImg4 from "../../media/images/kZPyQB.jpg"
 import dImg5 from "../../media/images/binary-numbers-tunnel.jpg"
-import MainPageHeader from "./MainPageHeaderComponent";
-import GeneratorListComponent from "../generators/GeneratorListComponent";
-import UpgradeListComponent from "../upgrades/UpgradeListComponent";
-import {Container, Row, Col, Button} from "react-bootstrap";
-import {ClickContextProvider} from "./clickContext";
-import {CPSContextProvider} from "./cpsContext";
+import MainPageHeader from "./MainPageHeaderComponent"
+import GeneratorListComponent from "../generators/GeneratorListComponent"
+import UpgradeListComponent from "../upgrades/UpgradeListComponent"
+import {Container, Row, Col, Button} from "react-bootstrap"
+import {ClickContextProvider} from "./clickContext"
+import {CPSContextProvider} from "./cpsContext"
 import Cookies from "js-cookie"
+import Clickercomponent from "../../clickercomponent/Clickercomponent"
+import createWebsocket from "../../util/WebsocketGenerator"
+import Config from "../../../config"
 
 
 const MainPageComponent=()=>{
@@ -87,6 +90,11 @@ const MainPageComponent=()=>{
                         <UpgradeListComponent className="playareaComponents"/>
                     </Col>
                 </Row>
+            <Row>
+                <Col>
+                    <Clickercomponent websocket={createWebsocket(`${Config.websocketUrl}/game/clicks?token=${Cookies.get("token")}`)}/>
+                </Col>
+            </Row>
         </Container>
 )
 }
