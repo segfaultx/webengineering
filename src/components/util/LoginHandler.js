@@ -1,5 +1,5 @@
 import Config from "../../config"
-import Cookie from "js-cookie"
+import Cookies from "js-cookie"
 
 async function postLoginToServer(username, pass) {
     let requestBody = new URLSearchParams()
@@ -29,7 +29,7 @@ async function loginToServer(username, pass){
     let token = null
     await postLoginToServer(username, pass).then(value => token = value)
     if (token !== null){
-        Cookie.set("authorization", token.access_token, {httpOnly: true, authorization: "strict", secure:true})
+        Cookies.set('token', token.access_token, {sameSite: "Strict", secure: false})
         return true
     }
     return false
