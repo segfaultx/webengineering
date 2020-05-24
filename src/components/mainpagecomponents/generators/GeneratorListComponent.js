@@ -8,6 +8,7 @@ const GeneratorListComponent =()=>{
 
     const [generators,setGenerators]=useState([])
 
+
     useEffect(()=>{
         const requestOptions={
             method:'GET',
@@ -20,12 +21,23 @@ const GeneratorListComponent =()=>{
             })
     },[])
 
+    const compareOrder=(a,b)=>{
+        return a-b
+    }
+
+    const mapGenerators=()=>{
+        let genArray=[]
+        genArray=generators.map(generator=><GeneratorComponent key = {generator.id} id={generator.id} income_rate={generator.income_rate} order={generator.order}/>)
+        genArray.sort((a,b)=>a.key-b.key)
+        return genArray
+    }
+
     return(
         <Container className="generatorList">
             <Col>
                 <br/>
                 <h2>Generator List</h2>
-                {generators.map(generator=><GeneratorComponent key = {generator.id} id={generator.id} income_rate={generator.income_rate} order={generator.order}/>)}
+                {mapGenerators()}
             </Col>
         </Container>
     )

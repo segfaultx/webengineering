@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useState,useEffect} from "react";
 import "./mainpagecomponentstyle.css"
 import dImg1 from "../../media/images/login_background_screen.jpg"
 import dImg2 from "../../media/images/UHpNxb.jpg"
@@ -15,13 +15,14 @@ import {CPSContextProvider} from "./cpsContext";
 
 const MainPageComponent=()=>{
 
-    //let ws= new WebSocket("ws://localhost:8080")
+    /*const ws= new WebSocket("ws://server.bykovski.de:8000/game/click?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJieWtvZiIsImV4cCI6MTU5MDM5NjMzOX0.RZjZkMGwn0WA_AZVNOD7WRxA_gkW5HGYZFNsIjIuwCo")
 
 
-    /*useEffect(()=>{
+
+    useEffect(()=>{
         ws.onopen=()=>{
-            ws.send("Click")
-            console.log("click")
+            ws.send("click")
+            console.log("open")
         }
 
         ws.onmessage=(e)=>{
