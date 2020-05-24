@@ -1,12 +1,12 @@
 import Config from "../../config";
 async function registerUser(username, pass) {
-    return await fetch(`${Config.serverUrl}/register`, {
+    return await fetch(`${Config.serverUrl}/users/register`, {
         method: "POST",
         body: JSON.stringify({"username": username, "password": pass})
     })
         .then(result => {
             if (result.status === 200) {
-                return result.json()
+                return true
             }
             return false
         })
