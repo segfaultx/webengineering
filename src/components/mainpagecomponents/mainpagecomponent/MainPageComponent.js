@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./mainpagecomponentstyle.css"
 import dImg1 from "../../media/images/login_background_screen.jpg"
 import dImg2 from "../../media/images/UHpNxb.jpg"
@@ -15,6 +15,26 @@ import {CPSContextProvider} from "./cpsContext";
 
 const MainPageComponent=()=>{
 
+    //let ws= new WebSocket("ws://localhost:8080")
+
+
+    /*useEffect(()=>{
+        ws.onopen=()=>{
+            ws.send("Click")
+            console.log("click")
+        }
+
+        ws.onmessage=(e)=>{
+            console.log('message',e.data)
+            ws.close()
+        }
+
+        ws.onclose=()=>{
+            console.log("close")
+        }
+    })*/
+
+
     const[backgroundImage,setBackgroundImage]=useState({
         "backgroundImages":[dImg1,dImg2,dImg3,dImg4,dImg5],
         "currentBackground":dImg1,
@@ -30,8 +50,6 @@ const MainPageComponent=()=>{
             setBackgroundImage({...backgroundImage,
                 backgroundCounter: backgroundImage.backgroundCounter=0,
                 currentBackground: backgroundImage.backgroundImages[backgroundImage.backgroundCounter]})
-
-        console.log(backgroundImage.currentBackground)
     }
 
     let background={
