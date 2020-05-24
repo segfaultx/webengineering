@@ -8,7 +8,7 @@ import {
     Redirect
 } from "react-router-dom"
 import registerUser from "./components/util/RegisterHandler";
-import MainPage from "./components/mainpage/MainPage";
+import MainPageComponent from "./components/mainpagecomponents/mainpagecomponent/MainPageComponent";
 
 function App() {
     const [loginFormState, setLoginState] = useState({
@@ -46,7 +46,7 @@ function App() {
                                   redirectOnSuccess={"/login"}/>
                     </Route>
                     <Route path={"/"} exact>
-                        <MainPage/>
+                            <MainPageComponent/>
                     </Route>
                 </Switch>
             </Router>
