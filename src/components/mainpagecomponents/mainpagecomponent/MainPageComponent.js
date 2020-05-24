@@ -15,9 +15,7 @@ import {CPSContextProvider} from "./cpsContext";
 
 const MainPageComponent=()=>{
 
-    /*const ws= new WebSocket("ws://server.bykovski.de:8000/game/click?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJieWtvZiIsImV4cCI6MTU5MDM5NjMzOX0.RZjZkMGwn0WA_AZVNOD7WRxA_gkW5HGYZFNsIjIuwCo")
-
-
+    /*const ws= new WebSocket("ws://server.bykovski.de:8000/game/click")
 
     useEffect(()=>{
         ws.onopen=()=>{
