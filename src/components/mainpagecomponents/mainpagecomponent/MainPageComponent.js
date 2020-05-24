@@ -11,9 +11,12 @@ import UpgradeListComponent from "../upgrades/UpgradeListComponent";
 import {Container, Row, Col, Button} from "react-bootstrap";
 import {ClickContextProvider} from "./clickContext";
 import {CPSContextProvider} from "./cpsContext";
+import Cookies from "js-cookie"
 
 
 const MainPageComponent=()=>{
+
+    console.log(Cookies.get("token"))
 
     /*const ws= new WebSocket("ws://server.bykovski.de:8000/game/click")
 
