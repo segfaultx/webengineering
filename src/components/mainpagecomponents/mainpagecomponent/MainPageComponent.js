@@ -56,32 +56,32 @@ const MainPageComponent = () => {
     let render = <Redirect to={"/login"}/>
     if (Cookies.get("token")) {
         render = <Container className="wrapper" fluid style={background}>
-            <Row className="maincontainer">
-                <h2 className="gamename" style={{color: "white"}}>ClickerGame</h2>
-                <CPSContextProvider>
-                    <ClickContextProvider>
-                        <MainPageHeader/>
-                        <Button onClick={logout}>Logout</Button>
-                    </ClickContextProvider>
-                </CPSContextProvider>
-            </Row>
+            <ClickContextProvider>
+            <CPSContextProvider>
+                <Row className="maincontainer">
+                    <h2 className="gamename" style={{color: "white"}}>ClickerGame</h2>
+                            <MainPageHeader/>
+                            <Button onClick={logout}>Logout</Button>
+                </Row>
 
-            <Row className="playarea">
-                <Col>
-                    <GeneratorListComponent className="playareaComponents"/>
-                </Col>
+                <Row className="playarea">
+                    <Col>
+                            <GeneratorListComponent className="playareaComponents"/>
+                    </Col>
 
-                <Col xs={7} className={"mainPage"}>
-                    <h2>Mainpage</h2>
-                    <Button name="backgroundCounter" variant="dark" className={"changeBackground"} onClick={() => {
-                        handleBackgroundChange()
-                    }}>change Background</Button>
-                </Col>
+                    <Col xs={7} className={"mainPage"}>
+                        <h2>Mainpage</h2>
+                        <Button name="backgroundCounter" variant="dark" className={"changeBackground"} onClick={() => {
+                            handleBackgroundChange()
+                        }}>change Background</Button>
+                    </Col>
 
-                <Col>
-                    <UpgradeListComponent className="playareaComponents"/>
-                </Col>
-            </Row>
+                    <Col>
+                        <UpgradeListComponent className="playareaComponents"/>
+                    </Col>
+                </Row>
+            </CPSContextProvider>
+            </ClickContextProvider>
             <Row>
                 <Col>
                     <Clickercomponent initialCounterValue={0}/>

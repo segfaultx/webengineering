@@ -13,14 +13,12 @@ const ShowPointsComponent=()=>{
     useEffect(() => {
         let initWs = new WebSocket(`${Config.websocketUrl}/game/balance?token=${Cookies.get("token")}`)
         setWs(initWs)
-        initWs.onopen=()=>{console.log("openPoints")}
         initWs.onmessage = handleUpdate
         return () => initWs.close()
     }, [])
 
     function handleUpdate(message){
-        console.log(message)
-            setClicks( JSON.parse(message.data)["points"])
+        setClicks( JSON.parse(message.data)["points"])
     }
 
 

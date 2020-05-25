@@ -13,14 +13,12 @@ const ShowCPSComponent=()=>{
     useEffect(() => {
         let initWs = new WebSocket(`${Config.websocketUrl}/game/generators?token=${Cookies.get("token")}`)
         setWs(initWs)
-        initWs.onopen=()=>{console.log("openPointws")}
         initWs.onmessage = handleUpdate
         return () => initWs.close()
     }, [])
 
     function handleUpdate(message){
-        console.log(message)
-        setCPS( JSON.parse(message.data)["points"])
+        setCPS(JSON.parse(message.data)["points"])
     }
 
 
