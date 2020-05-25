@@ -1,14 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState} from 'react'
 import FormComp from "./components/formcomponent/Formcomponent"
 import loginToServer from "./components/util/LoginHandler"
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Redirect
+    Route
 } from "react-router-dom"
-import registerUser from "./components/util/RegisterHandler";
-import MainPageComponent from "./components/mainpagecomponents/mainpagecomponent/MainPageComponent";
+import registerUser from "./components/util/RegisterHandler"
+import MainPageComponent from "./components/mainpagecomponents/mainpagecomponent/MainPageComponent"
 
 function App() {
     const [loginFormState, setLoginState] = useState({

@@ -2,9 +2,6 @@
     display: flex;
     background: rgba(0,0,0,0.5);
 }
-.wrapper{
-    padding:0px;
-}
 
 .gamename{
     display: flex;
