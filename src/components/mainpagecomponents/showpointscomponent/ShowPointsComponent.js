@@ -7,8 +7,6 @@ import {CPSContext} from "../mainpagecomponent/cpsContext";
 const ShowPointsComponent=()=>{
 
 
-
-
     const {clicks,setClicks}=useContext(ClickContext)
     const {cps}=useContext(CPSContext)
 

@@ -16,10 +16,10 @@ import Cookies from "js-cookie"
 
 const MainPageComponent=()=>{
 
-    console.log(Cookies.get("token"))
-
-    /*const ws= new WebSocket("ws://server.bykovski.de:8000/game/click")
-
+    console.log(Cookies.get('token'))
+    const token= Cookies.get("token")
+    const ws= new WebSocket(`ws://server.bykovski.de:8000/game/?token=${token}`)
+//ws://server.bykovski.de:8000/game/?token={coo}
     useEffect(()=>{
         ws.onopen=()=>{
             ws.send("click")
@@ -28,13 +28,15 @@ const MainPageComponent=()=>{
 
         ws.onmessage=(e)=>{
             console.log('message',e.data)
-            ws.close()
+            ws.close()``
         }
 
         ws.onclose=()=>{
             console.log("close")
         }
-    })*/
+
+        return ws.close()
+    })
 
 
     const[backgroundImage,setBackgroundImage]=useState({
