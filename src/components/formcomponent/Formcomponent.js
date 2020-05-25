@@ -20,7 +20,7 @@ const FormComp = ({btnText, sendDataToServer, errormsg, link, linkText, formStat
 
     function handleSubmit(username, pass) {
         sendDataToServer(username, pass).then((response) => {
-            setState({"username": "", "password": ""})
+            clearProps()
             if (!response) {
                 setShowAlert(true)
                 return
