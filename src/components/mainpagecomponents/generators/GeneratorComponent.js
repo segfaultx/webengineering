@@ -10,11 +10,11 @@ const GeneratorComponent =({id,income_rate,order})=>{
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${Cookies.get("token")}`
-            } //bearer token von postman mit bykof 123456
+            } //bearer token mit bykof 123456
         }
         fetch("http://server.bykovski.de:8000/generators/" + id + "/buy", requestOptions)
-            .then(response => response.json())
-            .then(data => console.log(data.detail))
+            .then(response =>response.json())
+            .then(data=>console.log(data))
     }
 
     return(
