@@ -1,15 +1,16 @@
-import React,{useState, useEffect} from "react"
+import React, {useState, useEffect, useContext} from "react"
 import "../mainpagecomponent/mainpagecomponentstyle.css"
 import {Col, Container} from "react-bootstrap"
 import UpgradeComponent from "./UpgradeComponent"
 import Cookies from 'js-cookie'
-
+import {CPSContext} from "../mainpagecomponent/cpsContext";
 
 const UpgradeListComponent =()=>{
-
+    const {cps} = useContext(CPSContext)
     const [upgradeList, setUpgradeList] = useState([])
-    const [userToken, setUserToken] = useState(Cookies.get('token'))
+    const [userToken] = useState(Cookies.get('token'))
     const [error, setError] = useState('')
+    const [boughtUpgrades, setBoughtUpgrades] = useState([])
 
     const config = {
         method: 'GET',
@@ -28,15 +29,63 @@ const UpgradeListComponent =()=>{
                 setError(err.message)
                 console.log(error)
             })
-    },[])
 
-    let upgradeComponents = upgradeList.map(item => <UpgradeComponent key={item.id} id={item.id} multiplier={item.multiplier} cost={item.cost} order={item.order} />)
+        fetch('http://server.bykovski.de:8000/upgrades/current-user',config)
+            .then(response => {
+                if(response.status === 200){
+                    response.json()
+                        .then(data => setBoughtUpgrades(data))
+                }
+            })
+            .catch(err => {
+                setError(err.message)
+                console.log(error)
+            })
+
+    },[cps, boughtUpgrades])
+
+    const handleBuy = (upgrade_id) => {
+        fetch(`http://server.bykovski.de:8000/upgrades/${upgrade_id}/buy`,config)
+            .then(response => {
+                if(response.status === 200){
+                } else {
+                    response.json()
+                        .then(detail => setError(detail))
+                }
+            })
+    }
+
+
+    let boughtUpgradeComponents = boughtUpgrades.map(item =>
+        <UpgradeComponent
+            key={item.upgrade.id} id={item.upgrade.id}
+            multiplier={item.upgrade.multiplier}
+            cost={item.upgrade.cost}
+            order={item.upgrade.order}
+            buyUpgrade = {handleBuy}
+            boughtStatus = {true}
+        />)
+
+
+    let upgradeComponents = upgradeList.map(item =>
+        <UpgradeComponent
+            key={item.id} id={item.id}
+            multiplier={item.multiplier}
+            cost={item.cost}
+            order={item.order}
+            buyUpgrade = {handleBuy}
+            boughtStatus = {false}
+        />)
     return(
         <Container className="upgradeList">
             <Col >
+                {console.log('Upgrades: ', boughtUpgrades)}
                 <br/>
                 <h2>Upgrade List</h2>
                 {upgradeComponents}
+                <hr/>
+                <h2>Bought Upgrades</h2>
+                {boughtUpgradeComponents}
             </Col>
         </Container>
     )
