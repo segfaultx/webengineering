@@ -1,21 +1,25 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {CPSContext} from "../mainpagecomponent/cpsContext";
 import {Button, Container, Row} from "react-bootstrap";
+import Config from "../../../config";
+import Cookies from "js-cookie";
 
 
 const ShowCPSComponent=()=>{
 
-    const [generator,setGenerator]=useState({
-        "generators":[2,5,10,20],
-        "gCounter":0,
-    })
     const {cps,setCPS}= useContext(CPSContext)
-    const onClick= ()=> {
-        if(generator.gCounter<=generator.generators.length-1){
-             setGenerator({...generator,
-                gCounter: generator.gCounter+1})
-            setCPS(generator.generators[generator.gCounter])
-        }
+    const [ws, setWs] = useState(null)
+
+    useEffect(() => {
+        let initWs = new WebSocket(`${Config.websocketUrl}/game/generators?token=${Cookies.get("token")}`)
+        setWs(initWs)
+        initWs.onopen=()=>{console.log("openPointws")}
+        initWs.onmessage = handleUpdate
+    }, [])
+
+    function handleUpdate(message){
+        console.log(message)
+        setCPS( JSON.parse(message.data)["points"])
     }
 
 
@@ -23,7 +27,6 @@ const ShowCPSComponent=()=>{
         <Container>
             <Row className={"showCPS"}>
                 <h2>CPS:{cps}</h2>
-                <Button type={"button"} onClick={onClick}>Buy Generator</Button>
             </Row>
         </Container>
     )
