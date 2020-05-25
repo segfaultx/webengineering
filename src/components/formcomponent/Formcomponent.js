@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import {Link} from "react-router-dom"
-import { useHistory } from "react-router-dom"
+import {useHistory} from "react-router-dom"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Container from "react-bootstrap/Container"
@@ -21,19 +21,21 @@ const FormComp = ({btnText, sendDataToServer, errormsg, link, linkText, formStat
     function handleSubmit(username, pass) {
         sendDataToServer(username, pass).then((response) => {
             setState({"username": "", "password": ""})
-            if(!response){
+            if (!response) {
                 setShowAlert(true)
                 return
             }
             history.push(redirectOnSuccess)
         })
     }
-    function checkKeyboardEvent(key){
-        if (key === "Enter"){
+
+    function checkKeyboardEvent(key) {
+        if (key === "Enter") {
             handleSubmit(formState.username, formState.password)
         }
     }
-    function clearProps(){
+
+    function clearProps() {
         setState({"username": "", "password": ""})
     }
 
