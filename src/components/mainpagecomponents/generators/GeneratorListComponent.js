@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react"
 import "../mainpagecomponent/mainpagecomponentstyle.css"
-import {Col, Container} from "react-bootstrap";
+import {Col, Container} from "react-bootstrap"
 import GeneratorComponent from "./GeneratorComponent"
-import Cookies from "js-cookie";
+import Cookies from "js-cookie"
 
 const GeneratorListComponent =()=>{
 

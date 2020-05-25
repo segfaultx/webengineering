@@ -1,7 +1,7 @@
 import React from "react"
 import {useEffect, useState} from "react"
 import Cookies from "js-cookie"
-import Config from "../../config";
+import Config from "../../config"
 
 const Clickercomponent = ({initialCounterValue = 0}) => {
     const [ws, setWs] = useState(null)
@@ -10,6 +10,7 @@ const Clickercomponent = ({initialCounterValue = 0}) => {
         let initWs = new WebSocket(`${Config.websocketUrl}/game/click?token=${Cookies.get("token")}`)
         initWs.onmessage = handleUpdate
         setWs(initWs)
+        return () => initWs.close()
     }, [])
 
     function handleUpdate(message){

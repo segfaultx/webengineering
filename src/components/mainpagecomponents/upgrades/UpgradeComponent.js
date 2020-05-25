@@ -1,11 +1,11 @@
-import React,{useState} from "react";
+import React,{useState} from "react"
 import "../mainpagecomponent/mainpagecomponentstyle.css"
 import Cookies from 'js-cookie'
 
 
 const UpgradeComponent = (props) => {
     const [userToken, setUserToken] = useState(Cookies.get('token'))
-    const [error, setError] = useState('');
+    const [error, setError] = useState('')
     const [upgradeBought, setUpgradeBought] = useState(false)
 
     const config = {

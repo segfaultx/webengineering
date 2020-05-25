@@ -1,6 +1,6 @@
-import React from "react";
-import {Button} from "react-bootstrap";
-import Container from "react-bootstrap/Container";
+import React from "react"
+import {Button} from "react-bootstrap"
+import Container from "react-bootstrap/Container"
 import Cookies from "js-cookie"
 
 const GeneratorComponent =({id,income_rate,order})=>{

@@ -1,7 +1,7 @@
-import React from "react";
-import ShowPointsComponent from "../showpointscomponent/ShowPointsComponent";
-import ShowCPSComponent from "../showCPScomponent/ShowCPSComponent";
-import {Col, Container} from "react-bootstrap";
+import React from "react"
+import ShowPointsComponent from "../showpointscomponent/ShowPointsComponent"
+import ShowCPSComponent from "../showCPScomponent/ShowCPSComponent"
+import {Col, Container} from "react-bootstrap"
 import "./mainPageHeaderStyle.css"
 
 

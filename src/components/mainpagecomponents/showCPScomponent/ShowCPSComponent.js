@@ -1,8 +1,8 @@
-import React, {useContext, useEffect, useState} from "react";
-import {CPSContext} from "../mainpagecomponent/cpsContext";
-import {Button, Container, Row} from "react-bootstrap";
-import Config from "../../../config";
-import Cookies from "js-cookie";
+import React, {useContext, useEffect, useState} from "react"
+import {CPSContext} from "../mainpagecomponent/cpsContext"
+import {Container, Row} from "react-bootstrap"
+import Config from "../../../config"
+import Cookies from "js-cookie"
 
 
 const ShowCPSComponent=()=>{
@@ -15,6 +15,7 @@ const ShowCPSComponent=()=>{
         setWs(initWs)
         initWs.onopen=()=>{console.log("openPointws")}
         initWs.onmessage = handleUpdate
+        return () => initWs.close()
     }, [])
 
     function handleUpdate(message){

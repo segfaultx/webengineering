@@ -1,10 +1,9 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react"
 import "../mainpagecomponent/mainPageHeaderStyle.css"
-import {ClickContext} from "../mainpagecomponent/clickContext";
-import {Button, Container, Row} from "react-bootstrap";
-import {CPSContext} from "../mainpagecomponent/cpsContext";
-import Config from "../../../config";
-import Cookies from "js-cookie";
+import {ClickContext} from "../mainpagecomponent/clickContext"
+import {Container, Row} from "react-bootstrap"
+import Config from "../../../config"
+import Cookies from "js-cookie"
 
 
 const ShowPointsComponent=()=>{
@@ -16,6 +15,7 @@ const ShowPointsComponent=()=>{
         setWs(initWs)
         initWs.onopen=()=>{console.log("openPoints")}
         initWs.onmessage = handleUpdate
+        return () => initWs.close()
     }, [])
 
     function handleUpdate(message){
