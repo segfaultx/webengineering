@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react"
+import {useHistory} from "react-router-dom"
 import {Redirect} from "react-router-dom"
 import "./mainpagecomponentstyle.css"
 import dImg1 from "../../media/images/login_background_screen.jpg"
@@ -17,35 +18,18 @@ import Clickercomponent from "../../clickercomponent/Clickercomponent"
 
 
 const MainPageComponent = () => {
-
-    console.log(Cookies.get("token"))
-    /*const ws= new WebSocket(`ws://server.bykovski.de:8000/game/click?token=${Cookies.get("token")}`)
-
-    useEffect(()=>{
-        ws.onopen=()=>{
-            ws.send("click")
-            console.log("open")
-        }
-
-        ws.onmessage=(e)=>{
-            console.log('message',e.data)
-            ws.close()
-        }
-
-        ws.onclose=()=>{
-            console.log("close")
-        }
-    })*/
-
-
+    const history = useHistory()
     const [backgroundImage, setBackgroundImage] = useState({
         "backgroundImages": [dImg1, dImg2, dImg3, dImg4, dImg5],
         "currentBackground": dImg1,
         "backgroundCounter": 0
     })
-    function logout(){
+
+    function logout() {
         Cookies.remove("token")
+        history.push("/login")
     }
+
     function handleBackgroundChange() {
         backgroundImage.backgroundCounter < backgroundImage.backgroundImages.length - 1
             ?
@@ -107,7 +91,6 @@ const MainPageComponent = () => {
     }
     return render
 }
-
 
 
 export default MainPageComponent
