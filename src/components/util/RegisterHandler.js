@@ -5,10 +5,8 @@ async function registerUser(username, pass) {
         body: JSON.stringify({"username": username, "password": pass})
     })
         .then(result => {
-            if (result.status === 200) {
-                return true
-            }
-            return false
+            return result.status === 200;
+
         })
         .catch(error => {
             console.error(error)

@@ -1,12 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react"
 import "../mainpagecomponent/mainpagecomponentstyle.css"
-import {Col, Container} from "react-bootstrap";
+import {Col, Container} from "react-bootstrap"
 import GeneratorComponent from "./GeneratorComponent"
-import Cookies from "js-cookie";
+import Cookies from "js-cookie"
+import {CPSContext} from "../mainpagecomponent/cpsContext"
 
 const GeneratorListComponent =()=>{
 
-
+    const {cps,setCPS}= useContext(CPSContext)
     const [generators,setGenerators]=useState([])
 
 
@@ -20,7 +21,7 @@ const GeneratorListComponent =()=>{
             .then(response=>response.json())
             .then(data=>{setGenerators(data)
             })
-    },[])
+    },[cps])
 
 
     const mapGenerators=()=>{
