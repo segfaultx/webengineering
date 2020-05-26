@@ -2,26 +2,35 @@ import React, {useEffect, useState} from "react"
 import {Button} from "react-bootstrap"
 import Container from "react-bootstrap/Container"
 import Cookies from "js-cookie"
+import {forEach} from "react-bootstrap/cjs/ElementChildren";
 
-const GeneratorComponent =({id,income_rate,order})=>{
+const GeneratorComponent =({id,income_rate, amountInit})=>{
 
-    const[nextPriceState,setNextPrice]=useState(0)
+    const [nextPriceState,setNextPrice]=useState(0)
+    const [amount,setAmount]=useState(amountInit)
+
+    const requestOptions = {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${Cookies.get("token")}`
+        }
+    }
 
    useEffect(()=>{
        nextPrice()
-   })
+   },[])
 
     const buyGenerator=()=> {
-        const requestOptions = {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${Cookies.get("token")}`
-            } //bearer token mit bykof 123456
-        }
         fetch("http://server.bykovski.de:8000/generators/" + id + "/buy", requestOptions)
             .then(response =>response.json())
-            .then(data=>console.log(data))
+            .then(data=>{nextPrice()
+            if(data.amount!==undefined) changeAmount(data.amount)})
     }
+
+    const changeAmount=(amount)=>{
+        setAmount(amount)
+    }
+
 
     const nextPrice=()=>{
         const requestOptions = {
@@ -37,9 +46,8 @@ const GeneratorComponent =({id,income_rate,order})=>{
 
     return(
         <Container>
-
-            <h4>{`CPS:${income_rate} next Price:${nextPriceState}`}</h4>
-            <Button onClick={()=>{buyGenerator();nextPrice()}}>Buy</Button>
+            <h6>{`CPS:${income_rate} next Price:${nextPriceState} amount:${amount}`}</h6>
+            <Button onClick={buyGenerator} >Buy</Button>
         </Container>
     )
 }
