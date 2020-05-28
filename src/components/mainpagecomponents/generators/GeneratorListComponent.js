@@ -74,7 +74,7 @@ const GeneratorListComponent =()=>{
             <Col>
                 <br/>
                 <h2>Generator List</h2>
-                {generators.sort((a,b)=>a.key-b.key).map(generator=><GeneratorComponent key = {generator.id}
+                {generators.sort((a,b)=>a.id-b.id).map(generator=><GeneratorComponent key = {generator.id}
                                                                id={generator.id}
                                                                income_rate={generator.income_rate}
                                                                amount={generator.amount}
