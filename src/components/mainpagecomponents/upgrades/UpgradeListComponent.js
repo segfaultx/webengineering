@@ -4,12 +4,15 @@ import {Col, Container} from "react-bootstrap"
 import UpgradeComponent from "./UpgradeComponent"
 import Cookies from 'js-cookie'
 import {CPSContext} from "../mainpagecomponent/cpsContext";
+import {ClickContext} from "../mainpagecomponent/clickContext";
 
 const UpgradeListComponent =()=>{
+    //const {clicks} = useContext(ClickContext)
     const {cps} = useContext(CPSContext)
     const [upgradeList, setUpgradeList] = useState([])
     const [userToken] = useState(Cookies.get('token'))
     const [error, setError] = useState('')
+    const [buyRequestSend, setBuyRequestSend] = useState(false)
     const [boughtUpgrades, setBoughtUpgrades] = useState([])
 
     const config = {
@@ -17,8 +20,8 @@ const UpgradeListComponent =()=>{
         headers: { Authorization: `Bearer ${userToken}` }
     };
 
-    useEffect(() => {
-        fetch('http://server.bykovski.de:8000/upgrades/available',config)
+    const fetchAvailableUpgrades = async () => {
+         await fetch('http://server.bykovski.de:8000/upgrades/available',config)
             .then(response => {
                 if(response.status === 200){
                     response.json()
@@ -29,8 +32,10 @@ const UpgradeListComponent =()=>{
                 setError(err.message)
                 console.log(error)
             })
+    }
 
-        fetch('http://server.bykovski.de:8000/upgrades/current-user',config)
+    const fetchBoughtUpgrades = async () => {
+         await fetch('http://server.bykovski.de:8000/upgrades/current-user',config)
             .then(response => {
                 if(response.status === 200){
                     response.json()
@@ -41,13 +46,23 @@ const UpgradeListComponent =()=>{
                 setError(err.message)
                 console.log(error)
             })
+    }
 
-    },[cps, boughtUpgrades])
+    useEffect(() => {
+        fetchAvailableUpgrades()
+    },[cps, buyRequestSend])
 
-    const handleBuy = (upgrade_id) => {
-        fetch(`http://server.bykovski.de:8000/upgrades/${upgrade_id}/buy`,config)
+
+    useEffect(() => {
+        fetchBoughtUpgrades()
+    },[buyRequestSend])
+
+    const handleBuy = async (upgrade_id) => {
+        setBuyRequestSend(true)
+        await fetch(`http://server.bykovski.de:8000/upgrades/${upgrade_id}/buy`,config)
             .then(response => {
                 if(response.status === 200){
+                    setBuyRequestSend(false)
                 } else {
                     response.json()
                         .then(detail => setError(detail))
