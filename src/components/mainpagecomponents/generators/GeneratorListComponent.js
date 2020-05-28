@@ -9,73 +9,77 @@ const GeneratorListComponent =()=>{
 
     const {cps}= useContext(CPSContext)
     const [generators,setGenerators]=useState([])
-    const [shownGenerators,setShownGenerators]=useState([])
-    const [initAmount,setAmount]=useState([])
 
-    useEffect(()=>{
-        const requestOptions={
-            method:'GET',
-            headers:{
-                'Authorization':`Bearer ${Cookies.get("token")}`}}
-        fetch("http://server.bykovski.de:8000/generators/available",requestOptions)
-            .then(response=>response.json())
-            .then(data=>{setGenerators(data)
-                /*setShownGenerators(<GeneratorComponent key = {data[0].id}
-                                                       id={data[0].id}
-                                                       income_rate={data[0].income_rate}
-                                                       amountInit={0}/>)*/
-            })
-        },[])
-
-
-    useEffect(()=>{
-        //if (cps>0){
+    useEffect(()=> {
         fetchData().catch(console.error)
-        //}
+    },[])
+
+    useEffect(()=>{
+        fetchData().catch(console.error)
     },[cps])
 
-
     async function fetchData() {
+
         const requestOptions={
             method:'GET',
             headers:{
                 'Authorization':`Bearer ${Cookies.get("token")}`}}
 
-        await fetch("http://server.bykovski.de:8000/generators/available",requestOptions)
-            .then(response=>response.json())
-            .then(data=>{setGenerators(data)
-            mapGenerators()})
-        await fetch("http://server.bykovski.de:8000/generators/current-user",requestOptions)
-            .then(response=>response.json())
-            .then(data=>{setAmount(data)
-                mapGenerators()})
-    }
 
-    const mapGenerators=()=>{
-        let genArray=[]
-        for(let generator of generators){
-            let compInitAmount=0
-            for(let amount of initAmount){
-                if(amount.generator.id===generator.id){
-                    compInitAmount=amount.amount
-                    break
-                }
+
+        const generatorsResponse =  await fetch("http://server.bykovski.de:8000/generators/available",requestOptions)
+        const generatorsJson= await generatorsResponse.json()
+        const amountResponse = await fetch("http://server.bykovski.de:8000/generators/current-user",requestOptions)
+        const amountJson=await amountResponse.json()
+
+        for(const generator of generatorsJson){
+            const price=await nextPrice(generator.id)
+            generator.price=price
+
+            const amount=amountJson.find((amount)=>amount.generator.id===generator.id)
+            if( amount){
+                generator.amount=amount.amount
             }
-            genArray.push(<GeneratorComponent key = {generator.id}
-                                              id={generator.id}
-                                              income_rate={generator.income_rate}
-                                                amountInit={compInitAmount}/>)
+             else{
+            generator.amount=0
+            }
         }
-        genArray.sort((a,b)=>a.key-b.key)
-        setShownGenerators(genArray)
+        setGenerators(generatorsJson)
+    }
+    const onBuy=async (id)=>{
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${Cookies.get("token")}`
+            }
         }
+        const buyResponse= await fetch("http://server.bykovski.de:8000/generators/" + id + "/buy", requestOptions)
+        const buyJson= await buyResponse.json()
+        await fetchData()
 
+    }
+    const nextPrice=async (id)=>{
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${Cookies.get("token")}`
+            }
+        }
+        const price =await fetch("http://server.bykovski.de:8000/generators/" + id + "/next-price", requestOptions)
+        return await price.json()
+
+    }
     return(
         <Container className="generatorList">
             <Col>
                 <br/>
                 <h2>Generator List</h2>
-                {shownGenerators}
+                {generators.sort((a,b)=>a.key-b.key).map(generator=><GeneratorComponent key = {generator.id}
+                                                               id={generator.id}
+                                                               income_rate={generator.income_rate}
+                                                               amount={generator.amount}
+                                                                price={generator.price}
+                                                                onBuy={onBuy}/>)}
             </Col>
         </Container>
     )
