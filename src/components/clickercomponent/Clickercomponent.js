@@ -20,7 +20,7 @@ const Clickercomponent = ({initialCounterValue = 0}) => {
 
     function handleClick() {
         if (ws !== null) {
-            console.log("click send")
+            //console.log("click send")
             ws.send(`token=${Cookies.get("token")}`)
         }
 
