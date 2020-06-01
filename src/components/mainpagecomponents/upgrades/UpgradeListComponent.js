@@ -1,18 +1,19 @@
 import React, {useState, useEffect, useContext} from "react"
 import "../mainpagecomponent/mainpagecomponentstyle.css"
-import {Col, Container} from "react-bootstrap"
+import {Col, Container, Row} from "react-bootstrap"
 import UpgradeComponent from "./UpgradeComponent"
 import Cookies from 'js-cookie'
-import {CPSContext} from "../mainpagecomponent/cpsContext";
-import {ClickContext} from "../mainpagecomponent/clickContext";
+import {CPSContext} from "../mainpagecomponent/cpsContext"
+
+import {OverlayTrigger} from "react-bootstrap"
 
 const UpgradeListComponent =()=>{
-    //const {clicks} = useContext(ClickContext)
+
     const {cps} = useContext(CPSContext)
     const [upgradeList, setUpgradeList] = useState([])
     const [userToken] = useState(Cookies.get('token'))
     const [error, setError] = useState('')
-    const [buyRequestSend, setBuyRequestSend] = useState(false)
+    const [buyRequestSent, setBuyRequestSent] = useState(false)
     const [boughtUpgrades, setBoughtUpgrades] = useState([])
 
     const config = {
@@ -50,19 +51,19 @@ const UpgradeListComponent =()=>{
 
     useEffect(() => {
         fetchAvailableUpgrades()
-    },[cps, buyRequestSend])
+    },[cps, buyRequestSent])
 
 
     useEffect(() => {
         fetchBoughtUpgrades()
-    },[buyRequestSend])
+    },[buyRequestSent])
 
     const handleBuy = async (upgrade_id) => {
-        setBuyRequestSend(true)
+        setBuyRequestSent(true)
         await fetch(`http://server.bykovski.de:8000/upgrades/${upgrade_id}/buy`,config)
             .then(response => {
                 if(response.status === 200){
-                    setBuyRequestSend(false)
+                    setBuyRequestSent(false) 
                 } else {
                     response.json()
                         .then(detail => setError(detail))
@@ -72,15 +73,15 @@ const UpgradeListComponent =()=>{
 
 
     let boughtUpgradeComponents = boughtUpgrades.map(item =>
-        <UpgradeComponent
-            key={item.upgrade.id} id={item.upgrade.id}
-            multiplier={item.upgrade.multiplier}
-            cost={item.upgrade.cost}
-            order={item.upgrade.order}
-            buyUpgrade = {handleBuy}
-            boughtStatus = {true}
-        />)
-
+            <UpgradeComponent
+                key={item.upgrade.id} id={item.upgrade.id}
+                multiplier={item.upgrade.multiplier}
+                cost={item.upgrade.cost}
+                order={item.upgrade.order}
+                buyUpgrade = {handleBuy}
+                boughtStatus = {true}
+            />
+    )
 
     let upgradeComponents = upgradeList.map(item =>
         <UpgradeComponent
@@ -91,17 +92,30 @@ const UpgradeListComponent =()=>{
             buyUpgrade = {handleBuy}
             boughtStatus = {false}
         />)
+
     return(
         <Container className="upgradeList">
-            <Col >
-                {console.log('Upgrades: ', boughtUpgrades)}
-                <br/>
-                <h2>Upgrade List</h2>
-                {upgradeComponents}
-                <hr/>
-                <h2>Bought Upgrades</h2>
-                {boughtUpgradeComponents}
-            </Col>
+                <Col >
+                    {console.log('Upgrades: ', boughtUpgrades)}
+                    <br/>
+                    <h2> Weapon Shop </h2>
+
+                    <Container>
+                        <Row>
+                            {upgradeComponents}
+                        </Row>
+                    </Container>
+
+                    <hr/>
+                    <h2>Inventory</h2>
+
+                    <Container>
+                        <Row>
+                            {boughtUpgradeComponents}
+                        </Row>
+                    </Container>
+
+                </Col>
         </Container>
     )
 }
