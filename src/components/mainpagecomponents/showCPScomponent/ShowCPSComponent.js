@@ -21,7 +21,6 @@ const ShowCPSComponent=()=>{
         setCPS(JSON.parse(message.data)["points"])
     }
 
-
     return(
         <Container>
             <Row className={"showCPS"}>
