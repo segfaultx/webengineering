@@ -4,6 +4,7 @@ import {Col, Container, Row} from "react-bootstrap"
 import UpgradeComponent from "./UpgradeComponent"
 import Cookies from 'js-cookie'
 import {CPSContext} from "../mainpagecomponent/cpsContext"
+import upgradeSound from '../../media/audio/buyUpgrade.mp3'
 
 const UpgradeListComponent =()=>{
 
@@ -13,6 +14,12 @@ const UpgradeListComponent =()=>{
     const [error, setError] = useState('')
     const [buyRequestSent, setBuyRequestSent] = useState(false)
     const [boughtUpgrades, setBoughtUpgrades] = useState([])
+
+    let audio = new Audio(upgradeSound)
+
+    const start = () => {
+        audio.play()
+    }
 
     const config = {
         method: 'GET',
@@ -61,6 +68,7 @@ const UpgradeListComponent =()=>{
         await fetch(`http://server.bykovski.de:8000/upgrades/${upgrade_id}/buy`,config)
             .then(response => {
                 if(response.status === 200){
+                    start()
                     setBuyRequestSent(false) 
                 } else {
                     response.json()
