@@ -5,8 +5,6 @@ import UpgradeComponent from "./UpgradeComponent"
 import Cookies from 'js-cookie'
 import {CPSContext} from "../mainpagecomponent/cpsContext"
 
-import {OverlayTrigger} from "react-bootstrap"
-
 const UpgradeListComponent =()=>{
 
     const {cps} = useContext(CPSContext)
@@ -71,8 +69,8 @@ const UpgradeListComponent =()=>{
             })
     }
 
-
-    let boughtUpgradeComponents = boughtUpgrades.map(item =>
+    let boughtUpgradeComponents = boughtUpgrades
+        .map(item =>
             <UpgradeComponent
                 key={item.upgrade.id} id={item.upgrade.id}
                 multiplier={item.upgrade.multiplier}
@@ -83,7 +81,8 @@ const UpgradeListComponent =()=>{
             />
     )
 
-    let upgradeComponents = upgradeList.map(item =>
+    let upgradeComponents = upgradeList
+        .map(item =>
         <UpgradeComponent
             key={item.id} id={item.id}
             multiplier={item.multiplier}

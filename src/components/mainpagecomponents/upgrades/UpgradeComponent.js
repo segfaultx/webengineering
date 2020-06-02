@@ -15,14 +15,15 @@ import d8 from '../../media/images/upgrade-8.png'
 
 
 const upgradeImages = [
-    {id: 1, src: d1, title: "Upgrade 1", description: 'Foo'},
-    {id: 2, src: d2, title: "Upgrade 2", description: 'Foo'},
-    {id: 3, src: d3, title: "Upgrade 3", description: 'Foo'},
-    {id: 4, src: d4, title: "Upgrade 4", description: 'Foo'},
-    {id: 5, src: d5, title: "Upgrade 5", description: 'Foo'},
-    {id: 6, src: d6, title: "Upgrade 6", description: 'Foo'},
-    {id: 7, src: d7, title: "Upgrade 7", description: 'Foo'},
-    {id: 8, src: d8, title: "Upgrade 8", description: 'Foo'},
+    {id: 1, src: d1, title: "Dainsleif", description: 'A common steel sword, used by many heroes'},
+    {id: 2, src: d2, title: "Mistilteinn", description: 'A magic sword that never goes blunt'},
+    {id: 3, src: d3, title: "Mjolnir", description: 'The mightiest of war hammers. A weapon of legends'},
+    {id: 4, src: d4, title: "Forseiti's Axe", description: 'An ancient battle axe, used to protect the bearer of any harm'},
+    {id: 5, src: d5, title: "Molag Bal", description: 'A mace forged by evil spirits to decimate their enemies'},
+    {id: 6, src: d6, title: "Skofung", description: 'A blade with supernatural sharpness and hardness'},
+    {id: 7, src: d7, title: "Gram", description: 'A mighty sword granted to worthy heroes by the gods'},
+    {id: 8, src: d8, title: "01110011 01110100 01100001 01100011 01101011 01101111 01110110 01100101 01110010 01100110" +
+            " 01101100 01101111 01110111", description: 'A sword of unknown origins. With its magic the user might defeat any adversary'}
 ]
 
 
@@ -45,7 +46,7 @@ const UpgradeComponent = (props) => {
     return(
         <OverlayTrigger
             className = 'upgradeOverlay'
-            placement = 'top'
+            placement = 'left'
             overlay = {popover} >
             <div>
                 <br/>
