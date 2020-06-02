@@ -1,4 +1,23 @@
+.upgradeList {
+    background-image: url("../../media/images/boxHover.png");
+    background-position: center;
+    background-size: cover;
+    background-color: transparent;
+    height: 350px;
+    width: 350px;
+    margin: 20px;
+    padding: 25px 80px;
+    object-fit: cover;
+}
+
+.upgradeContainer {
+    font-family: "Helvetica Neue" ;
+    color: whitesmoke;
+}
+
 .upgradeImage {
-    height: 75px;
-    width: 75px;
+    height: 70px;
+    width: 70px;
+    border-color: burlywood;
+    border-style: ridge;
 }
