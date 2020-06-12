@@ -9,6 +9,7 @@ import orkBow from "../../media/images/orkBowFrontSprite.png"
 import redhat from "../../media/images/redhatFrontSprite.png"
 import lizard from "../../media/images/LizardFrontSprite.png"
 import skelletonKing from "../../media/images/SkelletonFrontKing.png"
+import undertaker from "../../media/images/undertakerFrontSprite.png"
 import Row from "react-bootstrap/Row";
 
 const GeneratorComponent =({id,income_rate, onBuy,amount,price})=>{
@@ -34,10 +35,13 @@ useEffect(()=>{
             setSprite(redhat)
             break
         case 7:
-            setSprite(lizard)
+            setSprite(undertaker)
             break
         case 12:
             setSprite(skelletonKing)
+            break
+        case 8:
+            setSprite(lizard)
             break
 
         default:
@@ -46,7 +50,7 @@ useEffect(()=>{
 })
 
     return(
-        <Container  >
+        <Container>
             <Row className={"character"}>
                 <Col>
                     <img src={sprite} alt={"None"}/>
@@ -57,7 +61,7 @@ useEffect(()=>{
                     <h6>next price {price}</h6>
                 </Col>
                 <Col>
-                    <Button className="buyButtonGenerator" variant={"danger"} onClick={()=>onBuy(id)} >Buy</Button>
+                    <Button className="buyButtonGenerator" variant={"danger"} onClick={()=>{onBuy(id)}} >Buy</Button>
                 </Col>
             </Row>
             <br/>

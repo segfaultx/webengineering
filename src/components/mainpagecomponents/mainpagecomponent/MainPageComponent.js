@@ -68,8 +68,9 @@ const MainPageComponent = () => {
                     <Col xs={7} className={"mainPage"}>
                         <h2>Mainpage</h2>
                         <Button name="backgroundCounter" variant="dark" className={"changeBackground"} onClick={() => {
-                            handleBackgroundChange()
-                        }}>change Background</Button>
+                            handleBackgroundChange()}}>
+                            change Background
+                        </Button>
                     </Col>
 
                     <Col>
