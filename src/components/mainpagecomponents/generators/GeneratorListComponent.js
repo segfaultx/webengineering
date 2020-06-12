@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from "react"
-import "../mainpagecomponent/mainpagecomponentstyle.css"
+import "../generators/generatorListStyle.css"
 import {Col, Container} from "react-bootstrap"
 import GeneratorComponent from "./GeneratorComponent"
 import Cookies from "js-cookie"

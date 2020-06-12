@@ -107,7 +107,7 @@ const UpgradeListComponent =()=>{
                     <br/>
                     <h2> Weapon Shop </h2>
 
-                    <Container className = 'upgradeList' style={{margin:0}}>
+                    <Container className = 'upgradeList'>
                         <Row>
                             {upgradeComponents}
                         </Row>
@@ -116,7 +116,7 @@ const UpgradeListComponent =()=>{
                     <hr/>
                     <h2>Inventory</h2>
 
-                    <Container className = 'upgradeList' style={{margin:0}} >
+                    <Container className = 'upgradeList'>
                         <Row>
                             {boughtUpgradeComponents}
                         </Row>
