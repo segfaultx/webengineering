@@ -18,17 +18,14 @@ import Clickercomponent from "../../clickercomponent/Clickercomponent"
 
 
 const MainPageComponent = () => {
-    const history = useHistory()
+
     const [backgroundImage, setBackgroundImage] = useState({
         "backgroundImages": [dImg1, dImg2, dImg3, dImg4, dImg5],
         "currentBackground": dImg1,
         "backgroundCounter": 0
     })
 
-    function logout() {
-        Cookies.remove("token")
-        history.push("/login")
-    }
+
 
     function handleBackgroundChange() {
         backgroundImage.backgroundCounter < backgroundImage.backgroundImages.length - 1
@@ -61,7 +58,6 @@ const MainPageComponent = () => {
                 <Row className="maincontainer">
                     <h2 className="gamename" style={{color: "white"}}>ClickerGame</h2>
                             <MainPageHeader/>
-                            <Button onClick={logout}>Logout</Button>
                 </Row>
 
                 <Row className="playarea">

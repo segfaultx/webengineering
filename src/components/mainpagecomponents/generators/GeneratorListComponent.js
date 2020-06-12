@@ -25,8 +25,6 @@ const GeneratorListComponent =()=>{
             headers:{
                 'Authorization':`Bearer ${Cookies.get("token")}`}}
 
-
-
         const generatorsResponse =  await fetch("http://server.bykovski.de:8000/generators/available",requestOptions)
         const generatorsJson= await generatorsResponse.json()
         const amountResponse = await fetch("http://server.bykovski.de:8000/generators/current-user",requestOptions)
@@ -70,17 +68,21 @@ const GeneratorListComponent =()=>{
 
     }
     return(
-        <Container className="generatorList">
-            <Col>
-                <br/>
-                <h2>Generator List</h2>
-                {generators.sort((a,b)=>a.id-b.id).map(generator=><GeneratorComponent key = {generator.id}
-                                                               id={generator.id}
-                                                               income_rate={generator.income_rate}
-                                                               amount={generator.amount}
-                                                                price={generator.price}
-                                                                onBuy={onBuy}/>)}
-            </Col>
+        <Container>
+            <h2 style={{color:"white"}}>Army</h2>
+            <Container className="generatorList">
+
+                <Col>
+                    <br/>
+                    {generators.sort((a,b)=>a.id-b.id).map(generator=><GeneratorComponent
+                                                                                    key = {generator.id}
+                                                                                    id={generator.id}
+                                                                                    income_rate={generator.income_rate}
+                                                                                    amount={generator.amount}
+                                                                                    price={generator.price}
+                                                                                    onBuy={onBuy}/>)}
+                </Col>
+            </Container>
         </Container>
     )
 }

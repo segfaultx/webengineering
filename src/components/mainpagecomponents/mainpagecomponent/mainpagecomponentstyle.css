@@ -15,8 +15,12 @@
 }
 
 .generatorList{
-    background: rgba(0,0,0,0.5);
+    background: rgba(255,0,0,0.2);
     color: white;
+    border-style: solid ;
+    border-color: rgb(0,0,0);
+    overflow-y: scroll;
+    max-height: 85vh;
 
 }
 
@@ -28,5 +32,14 @@
 
 .changeBackground{
     border: none;
+}
+
+.character{
+    border-style: solid;
+    border-color: black;
+}
+
+.buyButtonGenerator{
+    margin-top: 30px;
 }
 
