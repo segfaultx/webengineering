@@ -31,8 +31,7 @@ const GeneratorListComponent =()=>{
         const amountJson=await amountResponse.json()
 
         for(const generator of generatorsJson){
-            const price=await nextPrice(generator.id)
-            generator.price=price
+            generator.price=await nextPrice(generator.id)
 
             const amount=amountJson.find((amount)=>amount.generator.id===generator.id)
             if( amount){
@@ -52,7 +51,7 @@ const GeneratorListComponent =()=>{
             }
         }
         const buyResponse= await fetch("http://server.bykovski.de:8000/generators/" + id + "/buy", requestOptions)
-        const buyJson= await buyResponse.json()
+        await buyResponse.json();
         await fetchData()
 
     }
