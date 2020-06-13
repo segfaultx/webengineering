@@ -13,8 +13,10 @@ import UpgradeListComponent from "../../components/mainpagecomponents/upgrades/U
 import {Container, Row, Col, Button} from "react-bootstrap"
 import {ClickContextProvider} from "../../contexts/clickContext"
 import {CPSContextProvider} from "../../contexts/cpsContext"
+import {GenerateArmyContextProvider} from "../../contexts/generateArmyContext"
 import Cookies from "js-cookie"
 import Clickercomponent from "../../components/mainpagecomponents/clickercomponent/Clickercomponent"
+import ArmyArea from "../../components/mainpagecomponents/generators/ArmyArea";
 
 
 const MainPage = () => {
@@ -53,32 +55,42 @@ const MainPage = () => {
     let render = <Redirect to={"/login"}/>
     if (Cookies.get("token")) {
         render = <Container className="wrapper" fluid style={background}>
-            <ClickContextProvider>
-            <CPSContextProvider>
-                <Row className="maincontainer">
-                    <h2 className="gamename" style={{color: "white"}}>ClickerGame</h2>
-                            <MainPageHeader/>
-                </Row>
+            <GenerateArmyContextProvider>
+                <ClickContextProvider>
+                    <CPSContextProvider>
+                        <Row className="maincontainer">
+                            <h2 className="gamename" style={{color: "white"}}>ClickerGame</h2>
+                                    <MainPageHeader/>
+                        </Row>
 
-                <Row className="playarea">
-                    <Col>
-                            <GeneratorListComponent className="playareaComponents"/>
-                    </Col>
+                        <Row className="playarea">
+                            <Col>
+                                    <GeneratorListComponent className="playareaComponents"/>
+                            </Col>
+                            <Col xs={7} >
+                                <Row className={"bossArea"}>
+                                    <Col>
+                                        <h2>BossArea</h2>
+                                        <Button name="backgroundCounter" variant="dark" className={"changeBackground"} onClick={() => {
+                                            handleBackgroundChange()}}>
+                                            change Background
+                                        </Button>
+                                    </Col>
+                                </Row>
+                                <Row className={"armyArea"}>
+                                    <Col>
+                                        <ArmyArea/>
+                                    </Col>
+                                </Row>
+                            </Col>
+                            <Col>
+                                <UpgradeListComponent className="playareaComponents"/>
+                            </Col>
+                        </Row>
+                    </CPSContextProvider>
+                </ClickContextProvider>
+            </GenerateArmyContextProvider>
 
-                    <Col xs={7} className={"mainPage"}>
-                        <h2>Mainpage</h2>
-                        <Button name="backgroundCounter" variant="dark" className={"changeBackground"} onClick={() => {
-                            handleBackgroundChange()}}>
-                            change Background
-                        </Button>
-                    </Col>
-
-                    <Col>
-                        <UpgradeListComponent className="playareaComponents"/>
-                    </Col>
-                </Row>
-            </CPSContextProvider>
-            </ClickContextProvider>
             <Row>
                 <Col>
                     <Clickercomponent initialCounterValue={0}/>
