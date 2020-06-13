@@ -86,23 +86,11 @@ const GeneratorListComponent =()=>{
         }
         const buyResponse= await fetch("http://server.bykovski.de:8000/generators/" + buyId + "/buy", requestOptions)
         await buyResponse.json();
+        if (buyResponse.ok) generateSprite(spriteId)
         await fetchData()
 
-        let sprite=undefined
-        for (let element of generatorImages){
-            console.log(typeof element.id,typeof spriteId)
-            if (element.id===spriteId){
-                sprite=element.srcB
-            }
-        }
-
-
-        setArmy(army=>[...army,
-            <img style={{position:"absolute",
-                        bottom:30+Math.random()*30,
-                        left:-20+Math.random()*1000}}
-                 src={sprite}/>])
     }
+
     const nextPrice=async (id)=>{
         const requestOptions = {
             method: 'GET',
@@ -112,6 +100,22 @@ const GeneratorListComponent =()=>{
         }
         const price =await fetch("http://server.bykovski.de:8000/generators/" + id + "/next-price", requestOptions)
         return await price.json()
+    }
+
+    const generateSprite=(spriteId)=>{
+        let sprite=undefined
+        for (let element of generatorImages){
+            console.log(typeof element.id,typeof spriteId)
+            if (element.id===spriteId){
+                sprite=element.srcB
+            }
+        }
+
+        setArmy(army=>[...army,
+            <img style={{position:"absolute",
+                bottom:30+Math.random()*30,
+                left:-20+Math.random()*1000}}
+                 src={sprite}/>])
     }
 
     /*
