@@ -6,12 +6,12 @@ import {
     Route
 } from "react-router-dom"
 
+import "bootstrap/dist/css/bootstrap.min.css"
+import "./App.css"
+
 import Loginpage from "./pages/login/Loginpage"
 import Registerpage from "./pages/register/Registerpage"
 import MainPage from "./pages/mainpage/MainPage"
-
-import "bootstrap/dist/css/bootstrap.min.css"
-import "./App.css"
 
 function App() {
 
