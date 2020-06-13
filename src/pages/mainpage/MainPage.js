@@ -2,22 +2,22 @@ import React, {useState} from "react"
 import {useHistory} from "react-router-dom"
 import {Redirect} from "react-router-dom"
 import "./mainpagecomponentstyle.css"
-import dImg1 from "../../media/images/login_background_screen.jpg"
-import dImg2 from "../../media/images/UHpNxb.jpg"
-import dImg3 from "../../media/images/kJVa6H.jpg"
-import dImg4 from "../../media/images/kZPyQB.jpg"
-import dImg5 from "../../media/images/binary-numbers-tunnel.jpg"
-import MainPageHeader from "./MainPageHeaderComponent"
-import GeneratorListComponent from "../generators/GeneratorListComponent"
-import UpgradeListComponent from "../upgrades/UpgradeListComponent"
+import dImg1 from "../../components/media/images/login_background_screen.jpg"
+import dImg2 from "../../components/media/images/UHpNxb.jpg"
+import dImg3 from "../../components/media/images/kJVa6H.jpg"
+import dImg4 from "../../components/media/images/kZPyQB.jpg"
+import dImg5 from "../../components/media/images/binary-numbers-tunnel.jpg"
+import MainPageHeader from "../../components/mainpagecomponents/headercomponent/MainPageHeaderComponent"
+import GeneratorListComponent from "../../components/mainpagecomponents/generators/GeneratorListComponent"
+import UpgradeListComponent from "../../components/mainpagecomponents/upgrades/UpgradeListComponent"
 import {Container, Row, Col, Button} from "react-bootstrap"
 import {ClickContextProvider} from "./clickContext"
 import {CPSContextProvider} from "./cpsContext"
 import Cookies from "js-cookie"
-import Clickercomponent from "../../clickercomponent/Clickercomponent"
+import Clickercomponent from "../../components/mainpagecomponents/clickercomponent/Clickercomponent"
 
 
-const MainPageComponent = () => {
+const MainPage = () => {
 
     const [backgroundImage, setBackgroundImage] = useState({
         "backgroundImages": [dImg1, dImg2, dImg3, dImg4, dImg5],
@@ -89,4 +89,4 @@ const MainPageComponent = () => {
 }
 
 
-export default MainPageComponent
+export default MainPage
