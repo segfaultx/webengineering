@@ -20,5 +20,16 @@
     border: none;
 }
 
+.playerPlane{
+    display: flex;
+    margin-top: -200px;
+    width: 2000px;
+    height:100px;
+}
+
+.monsterPlane{
+    margin-left: -720px;
+    margin-top: 500px;
+}
 
 
