@@ -1,10 +1,10 @@
 @font-face {
     font-family: Pieces;
-    src: local("Pieces"), url("../media/fonts/PiecesNfi-LrOn.ttf") format("truetype");
+    src: local("Pieces"), url("../../components/media/fonts/PiecesNfi-LrOn.ttf") format("truetype");
 }
 
 .bgContainer {
-    background-image: url("../media/images/login_background_screen.jpg");
+    background-image: url("../../components/media/images/login_background_screen.jpg");
 }
 
 .formContainer {
