@@ -6,6 +6,7 @@ import dImg1 from "../../components/media/images/login_background_screen.jpg"
 import dImg2 from "../../components/media/images/UHpNxb.jpg"
 import dImg3 from "../../components/media/images/kJVa6H.jpg"
 import dImg4 from "../../components/media/images/kZPyQB.jpg"
+import Avatar from "../../components/media/images/avatar.png"
 import PlayerPlane from "../../components/media/images/Player-Plane.png"
 import level1Monster from"../../components/media/images/monster/Megapack III Undead Warrior Benkei.png"
 import level2Monster from"../../components/media/images/monster/Megapack III Red Guard A.png"
@@ -73,7 +74,7 @@ const MainPage = () => {
                 </Row>
 
                 <Row className="playarea">
-                    <Col>
+                    <Col style={{minWidth:300}}>
                             <GeneratorListComponent className="playareaComponents"/>
                     </Col>
 
@@ -84,22 +85,29 @@ const MainPage = () => {
                             handleBackgroundChange()}}>
                             change Background
                         </Button>
+                        <Row>
+                            <Col style={{zIndex:3}}>
+                                <img className={"monster"} src={monsterImage.currentMonster}/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col style={{zIndex:2}}>
+                                <img className={"monsterPlane"} src={MonsterPlane}/>
+                            </Col>
+                        </Row>
 
 
                     </Col>
-
-
-
-
-                    <Col>
+                    <Col style={{zIndex:2}}>
                         <UpgradeListComponent className="playareaComponents"/>
                     </Col>
-                    <Col>
-                    <img className={"monsterPlane"} src={monsterImage.currentMonster}/>
-                    <img src={MonsterPlane}/>
-                    </Col>
-                    <img className={"playerPlane"} src={PlayerPlane}/>
+                    <Row>
+                        <Col style={{zIndex:1}}>
+                            <img className={"playerPlane"} src={PlayerPlane}/>
+                        </Col>
+                    </Row>
                 </Row>
+
             </CPSContextProvider>
             </ClickContextProvider>
             <Row>

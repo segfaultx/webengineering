@@ -1,6 +1,7 @@
 .maincontainer{
     display: flex;
     background: rgba(0,0,0,0.5);
+
 }
 
 .gamename{
@@ -21,15 +22,22 @@
 }
 
 .playerPlane{
-    display: flex;
-    margin-top: -200px;
-    width: 2000px;
+    width:1520px;
     height:100px;
+    margin-top:-200px;
+
+
+
 }
 
 .monsterPlane{
-    margin-left: -720px;
-    margin-top: 500px;
+    margin-top: -30px;
+
+
 }
 
+.monster{
+    padding-top: 250px;
 
+
+}
