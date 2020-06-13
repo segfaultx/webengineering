@@ -1,23 +1,19 @@
 import React, {useState} from 'react'
-import FormComp from "./components/formcomponent/Formcomponent"
-import loginToServer from "./components/util/LoginHandler"
+
+import "bootstrap/dist/css/bootstrap.min.css"
+
 import {
     BrowserRouter as Router,
     Switch,
     Route
 } from "react-router-dom"
-import registerUser from "./components/util/RegisterHandler"
+
+import Loginpage from "./pages/login/Loginpage"
+import Registerpage from "./pages/register/Registerpage"
 import MainPageComponent from "./components/mainpagecomponents/mainpagecomponent/MainPageComponent"
 
 function App() {
-    const [loginFormState, setLoginState] = useState({
-        "username": "",
-        "password": ""
-    })
-    const [registerFormState, setRegisterState] = useState({
-        "username": "",
-        "password": ""
-    })
+
     return (
         <div className="App">
             <header className="App-header">
@@ -25,27 +21,13 @@ function App() {
             <Router>
                 <Switch>
                     <Route path={"/login"} exact>
-                        <FormComp btnText={"Login"}
-                                  sendDataToServer={loginToServer}
-                                  errormsg={"Invalid credentials"}
-                                  link={"/register"}
-                                  linkText={"New? Register!"}
-                                  formState={loginFormState}
-                                  setState={setLoginState}
-                                  redirectOnSuccess={"/"}/>
+                        <Loginpage/>
                     </Route>
                     <Route path={"/register"} exact>
-                        <FormComp btnText={"Register"}
-                                  sendDataToServer={registerUser}
-                                  errormsg={"Username already taken"}
-                                  link={"/login"}
-                                  linkText={"Already have an account? Log in!"}
-                                  formState={registerFormState}
-                                  setState={setRegisterState}
-                                  redirectOnSuccess={"/login"}/>
+                        <Registerpage/>
                     </Route>
                     <Route path={"/"} exact>
-                            <MainPageComponent/>
+                        <MainPageComponent/>
                     </Route>
                 </Switch>
             </Router>
