@@ -13,7 +13,6 @@ import redhat from "../../media/images/redhatFrontSprite.png"
 import lizard from "../../media/images/LizardFrontSprite.png"
 import skelletonKing from "../../media/images/SkelletonFrontKing.png"
 import undertaker from "../../media/images/undertakerFrontSprite.png"
-import ArmyArea from "./ArmyArea";
 import {GenerateArmyContext} from "../../../contexts/generateArmyContext";
 
 const GeneratorListComponent =()=>{
@@ -69,17 +68,31 @@ const GeneratorListComponent =()=>{
 
     const {army,setArmy}= useContext(GenerateArmyContext)
 
-    const onBuy=async (id)=>{
+    const onBuy=async (buyId,spriteId)=>{
         const requestOptions = {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${Cookies.get("token")}`
             }
         }
-        const buyResponse= await fetch("http://server.bykovski.de:8000/generators/" + id + "/buy", requestOptions)
+        const buyResponse= await fetch("http://server.bykovski.de:8000/generators/" + buyId + "/buy", requestOptions)
         await buyResponse.json();
         await fetchData()
-        setArmy()
+
+        let sprite=undefined
+        for (let element of generatorImages){
+            console.log(typeof element.id,typeof spriteId)
+            if (element.id===spriteId){
+                sprite=element.src
+            }
+        }
+
+
+        setArmy(army=>[...army,
+            <img style={{position:"absolute",
+                        bottom:30+Math.random()*30,
+                        left:-20+Math.random()*1000}}
+                 src={sprite}/>])
     }
     const nextPrice=async (id)=>{
         const requestOptions = {
@@ -93,7 +106,7 @@ const GeneratorListComponent =()=>{
     }
 
     /*
-    For testing to render all of the sprites
+    for testing: render all sprites
     function showGen() {
         for(let generator of generators){
             for(let i=0;i<generator.amount;i++){
@@ -110,7 +123,7 @@ const GeneratorListComponent =()=>{
                     {generators.sort((a,b)=>a.income_rate-b.income_rate).map((generator,index)=><GeneratorComponent
                                                                                     key = {generator.id}
                                                                                     buyId={generator.id}
-                                                                                    id={index}
+                                                                                    spriteId={index}
                                                                                     image={generatorImages[index]}
                                                                                     income_rate={generator.income_rate}
                                                                                     amount={generator.amount}

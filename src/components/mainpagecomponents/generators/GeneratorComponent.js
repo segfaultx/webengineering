@@ -2,9 +2,9 @@ import React from "react"
 import {Button, Col} from "react-bootstrap"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row";
-import ArmyArea from "./ArmyArea";
 
-const GeneratorComponent =({buyId,id,image,income_rate, onBuy,amount,price})=>{
+
+const GeneratorComponent =({buyId,spriteId,image,income_rate, onBuy,amount,price})=>{
 
     return(
         <Container>
@@ -18,7 +18,7 @@ const GeneratorComponent =({buyId,id,image,income_rate, onBuy,amount,price})=>{
                     <h6>next price {price}</h6>
                 </Col>
                 <Col>
-                    <Button className="buyButtonGenerator" variant={"danger"} onClick={()=>{onBuy(buyId)}} >Buy</Button>
+                    <Button className="buyButtonGenerator" variant={"danger"} onClick={()=>{onBuy(buyId,spriteId)}} >Buy</Button>
                 </Col>
             </Row>
             <br/>

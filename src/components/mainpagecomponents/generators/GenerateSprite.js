@@ -1,21 +1,21 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {Container} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import skelleton from "../../media/images/skeletonFront.png"
+import {GenerateArmyContext} from "../../../contexts/generateArmyContext";
 
 
-const GenerateSprite=(img,xPos,yPos)=>{
+const GenerateSprite=()=>{
 
-    const [army,setArmy]=useState([])
+    const {army,setArmy}=useContext(GenerateArmyContext)
 
-    function createSprite() {
+    /*function createSprite() {
         console.log("created Sprite")
-        setArmy(army=>[...army,<img style={{position:"absolute",bottom:30+Math.random()*30, left:Math.random()*1150}} src={skelleton}/>])
-    }
+        setArmy(army=>[...army,<img style={{position:"absolute",bottom:30+Math.random()*30, left:-20+Math.random()*1000}} src={skelleton}/>])
+    }*/
 
     return(
         <Container>
-            <Button onClick={createSprite}>generate</Button>
             {army}
         </Container>
     )

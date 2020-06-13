@@ -67,7 +67,7 @@ const MainPage = () => {
                             <Col>
                                     <GeneratorListComponent className="playareaComponents"/>
                             </Col>
-                            <Col xs={7} >
+                            <Col xs={6} >
                                 <Row className={"bossArea"}>
                                     <Col>
                                         <h2>BossArea</h2>
