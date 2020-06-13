@@ -1,5 +1,5 @@
 import React,{useState} from "react"
-import "../mainpagecomponent/mainpagecomponentstyle.css"
+import "../../../pages/mainpage/mainpagecomponentstyle.css"
 import {Image, Popover, OverlayTrigger} from "react-bootstrap"
 
 import './upgradeStyle.css'

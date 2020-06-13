@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useContext} from "react"
-import "../mainpagecomponent/mainpagecomponentstyle.css"
+import "../../../pages/mainpage/mainpagecomponentstyle.css"
 import {Col, Container, Row} from "react-bootstrap"
 import UpgradeComponent from "./UpgradeComponent"
 import Cookies from 'js-cookie'
-import {CPSContext} from "../mainpagecomponent/cpsContext"
+import {CPSContext} from "../../../contexts/cpsContext"
 import upgradeSound from '../../media/audio/buyUpgrade.mp3'
 
 const UpgradeListComponent =()=>{

@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from "react"
-import "../mainpagecomponent/mainPageHeaderStyle.css"
-import {ClickContext} from "../mainpagecomponent/clickContext"
+import "../headercomponent/mainPageHeaderStyle.css"
+import {ClickContext} from "../../../contexts/clickContext"
 import {Container, Row} from "react-bootstrap"
 import Config from "../../../config"
 import Cookies from "js-cookie"
