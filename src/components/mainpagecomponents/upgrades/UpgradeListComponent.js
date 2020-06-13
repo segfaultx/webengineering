@@ -16,6 +16,8 @@ const UpgradeListComponent =()=>{
     const [boughtUpgrades, setBoughtUpgrades] = useState([])
 
     let audio = new Audio(upgradeSound)
+    audio.preload = 'auto'
+    audio.load()
 
     const start = () => {
         audio.play()
