@@ -3,7 +3,7 @@ import "../generators/generatorListStyle.css"
 import {Col, Container} from "react-bootstrap"
 import GeneratorComponent from "./GeneratorComponent"
 import Cookies from "js-cookie"
-import {CPSContext} from "../mainpagecomponent/cpsContext"
+import {CPSContext} from "../../../contexts/cpsContext"
 
 const GeneratorListComponent =()=>{
 

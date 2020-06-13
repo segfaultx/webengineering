@@ -1,0 +1,4 @@
+@font-face {
+    font-family: Pieces;
+    src: local("Pieces"), url("./components/media/fonts/PiecesNfi-LrOn.ttf") format("truetype");
+}

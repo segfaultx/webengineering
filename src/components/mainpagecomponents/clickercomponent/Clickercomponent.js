@@ -1,7 +1,7 @@
 import React from "react"
 import {useEffect, useState} from "react"
 import Cookies from "js-cookie"
-import Config from "../../config"
+import Config from "../../../config"
 
 const Clickercomponent = ({initialCounterValue = 0}) => {
     const [ws, setWs] = useState(null)

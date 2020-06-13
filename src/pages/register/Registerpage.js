@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+
 import {Link} from "react-router-dom"
 import {useHistory} from "react-router-dom"
 import Form from "react-bootstrap/Form"
@@ -6,26 +7,38 @@ import Button from "react-bootstrap/Button"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Container"
 import Alert from "react-bootstrap/Alert"
-import "bootstrap/dist/css/bootstrap.min.css"
-import "./formComponentStyle.css"
 
-const FormComp = ({btnText, sendDataToServer, errormsg, link, linkText, formState, setState, redirectOnSuccess}) => {
+import registerUser from "./RegisterHandler"
+
+import "../shared_styles/LoginLogoutPageStyle.css"
+
+const Registerpage = () => {
+
     const history = useHistory()
-
+    const defaultErrormsg = "Username already taken"
+    const [errormsg, setErrormsg] = useState(defaultErrormsg)
     const [showAlert, setShowAlert] = useState(false)
+    const [formState, setFormState] = useState({"username": "", "password": "", "confirmpassword": ""})
 
     function handleChange(target, value) {
-        setState({...formState, [target]: value})
+        setFormState({...formState, [target]: value})
     }
 
     function handleSubmit(username, pass) {
-        sendDataToServer(username, pass).then((response) => {
+        if (formState.password !== formState.confirmpassword) {
+            setShowAlert(true)
+            setErrormsg("Passwords do not match")
+            console.log("made it to pw check")
+            return
+        }
+        registerUser(username, pass).then((response) => {
             clearProps()
             if (!response) {
                 setShowAlert(true)
+                setErrormsg(defaultErrormsg)
                 return
             }
-            history.push(redirectOnSuccess)
+            history.push("/login")
         })
     }
 
@@ -36,7 +49,7 @@ const FormComp = ({btnText, sendDataToServer, errormsg, link, linkText, formStat
     }
 
     function clearProps() {
-        setState({"username": "", "password": ""})
+        setFormState({"username": "", "password": ""})
     }
 
     return <Container fluid className={"bgContainer"}>
@@ -78,18 +91,30 @@ const FormComp = ({btnText, sendDataToServer, errormsg, link, linkText, formStat
                                           onChange={(event) => handleChange(event.target.name, event.target.value)}
                                           onKeyPress={(event) => checkKeyboardEvent(event.key)}/>
                         </Form.Group>
+                        <Form.Group>
+                            <Form.Label className={"formFont"}>Confirm Password</Form.Label>
+                            <Form.Control type="password"
+                                          id={"confirmpassword"}
+                                          name={"confirmpassword"}
+                                          placeholder="Confirm Password"
+                                          value={formState.confirmpassword || ""}
+                                          className={"formInputfield"}
+                                          onChange={(event) => handleChange(event.target.name, event.target.value)}
+                                          onKeyPress={(event) => checkKeyboardEvent(event.key)}/>
+                        </Form.Group>
                         <Container className={"formBtnContainer"}>
                             <Button variant="primary"
                                     onClick={() => handleSubmit(formState.username, formState.password)}
                                     className={"formBtn"} aria-controls={"fade-alert"}
-                                    aria-expanded={showAlert}>{btnText}</Button>
+                                    aria-expanded={showAlert}>{"Register"}</Button>
                         </Container>
                     </Form>
                 </Row>
-                <Link to={link} className={"formFont registerLink"} onClick={clearProps}>{linkText}</Link>
+                <Link to={"/login"} className={"formFont registerLink"}
+                      onClick={clearProps}>{"Already have an account? Log in!"}</Link>
             </Container>
         </Row>
     </Container>
 }
 
-export default FormComp
+export default Registerpage

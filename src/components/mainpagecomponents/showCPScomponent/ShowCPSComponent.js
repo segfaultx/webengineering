@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from "react"
-import {CPSContext} from "../mainpagecomponent/cpsContext"
+import {CPSContext} from "../../../contexts/cpsContext"
 import {Container, Row} from "react-bootstrap"
 import Config from "../../../config"
 import Cookies from "js-cookie"
