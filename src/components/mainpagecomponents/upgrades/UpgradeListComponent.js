@@ -103,7 +103,6 @@ const UpgradeListComponent =()=>{
     return(
         <Container className='upgradeContainer'>
                 <Col >
-                    {console.log('Upgrades: ', boughtUpgrades)}
                     <br/>
                     <h2> Weapon Shop </h2>
 
