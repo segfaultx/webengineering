@@ -11,8 +11,8 @@ import MainPageHeader from "../../components/mainpagecomponents/headercomponent/
 import GeneratorListComponent from "../../components/mainpagecomponents/generators/GeneratorListComponent"
 import UpgradeListComponent from "../../components/mainpagecomponents/upgrades/UpgradeListComponent"
 import {Container, Row, Col, Button} from "react-bootstrap"
-import {ClickContextProvider} from "./clickContext"
-import {CPSContextProvider} from "./cpsContext"
+import {ClickContextProvider} from "../../contexts/clickContext"
+import {CPSContextProvider} from "../../contexts/cpsContext"
 import Cookies from "js-cookie"
 import Clickercomponent from "../../components/mainpagecomponents/clickercomponent/Clickercomponent"
 
