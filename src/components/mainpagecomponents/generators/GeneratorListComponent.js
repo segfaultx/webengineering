@@ -13,20 +13,29 @@ import redhat from "../../media/images/redhatFrontSprite.png"
 import lizard from "../../media/images/LizardFrontSprite.png"
 import skelletonKing from "../../media/images/SkelletonFrontKing.png"
 import undertaker from "../../media/images/undertakerFrontSprite.png"
+import skelletonB from "../../media/images/skeletonBackSprites.png"
+import elveB from "../../media/images/elvesBackSprite.png"
+import assassinB from "../../media/images/assassinBackSprite.png"
+import fighterB from "../../media/images/FighterBackSprite.png"
+import orkBowB from "../../media/images/orkBowBackSprite.png"
+import redhatB from "../../media/images/redhatBackSprite.png"
+import lizardB from "../../media/images/LizardBackSprite.png"
+import skelletonKingB from "../../media/images/SkelletonKingBack.png"
+import undertakerB from "../../media/images/undertakerBackSprite.png"
 import {GenerateArmyContext} from "../../../contexts/generateArmyContext";
 
 const GeneratorListComponent =()=>{
 
     const generatorImages = [
-        {id: 0, src: skelleton, title: "Skeleton"},
-        {id: 1, src: elve, title: "Elve"},
-        {id: 2, src: assassin, title: "Assassin"},
-        {id: 3, src: fighter, title: "Monk"},
-        {id: 4, src: orkBow, title: "Bork"},
-        {id: 5, src: redhat, title: "Valkyrie"},
-        {id: 6, src: skelletonKing, title: "Diablo"},
-        {id: 7, src: undertaker, title: "Skelleton King"},
-        {id: 8, src: lizard, title: "Undertaker" }
+        {id: 0, srcF: skelleton,srcB:skelletonB, title: "Skeleton"},
+        {id: 1, srcF: elve,srcB:elveB, title: "Elve"},
+        {id: 2, srcF: assassin,srcB:assassinB, title: "Assassin"},
+        {id: 3, srcF: fighter,srcB:fighterB, title: "Monk"},
+        {id: 4, srcF: orkBow,srcB:orkBowB, title: "Bork"},
+        {id: 5, srcF: redhat,srcB:redhatB, title: "Valkyrie"},
+        {id: 6, srcF: skelletonKing,srcB:skelletonKingB, title: "Diablo"},
+        {id: 7, srcF: undertaker,srcB:undertakerB, title: "Skelleton King"},
+        {id: 8, srcF: lizard,srcB:lizardB, title: "Undertaker" }
     ]
 
     const {cps}= useContext(CPSContext)
@@ -83,7 +92,7 @@ const GeneratorListComponent =()=>{
         for (let element of generatorImages){
             console.log(typeof element.id,typeof spriteId)
             if (element.id===spriteId){
-                sprite=element.src
+                sprite=element.srcB
             }
         }
 

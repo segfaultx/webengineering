@@ -5,7 +5,6 @@ import GenerateSprite from "./GenerateSprite";
 const ArmyArea=()=>{
     return(
         <Container>
-            <h2>ArmyArea</h2>
             <GenerateSprite/>
         </Container>
     )

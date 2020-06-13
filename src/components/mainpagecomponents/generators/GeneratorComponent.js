@@ -10,7 +10,7 @@ const GeneratorComponent =({buyId,spriteId,image,income_rate, onBuy,amount,price
         <Container>
             <Row className={"character"}>
                 <Col>
-                    <img src={image.src} alt={"None"}/>
+                    <img src={image.srcF} alt={"None"}/>
                     <h6>CPS: {income_rate}</h6>
                 </Col>
                 <Col>
