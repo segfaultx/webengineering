@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Final_Fantasy_VII';
+    src: local('Final_Fantasy_VII'), url(../../media/fonts/Final_Fantasy_VII.ttf) format('truetype');
+}
+
+.damagePoints {
+    color: whitesmoke;
+    font-family: Final_Fantasy_VII, serif;
+    font-size: 80px;
+}
+

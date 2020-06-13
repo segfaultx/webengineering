@@ -77,13 +77,13 @@ const MainPage = () => {
                         <UpgradeListComponent className="playareaComponents"/>
                     </Col>
                 </Row>
-            </CPSContextProvider>
-            </ClickContextProvider>
             <Row>
                 <Col>
                     <Clickercomponent initialCounterValue={0}/>
                 </Col>
             </Row>
+            </CPSContextProvider>
+            </ClickContextProvider>
         </Container>
     }
     return render

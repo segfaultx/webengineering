@@ -30,6 +30,7 @@ const upgradeImages = [
 const UpgradeComponent = (props) => {
     const upgImg = upgradeImages.find(img => img.id === props.order)
 
+
     const popover = (
         <Popover id={'popover-basic'} className = 'upgradeOverlay'>
             <Popover.Title> {upgImg.title} </Popover.Title>
@@ -42,7 +43,6 @@ const UpgradeComponent = (props) => {
             </Popover.Content>
         </Popover>
     )
-
     return(
         <OverlayTrigger
             placement = 'left'
