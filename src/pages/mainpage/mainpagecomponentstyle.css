@@ -10,12 +10,17 @@
     margin-left: 20px;
 }
 
-.mainPage{
+.bossArea{
     color: white;
     text-align: center;
+    height: 70vh;
 }
 
-
+.armyArea{
+    height: 20vh;
+    text-align: center;
+    color: white;
+}
 
 .changeBackground{
     border: none;

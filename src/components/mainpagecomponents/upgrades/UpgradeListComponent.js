@@ -16,6 +16,8 @@ const UpgradeListComponent =()=>{
     const [boughtUpgrades, setBoughtUpgrades] = useState([])
 
     let audio = new Audio(upgradeSound)
+    audio.preload = 'auto'
+    audio.load()
 
     const start = () => {
         audio.play()
@@ -103,7 +105,6 @@ const UpgradeListComponent =()=>{
     return(
         <Container className='upgradeContainer'>
                 <Col >
-                    {console.log('Upgrades: ', boughtUpgrades)}
                     <br/>
                     <h2> Weapon Shop </h2>
 

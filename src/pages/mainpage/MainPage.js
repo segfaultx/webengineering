@@ -21,8 +21,10 @@ import UpgradeListComponent from "../../components/mainpagecomponents/upgrades/U
 import {Container, Row, Col, Button} from "react-bootstrap"
 import {ClickContextProvider} from "../../contexts/clickContext"
 import {CPSContextProvider} from "../../contexts/cpsContext"
+import {GenerateArmyContextProvider} from "../../contexts/generateArmyContext"
 import Cookies from "js-cookie"
 import Clickercomponent from "../../components/mainpagecomponents/clickercomponent/Clickercomponent"
+import ArmyArea from "../../components/mainpagecomponents/generators/ArmyArea";
 
 
 const MainPage = () => {
@@ -66,55 +68,58 @@ const MainPage = () => {
     let render = <Redirect to={"/login"}/>
     if (Cookies.get("token")) {
         render = <Container className="wrapper" fluid style={background}>
-            <ClickContextProvider>
-            <CPSContextProvider>
-                <Row className="maincontainer">
-                    <h2 className="gamename" style={{color: "white"}}>ClickerGame</h2>
+            <GenerateArmyContextProvider>
+                <ClickContextProvider>
+                    <CPSContextProvider>
+                        <Row className="maincontainer">
+                            <h2 className="gamename" style={{color: "white"}}>ClickerGame</h2>
                             <MainPageHeader/>
-                </Row>
-
-                <Row className="playarea">
-                    <Col style={{minWidth:300}}>
-                            <GeneratorListComponent className="playareaComponents"/>
-                    </Col>
-
-
-                    <Col xs={7} className={"mainPage"}>
-                        <h2>Mainpage</h2>
-                        <Button name="backgroundCounter" variant="dark" className={"changeBackground"} onClick={() => {
-                            handleBackgroundChange()}}>
-                            change Background
-                        </Button>
-                        <Row>
-                            <Col style={{zIndex:3}}>
-                                <img className={"monster"} src={monsterImage.currentMonster}/>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col style={{zIndex:2}}>
-                                <img className={"monsterPlane"} src={MonsterPlane}/>
-                            </Col>
                         </Row>
 
+                        <Row className="playarea">
+                            <Col style={{minWidth:300}}>
+                                <GeneratorListComponent className="playareaComponents"/>
+                            </Col>
+                            <Col xs={6} >
+                                <Row className={"bossArea"}>
+                                    <Col>
+                                        <h2>BossArea</h2>
+                                        <Button name="backgroundCounter" variant="dark" className={"changeBackground"} onClick={() => {
+                                            handleBackgroundChange()}}>
+                                            change Background
+                                        </Button>
+                                        <Clickercomponent initialCounterValue={0}/>
+                                        <Row>
+                                            <Col style={{zIndex:3}}>
+                                                <img className={"monster"} src={monsterImage.currentMonster}/>
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col style={{zIndex:2}}>
+                                                <img className={"monsterPlane"} src={MonsterPlane}/>
+                                            </Col>
+                                        </Row>
+                                    </Col>
 
-                    </Col>
-                    <Col style={{zIndex:2}}>
-                        <UpgradeListComponent className="playareaComponents"/>
-                    </Col>
-                    <Row>
-                        <Col style={{zIndex:1}}>
-                            <img className={"playerPlane"} src={PlayerPlane}/>
-                        </Col>
-                    </Row>
-                </Row>
-
-            </CPSContextProvider>
-            </ClickContextProvider>
-            <Row>
-                <Col>
-                    <Clickercomponent initialCounterValue={0}/>
-                </Col>
-            </Row>
+                                </Row>
+                                <Row className={"armyArea"}>
+                                    <Col>
+                                        <ArmyArea/>
+                                    </Col>
+                                </Row>
+                            </Col>
+                            <Col>
+                                <UpgradeListComponent className="playareaComponents"/>
+                            </Col>
+                            <Row>
+                                <Col style={{zIndex:1}}>
+                                    <img className={"playerPlane"} src={PlayerPlane}/>
+                                </Col>
+                            </Row>
+                        </Row>
+                    </CPSContextProvider>
+                </ClickContextProvider>
+            </GenerateArmyContextProvider>
         </Container>
     }
     return render
