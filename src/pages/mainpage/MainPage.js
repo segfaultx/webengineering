@@ -75,7 +75,9 @@ const MainPage = () => {
                                             handleBackgroundChange()}}>
                                             change Background
                                         </Button>
+                                        <Clickercomponent initialCounterValue={0}/>
                                     </Col>
+
                                 </Row>
                                 <Row className={"armyArea"}>
                                     <Col>
@@ -90,12 +92,6 @@ const MainPage = () => {
                     </CPSContextProvider>
                 </ClickContextProvider>
             </GenerateArmyContextProvider>
-
-            <Row>
-                <Col>
-                    <Clickercomponent initialCounterValue={0}/>
-                </Col>
-            </Row>
         </Container>
     }
     return render

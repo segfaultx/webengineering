@@ -46,7 +46,7 @@ const Clickercomponent = ({initialCounterValue = 0}) => {
     }
 
     const variants = {
-        visible: {y: -10, opacity: 1 },
+        visible: {y: -5, opacity: 1 },
         hidden: { y: 0, opacity: 0 },
     }
 
