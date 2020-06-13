@@ -10,7 +10,7 @@ import {
 
 import Loginpage from "./pages/login/Loginpage"
 import Registerpage from "./pages/register/Registerpage"
-import MainPageComponent from "./components/mainpagecomponents/mainpagecomponent/MainPageComponent"
+import MainPage from "./pages/mainpage/MainPage"
 
 function App() {
 
@@ -27,7 +27,7 @@ function App() {
                         <Registerpage/>
                     </Route>
                     <Route path={"/"} exact>
-                        <MainPageComponent/>
+                        <MainPage/>
                     </Route>
                 </Switch>
             </Router>
