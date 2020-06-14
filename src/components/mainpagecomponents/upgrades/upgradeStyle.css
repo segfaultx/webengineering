@@ -8,11 +8,13 @@
     margin: 0px;
     padding: 25px 80px;
     object-fit: cover;
+    minWidth:300;
 }
 
 .upgradeContainer {
     font-family: "Helvetica Neue" ;
     color: whitesmoke;
+    minWidth:300
 }
 
 .upgradeImage {
