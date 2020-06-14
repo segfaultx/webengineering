@@ -1,15 +1,32 @@
 .headercontainer{
+    background-position: center;
+    background-size: cover;
+    background-color: rgb(20, 20, 20);
+    object-fit: cover;
     display: flex;
     width: 100vw;
-    margin-left: 20px;
-    background-color: transparent;
+    border-style: ridge;
+    border-color: darkred;
+}
+
+.gamename{
+    padding: 0px 50px 10px 10px;
+    color: darkred;
+    font-family: "Adobe Caslon Pro Bold";
+}
+
+.gameInfo{
+    align-items: center;
+    color: darkred;
+    font-family: "Adobe Caslon Pro Bold";
 }
 
 .showCPS{
-    color: white;
+    color: darkred;
+    padding-right: 50px;
 
 }
 .showPoints{
     color: darkred;
-    text-align: center;
+    padding-right: 50px;
 }
