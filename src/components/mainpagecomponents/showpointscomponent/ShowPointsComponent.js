@@ -27,7 +27,7 @@ const ShowPointsComponent=()=>{
     return(
         <Container>
             <Row className={"showPoints"}>
-                <img src={blood}  alt="Blood: " width="2.5%" height = "2.5%" style={{padding: "3px"}} />
+                <img src={blood}  alt="Blood: " width="5%" height = "5%" style={{padding: "3px"}} />
                 <h2>{clicks}</h2>
             </Row>
         </Container>

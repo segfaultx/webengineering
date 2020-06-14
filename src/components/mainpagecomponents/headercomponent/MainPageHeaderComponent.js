@@ -21,11 +21,11 @@ const MainPageHeader=()=> {
 
        <Navbar sticky='top' style={{backgroundImage: `url(${BackgroundImage})`}} className="headercontainer">
            <h2 className="gamename">{Cookies.get('username')}</h2>
-           <div className='gameInfo'>
+           <Container className="gameInfo">
                <ShowPointsComponent className="showPoints"/>
                <ShowCPSComponent className="showCPS"/>
-           </div>
-           <Button variant='danger' onClick={logout}>Logout</Button>
+           </Container>
+           <Button size="lg" variant='danger' onClick={logout}>Logout</Button>
        </Navbar>
     )
 }
