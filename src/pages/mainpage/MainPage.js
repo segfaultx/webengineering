@@ -25,6 +25,7 @@ import {GenerateArmyContextProvider} from "../../contexts/generateArmyContext"
 import Cookies from "js-cookie"
 import Clickercomponent from "../../components/mainpagecomponents/clickercomponent/Clickercomponent"
 import ArmyArea from "../../components/mainpagecomponents/generators/ArmyArea";
+import {VolumeContextProvider} from "../../contexts/volumeContext";
 
 
 const MainPage = () => {
@@ -72,6 +73,7 @@ const MainPage = () => {
                 <GenerateArmyContextProvider>
                     <ClickContextProvider>
                         <CPSContextProvider>
+                            <VolumeContextProvider>
                 <MainPageHeader/>
                 <Container className="wrapper" fluid style={background}>
 
@@ -117,6 +119,7 @@ const MainPage = () => {
                                 </Row>
                             </Row>
                 </Container>
+                            </VolumeContextProvider>
                         </CPSContextProvider>
                     </ClickContextProvider>
                 </GenerateArmyContextProvider>
