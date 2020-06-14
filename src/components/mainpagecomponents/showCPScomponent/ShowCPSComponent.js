@@ -27,6 +27,7 @@ const ShowCPSComponent=()=>{
             <Row className={"showCPS"}>
                 <img src={pointer} alt="CPS: " width="6%" height="6%" style={{padding: "3px"}} />
                 <h2>{cps}</h2>
+                <t style={{padding: "5px"}}> points per second</t>
             </Row>
         </Container>
     )
