@@ -16,6 +16,7 @@
 }
 
 .gameInfo{
+    margin: auto;
     align-items: center;
     color: darkred;
     font-family: "Adobe Caslon Pro Bold";

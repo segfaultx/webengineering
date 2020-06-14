@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import ShowPointsComponent from "../showpointscomponent/ShowPointsComponent"
 import ShowCPSComponent from "../showCPScomponent/ShowCPSComponent"
-import {Button, Col, Container} from "react-bootstrap"
+import {Button, Col, Container, Navbar} from "react-bootstrap"
 import "./mainPageHeaderStyle.css"
 import Cookies from "js-cookie";
 import {useHistory} from "react-router-dom";
@@ -19,14 +19,14 @@ const MainPageHeader=()=> {
 
     return (
 
-       <header style={{backgroundImage: `url(${BackgroundImage})`}} className="headercontainer">
+       <Navbar sticky='top' style={{backgroundImage: `url(${BackgroundImage})`}} className="headercontainer">
            <h2 className="gamename">{Cookies.get('username')}</h2>
            <div className='gameInfo'>
                <ShowPointsComponent className="showPoints"/>
                <ShowCPSComponent className="showCPS"/>
            </div>
            <Button variant='danger' onClick={logout}>Logout</Button>
-       </header>
+       </Navbar>
     )
 }
 
