@@ -30,6 +30,7 @@ async function loginToServer(username, pass){
     await postLoginToServer(username, pass).then(value => token = value)
     if (token !== null){
         Cookies.set('token', token.access_token, {sameSite: "Strict", secure: false})
+        Cookies.set('username', username)
         return true
     }
     return false

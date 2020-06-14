@@ -47,7 +47,7 @@ const Clickercomponent = ({initialCounterValue = 0}) => {
     }
 
     const variants = {
-        visible: {y: -5, opacity: 1 },
+        visible: {y: -10, opacity: 1 },
         hidden: { y: 0, opacity: 0 },
     }
 
@@ -60,7 +60,7 @@ const Clickercomponent = ({initialCounterValue = 0}) => {
             >
                 +{counter}
             </motion.div>
-            <img src={monster} onClick={handleClick}/>
+            <img src={monster} onMouseDown={start} onClick={handleClick}/>
 
         </div>
     )

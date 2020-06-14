@@ -72,7 +72,7 @@ const MainPage = () => {
                 <ClickContextProvider>
                     <CPSContextProvider>
                         <Row className="maincontainer">
-                            <h2 className="gamename" style={{color: "white"}}>ClickerGame</h2>
+                            <h2 className="gamename" style={{color: "white"}}>{Cookies.get('username')}</h2>
                             <MainPageHeader/>
                         </Row>
 
