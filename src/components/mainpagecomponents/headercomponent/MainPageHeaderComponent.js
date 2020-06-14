@@ -19,17 +19,14 @@ const MainPageHeader=()=> {
 
     return (
 
-       <Container style={{backgroundImage: `url(${BackgroundImage})`}} className="headercontainer">
-           <Col>
+       <header style={{backgroundImage: `url(${BackgroundImage})`}} className="headercontainer">
+           <h2 className="gamename">{Cookies.get('username')}</h2>
+           <div className='gameInfo'>
                <ShowPointsComponent className="showPoints"/>
-           </Col>
-           <Col>
                <ShowCPSComponent className="showCPS"/>
-           </Col>
-           <Col>
-               <Button onClick={logout}>Logout</Button>
-           </Col>
-       </Container>
+           </div>
+           <Button variant='danger' onClick={logout}>Logout</Button>
+       </header>
     )
 }
 
