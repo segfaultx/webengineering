@@ -17,8 +17,9 @@
 }
 
 .gameInfo{
+    border-style: groove;
     border-color: darkred;
-    border-style: ridge;
+    border-radius: 20px;
 }
 
 .volumeControl{
@@ -30,13 +31,20 @@
     margin-right: 10px;
 }
 
+.howToPlay{
+    margin-right: 15px;
+}
+
 .showCPS{
+    margin-top: 5px;
     color: azure;
     padding-right: 150px;
     font-family: "Game Sans Serif 7", serif;
 
 }
 .showPoints{
+    margin-top: 5px;
+    margin-left: 20px;
     color: darkred;
     padding-right: 150px;
     font-family: "Game Sans Serif 7", serif;
