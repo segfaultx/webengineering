@@ -22,6 +22,12 @@ import redhatB from "../../media/images/redhatBackSprite.png"
 import lizardB from "../../media/images/LizardBackSprite.png"
 import skelletonKingB from "../../media/images/SkelletonKingBack.png"
 import undertakerB from "../../media/images/undertakerBackSprite.png"
+import butcher from "../../media/images/butcherFrontSprite.png"
+import butcherB from "../../media/images/butcherBackSprite.png"
+import magician from "../../media/images/magicianFrontSprite.png"
+import magicianB from "../../media/images/magicianBackSprite.png"
+import viking from "../../media/images/vikingFrontSprite.png"
+import vikingB from "../../media/images/vikingBackSprite.png"
 import {GenerateArmyContext} from "../../../contexts/generateArmyContext";
 
 const GeneratorListComponent =()=>{
@@ -32,15 +38,14 @@ const GeneratorListComponent =()=>{
         {id: 2, srcF: assassin,srcB:assassinB, title: "Assassin"},
         {id: 3, srcF: fighter,srcB:fighterB, title: "Monk"},
         {id: 4, srcF: orkBow,srcB:orkBowB, title: "Bork"},
-        {id: 5, srcF: redhat,srcB:redhatB, title: "Valkyrie"},
-        {id: 6, srcF: skelletonKing,srcB:skelletonKingB, title: "Diablo"},
-        {id: 7, srcF: undertaker,srcB:undertakerB, title: "Skelleton King"},
-        {id: 8, srcF: lizard,srcB:lizardB, title: "Undertaker" },
-        {id: 9, srcF: skelleton,srcB:skelletonB, title: "Skeleton"},
-        {id: 10, srcF: skelleton,srcB:skelletonB, title: "Skeleton"},
-        {id: 11, srcF: skelleton,srcB:skelletonB, title: "Skeleton"},
-        {id: 12, srcF: skelleton,srcB:skelletonB, title: "Skeleton"},
-        {id: 13, srcF: skelleton,srcB:skelletonB, title: "Skeleton"}
+        {id: 5, srcF: viking,srcB:vikingB, title: "Ragnar" },
+        {id: 6, srcF: redhat,srcB:redhatB, title: "Valkyrie"},
+        {id: 7, srcF: butcher,srcB:butcherB, title: "Butcher" },
+        {id: 8, srcF: skelletonKing,srcB:skelletonKingB, title: "Skelle-Tom"},
+        {id: 9, srcF: lizard,srcB:lizardB, title: "Diablo" },
+        {id: 10, srcF: undertaker,srcB:undertakerB, title: "Undertaker"},
+        {id: 11, srcF: magician,srcB:magicianB, title: "Magician" }
+
     ]
 
     const {cps}= useContext(CPSContext)
