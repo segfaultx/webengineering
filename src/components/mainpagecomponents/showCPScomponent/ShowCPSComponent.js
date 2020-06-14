@@ -25,7 +25,7 @@ const ShowCPSComponent=()=>{
     return(
         <Container>
             <Row className={"showCPS"}>
-                <img src={pointer} alt="CPS: " width="5%" height="5%" style={{padding: "3px"}} />
+                <img src={pointer} alt="CPS: " width="6%" height="6%" style={{padding: "3px"}} />
                 <h2>{cps}</h2>
             </Row>
         </Container>

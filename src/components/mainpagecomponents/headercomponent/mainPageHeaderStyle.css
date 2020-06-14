@@ -1,33 +1,34 @@
+
 .headercontainer{
     background-position: center;
     background-size: cover;
     background-color: rgb(20, 20, 20);
-    object-fit: cover;
     display: flex;
+    align-items: center;
     width: 100vw;
     border-style: ridge;
     border-color: darkred;
 }
 
 .gamename{
-    padding: 0px 50px 10px 10px;
-    color: darkred;
-    font-family: "Adobe Caslon Pro Bold";
+    color: crimson;
+    font-size: 50px;
+    font-family: "Game Sans Serif 7";
 }
 
 .gameInfo{
-    margin: auto;
-    align-items: center;
-    color: darkred;
-    font-family: "Adobe Caslon Pro Bold";
+    border-color: darkred;
+    border-style: ridge;
 }
 
 .showCPS{
-    color: darkred;
-    padding-right: 50px;
+    color: azure;
+    padding-right: 150px;
+    font-family: "Game Sans Serif 7", serif;
 
 }
 .showPoints{
     color: darkred;
-    padding-right: 50px;
+    padding-right: 150px;
+    font-family: "Game Sans Serif 7", serif;
 }
