@@ -88,10 +88,9 @@ const MainPage = () => {
                                             handleBackgroundChange()}}>
                                             change Background
                                         </Button>
-                                        <Clickercomponent initialCounterValue={0}/>
-                                        <Row>
+                                        <Row >
                                             <Col style={{zIndex:3}}>
-                                                <img className={"monster"} src={monsterImage.currentMonster}/>
+                                            <Clickercomponent initialCounterValue={0}/>
                                             </Col>
                                         </Row>
                                         <Row>
@@ -102,14 +101,15 @@ const MainPage = () => {
                                     </Col>
 
                                 </Row>
-                                <Row className={"armyArea"}>
-                                    <Col>
+                                <Row  className={"armyArea"}>
+                                    <Col style={{zIndex:2}}>
+                                        <img className={"avatar"} src={Avatar}/>
                                         <ArmyArea/>
                                     </Col>
                                 </Row>
                             </Col>
-                            <Col>
-                                <UpgradeListComponent className="playareaComponents"/>
+                            <Col style={{zIndex:2}}>
+                                <UpgradeListComponent  className="playareaComponents"/>
                             </Col>
                             <Row>
                                 <Col style={{zIndex:1}}>

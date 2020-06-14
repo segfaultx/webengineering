@@ -6,6 +6,7 @@ import {motion} from "framer-motion";
 
 import './clickerComponentStyle.css'
 import damage from "../../media/audio/damage.mp3";
+import monster from"../../media/images/monster/Megapack III Undead Warrior Benkei.png"
 
 const Clickercomponent = ({initialCounterValue = 0}) => {
     const [ws, setWs] = useState(null)
@@ -59,7 +60,8 @@ const Clickercomponent = ({initialCounterValue = 0}) => {
             >
                 +{counter}
             </motion.div>
-            <button onMouseDown={start} onClick={handleClick}>Click me!</button>
+            <img src={monster} onClick={handleClick}/>
+
         </div>
     )
 

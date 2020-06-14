@@ -20,6 +20,7 @@
     height: 20vh;
     text-align: center;
     color: white;
+    margin-top: 50px;
 }
 
 .changeBackground{
@@ -28,7 +29,7 @@
 
 .playerPlane{
     width:1520px;
-    height:100px;
+    height:180px;
     margin-top:-200px;
 
 
@@ -42,7 +43,12 @@
 }
 
 .monster{
-    padding-top: 250px;
+    padding-top: 150px;
 
+}
 
+.avatar{
+    width: 80px;
+    height: 80px;
+    margin-top: 50px;
 }
