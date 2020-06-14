@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useContext} from "react"
 import {useEffect, useRef, useState} from "react"
 import Cookies from "js-cookie"
 import Config from "../../../config"
@@ -7,11 +7,12 @@ import {motion} from "framer-motion";
 import './clickerComponentStyle.css'
 import damage from "../../media/audio/damage.mp3";
 import monster from"../../media/images/monster/Megapack III Undead Warrior Benkei.png"
+import {VolumeContext} from "../../../contexts/volumeContext";
 
 const Clickercomponent = ({initialCounterValue = 0}) => {
     const [ws, setWs] = useState(null)
     const [counter, setCounter] = useState(initialCounterValue)
-    const target = useRef(null);
+    const {volume, setVolume} = useContext(VolumeContext)
     const [showDmg, setShowDmg] = useState(false)
 
     useEffect(() => {
@@ -42,7 +43,11 @@ const Clickercomponent = ({initialCounterValue = 0}) => {
 
     const start = () => {
         let click = audio.cloneNode()
-        click.volume = 0.1
+        if(volume){
+            click.volume = 0.1
+        } else {
+            click.volume = 0
+        }
         click.play()
     }
 

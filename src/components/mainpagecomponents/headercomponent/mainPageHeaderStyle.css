@@ -21,6 +21,15 @@
     border-style: ridge;
 }
 
+.volumeControl{
+    padding: 5px;
+    margin-right: 20px;
+}
+
+.logoutBtn{
+    margin-right: 10px;
+}
+
 .showCPS{
     color: azure;
     padding-right: 150px;
