@@ -1,7 +1,5 @@
 import React from "react"
-import {Button, Col, Container, Fade, Row} from "react-bootstrap";
-import archer from "../../media/images/characters/archer_character.png";
-import texts from "../../../pages/characterselector/characterTexts";
+import {Button, Col, Container, Fade} from "react-bootstrap";
 
 
 const CharacterFadeComponent = ({showCharacters, callbackfn, text, type, img, title}) => {
