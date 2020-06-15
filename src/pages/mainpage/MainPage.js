@@ -76,29 +76,29 @@ const MainPage = () => {
                 <MainPageHeader/>
                 <Container className="wrapper" fluid style={background}>
 
-                            <Row className="playarea">
-                                <Col style={{minWidth:300}}>
-                                    <GeneratorListComponent className="playareaComponents"/>
-                                </Col>
-                                <Col xs={6} >
-                                    <Row className={"bossArea"}>
-                                        <Col>
-                                            <h2>BossArea</h2>
-                                            <Button name="backgroundCounter" variant="dark" className={"changeBackground"} onClick={() => {
-                                                handleBackgroundChange()}}>
-                                                change Background
-                                            </Button>
-                                            <Row >
-                                                <Col style={{zIndex:3}}>
-                                                <Clickercomponent initialCounterValue={0}/>
-                                                </Col>
-                                            </Row>
-                                            <Row>
-                                                <Col style={{zIndex:2}}>
-                                                    <img className={"monsterPlane"} src={MonsterPlane}/>
-                                                </Col>
-                                            </Row>
-                                        </Col>
+                        <Row className="playarea">
+                            <Col style={{minWidth:300,zIndex:2}}>
+                                <GeneratorListComponent className="playareaComponents"/>
+                            </Col>
+                            <Col xs={6} >
+                                <Row className={"bossArea"}>
+                                    <Col>
+                                        <h2>BossArea</h2>
+                                        <Button name="backgroundCounter" variant="dark" className={"changeBackground"} onClick={() => {
+                                            handleBackgroundChange()}}>
+                                            change Background
+                                        </Button>
+                                        <Row >
+                                            <Col style={{zIndex:3}}>
+                                            <Clickercomponent initialCounterValue={0}/>
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col style={{zIndex:2}}>
+                                                <img className={"monsterPlane"} src={MonsterPlane}/>
+                                            </Col>
+                                        </Row>
+                                    </Col>
 
                                     </Row>
                                     <Row  className={"armyArea"}>
