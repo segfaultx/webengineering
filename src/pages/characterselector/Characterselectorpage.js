@@ -11,9 +11,10 @@ import archer from "../../components/media/images/characters/archer_character.pn
 import mage from "../../components/media/images/characters/mage_character.png"
 import warrior from "../../components/media/images/characters/warrior_character.png"
 import dragoon from "../../components/media/images/characters/dragoon_character.png"
+import texts from "./characterTexts"
 
 const Characterselectorpage = () => {
-    const history =  useHistory()
+    const history = useHistory()
     const [showCharacters, setShowCharacters] = useState([false, false, false, false])
     useEffect(() => {
         setTimeout(() => setShowCharacters([true, true, true, true]), 500)
@@ -39,8 +40,7 @@ const Characterselectorpage = () => {
                             <img src={archer} alt={"archer"} className={"characterImage"}/>
                             <div className={"characterName"}>The Archer</div>
                             <div className={"characterDescription"}>
-                                The Archer specializes in ranged combat, usally using Bows as his weapons,
-                                but hes also capable of close combat, using daggers as his weapons.
+                                {texts.archer}
                             </div>
                             <Button className={"formBtn"} onClick={() => setCharacter("archer")}>
                                 Select this Character
@@ -55,10 +55,7 @@ const Characterselectorpage = () => {
                             <img src={mage} alt={"mage"} className={"characterImage"}/>
                             <div className={"characterName"}>The Mage</div>
                             <div className={"characterDescription"}>
-                                The Mage is a wielder of deadly spells, usally burning or
-                                freezing their foes with fire and ice spells. In case they're unable
-                                to chant theirs spells she's trained in wielding either staffs or spears to protect
-                                herself.
+                                {texts.mage}
                             </div>
                             <Button className={"formBtn"} onClick={() => setCharacter("mage")}>
                                 Select this Character
@@ -72,8 +69,7 @@ const Characterselectorpage = () => {
                             <img src={warrior} alt={"warrior"} className={"characterImage"}/>
                             <div className={"characterName"}>The Warrior</div>
                             <div className={"characterDescription"}>
-                                The warrior wears heavy armor and is trained in close combat
-                                including knifes, maces, swords as well as spears.
+                                {texts.warrior}
                             </div>
                             <Button className={"formBtn"} onClick={() => setCharacter("warrior")}>
                                 Select this Character
@@ -87,8 +83,7 @@ const Characterselectorpage = () => {
                             <img src={dragoon} alt={"dragoon"} className={"characterImage"}/>
                             <div className={"characterName"}>The Dragoon</div>
                             <div className={"characterDescription"}>
-                                The Dragoon is a master at medium ranged combat with a spear.
-                                She is also capable of close combat with knifes and swords.
+                                {texts.dragoon}
                             </div>
                             <Button className={"formBtn"} onClick={() => setCharacter("dragoon")}>
                                 Select this Character
