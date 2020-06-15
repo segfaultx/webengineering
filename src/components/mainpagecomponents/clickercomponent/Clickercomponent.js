@@ -58,19 +58,17 @@ const Clickercomponent = ({initialCounterValue = 0}) => {
     }
 
     return(
-        <div>
-            <motion.div
-                className='damagePoints'
-                animate= {showDmg ? 'visible' : 'hidden'}
-                variants={variants}
-            >
-                +{counter}
-            </motion.div>
             <div className={"monsterDiv"}>
+                <motion.div
+                    className='damagePoints'
+                    animate= {showDmg ? 'visible' : 'hidden'}
+                    variants={variants}
+                >
+                    +{counter}
+                </motion.div>
                 <img className={"redCircle"} style={{visibility: showDmg? "visible":"hidden"}} src={RedCircle}/>
                 <img className={"monster"} src={monster} style={{zIndex:2}} onMouseDown={start} onClick={handleClick}/>
             </div>
-        </div>
     )
 
 }
