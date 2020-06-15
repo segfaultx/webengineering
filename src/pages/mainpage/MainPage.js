@@ -77,7 +77,7 @@ const MainPage = () => {
                         </Row>
 
                         <Row className="playarea">
-                            <Col style={{minWidth:300}}>
+                            <Col style={{minWidth:300,zIndex:2}}>
                                 <GeneratorListComponent className="playareaComponents"/>
                             </Col>
                             <Col xs={6} >

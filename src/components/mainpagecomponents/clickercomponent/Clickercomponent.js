@@ -4,6 +4,7 @@ import Cookies from "js-cookie"
 import Config from "../../../config"
 import {motion} from "framer-motion";
 
+import RedCircle from"../../media/images/aua-circle.png"
 import './clickerComponentStyle.css'
 import damage from "../../media/audio/damage.mp3";
 import monster from"../../media/images/monster/Megapack III Undead Warrior Benkei.png"
@@ -60,7 +61,9 @@ const Clickercomponent = ({initialCounterValue = 0}) => {
             >
                 +{counter}
             </motion.div>
-            <img src={monster} onClick={handleClick}/>
+
+            <img className={"redCircle"} style={{visibility: showDmg? "visible":"hidden"}} src={RedCircle}/>
+            <img className={"monster"} src={monster} style={{zIndex:2}} onClick={handleClick}/>
 
         </div>
     )
