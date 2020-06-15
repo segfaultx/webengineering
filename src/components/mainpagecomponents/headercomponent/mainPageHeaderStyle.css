@@ -1,14 +1,51 @@
+
 .headercontainer{
+    background-position: center;
+    background-size: cover;
+    background-color: rgb(20, 20, 20);
     display: flex;
+    align-items: center;
     width: 100vw;
-    margin-left: 20px;
+    border-style: ridge;
+    border-color: darkred;
+}
+
+.gamename{
+    color: crimson;
+    font-size: 50px;
+    font-family: "Game Sans Serif 7";
+}
+
+.gameInfo{
+    border-style: groove;
+    border-color: darkred;
+    border-radius: 20px;
+}
+
+.volumeControl{
+    padding: 5px;
+    margin-right: 20px;
+}
+
+.logoutBtn{
+    margin-right: 10px;
+}
+
+.howToPlay{
+    margin-right: 15px;
 }
 
 .showCPS{
-    color: white;
+    margin-top: 5px;
+    color: azure;
+    padding-right: 150px;
+    font-family: "Game Sans Serif 7", serif;
 
 }
 .showPoints{
+    margin-top: 5px;
+    margin-left: 20px;
     color: darkred;
-    text-align: center;
+    padding-right: 150px;
+    font-family: "Game Sans Serif 7", serif;
 }

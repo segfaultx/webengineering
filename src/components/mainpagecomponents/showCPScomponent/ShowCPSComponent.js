@@ -4,6 +4,7 @@ import {Container, Row} from "react-bootstrap"
 import Config from "../../../config"
 import Cookies from "js-cookie"
 
+import pointer from '../../media/images/PointerImage.png'
 
 const ShowCPSComponent=()=>{
 
@@ -24,7 +25,9 @@ const ShowCPSComponent=()=>{
     return(
         <Container>
             <Row className={"showCPS"}>
-                <h2>CPS:{cps}</h2>
+                <img src={pointer} alt="CPS: " width="6%" height="6%" style={{padding: "3px"}} />
+                <h2>{cps}</h2>
+                <t style={{padding: "5px"}}> points per second</t>
             </Row>
         </Container>
     )
