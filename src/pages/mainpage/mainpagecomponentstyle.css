@@ -53,6 +53,6 @@
 
 .armyContainer {
     position: absolute;
-    top: 15vh;
+    height: 20vh;
     z-index: 2;
 }
