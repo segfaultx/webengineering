@@ -13,7 +13,7 @@ import warrior from "../../components/media/images/characters/warrior_character.
 import dragoon from "../../components/media/images/characters/dragoon_character.png"
 import texts from "./characterTexts"
 import CharacterFadeComponent
-    from "../../components/characterselector/characterSelectorComponent/CharacterFadeInComponent";
+    from "../../components/characterselector/characterSelectorComponent/CharacterFadeInComponent"
 
 const Characterselectorpage = () => {
     const history = useHistory()
@@ -26,6 +26,7 @@ const Characterselectorpage = () => {
         Cookies.set("character", characterName, {sameSite: "Strict", secure: false})
         history.push("/")
     }
+
     return <Container fluid className={"bgContainer"}>
         <Container className={"characterSelectContainer"}>
             <Row className={"headerRow"}>
