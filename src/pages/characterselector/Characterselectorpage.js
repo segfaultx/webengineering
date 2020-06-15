@@ -15,15 +15,14 @@ import texts from "./characterTexts"
 
 const Characterselectorpage = () => {
     const history = useHistory()
-    const [showCharacters, setShowCharacters] = useState([false, false, false, false])
+    const [showCharacters, setShowCharacters] = useState(false)
     useEffect(() => {
-        setTimeout(() => setShowCharacters([true, true, true, true]), 500)
+        setTimeout(() => setShowCharacters(true), 500)
 
     }, [])
 
     const setCharacter = (characterName) => {
         Cookies.set("character", characterName, {sameSite: "Strict", secure: false})
-        console.log(Cookies.get("character"))
         history.push("/")
     }
     return <Container fluid className={"bgContainer"}>
@@ -34,7 +33,7 @@ const Characterselectorpage = () => {
                 </Container>
             </Row>
             <Row className={"characterSelectRow"}>
-                <Fade in={showCharacters[0]}>
+                <Fade in={showCharacters}>
                     <Col className={"characterColContainer"}>
                         <Container className={"characterContainer"}>
                             <img src={archer} alt={"archer"} className={"characterImage"}/>
@@ -49,7 +48,7 @@ const Characterselectorpage = () => {
 
                     </Col>
                 </Fade>
-                <Fade in={showCharacters[1]}>
+                <Fade in={showCharacters}>
                     <Col className={"characterColContainer"}>
                         <Container className={"characterContainer"}>
                             <img src={mage} alt={"mage"} className={"characterImage"}/>
@@ -63,7 +62,7 @@ const Characterselectorpage = () => {
                         </Container>
                     </Col>
                 </Fade>
-                <Fade in={showCharacters[2]}>
+                <Fade in={showCharacters}>
                     <Col className={"characterColContainer"}>
                         <Container className={"characterContainer"}>
                             <img src={warrior} alt={"warrior"} className={"characterImage"}/>
@@ -77,7 +76,7 @@ const Characterselectorpage = () => {
                         </Container>
                     </Col>
                 </Fade>
-                <Fade in={showCharacters[3]}>
+                <Fade in={showCharacters}>
                     <Col className={"characterColContainer"}>
                         <Container className={"characterContainer"}>
                             <img src={dragoon} alt={"dragoon"} className={"characterImage"}/>
