@@ -4,8 +4,7 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row";
 
 
-const GeneratorComponent =({buyId,spriteId,image,income_rate, onBuy,amount,price})=>{
-
+const GeneratorComponent =({buyId,image,income_rate, onBuy,amount,price})=>{
     return(
         <Container>
             <Row className={"character"}>
@@ -18,7 +17,7 @@ const GeneratorComponent =({buyId,spriteId,image,income_rate, onBuy,amount,price
                     <h6>next price {price}</h6>
                 </Col>
                 <Col>
-                    <Button className="buyButtonGenerator" variant={"danger"} onClick={()=>{onBuy(buyId,spriteId)}} >Buy</Button>
+                    <Button className="buyButtonGenerator" variant={"danger"} onClick={()=>{onBuy(buyId)}} >Buy</Button>
                 </Col>
             </Row>
             <br/>
