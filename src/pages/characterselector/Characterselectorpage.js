@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
 
 import {useHistory} from "react-router-dom"
-import {Container, Row, Col, Fade, Button} from "react-bootstrap"
+import {Container, Row} from "react-bootstrap"
 import Cookies from "js-cookie"
 
 import "../shared_styles/SharedPagesStyle.css"
@@ -36,8 +36,8 @@ const Characterselectorpage = () => {
             <Row className={"characterSelectRow"}>
                 <CharacterFadeComponent callbackfn={setCharacter} showCharacters={showCharacters} img={archer}
                                         text={texts.archer} title={"The Archer"} type={"archer"}/>
-                <CharacterFadeComponent callbackfn={setCharacter} type={"mage"} showCharacters={showCharacters}
-                                        title={"The Mage"} text={texts.mage} img={mage}/>
+                <CharacterFadeComponent callbackfn={setCharacter} showCharacters={showCharacters} img={mage}
+                                        type={"mage"} text={texts.mage} title={"The Mage"}/>
                 <CharacterFadeComponent callbackfn={setCharacter} showCharacters={showCharacters} img={warrior}
                                         type={"warrior"} text={texts.warrior} title={"The Warrior"}/>
                 <CharacterFadeComponent callbackfn={setCharacter} showCharacters={showCharacters} img={dragoon}
