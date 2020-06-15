@@ -40,9 +40,12 @@ const GeneratorListComponent =()=>{
 
     const {cps}= useContext(CPSContext)
     const [generators,setGenerators]=useState([])
+    const {setArmy}= useContext(GenerateArmyContext)
+    let spriteId=0
+    let isGeneratedId=false
 
     useEffect(()=> {
-        fetchData().catch(console.error)
+        fetchData().catch(console.error);
     },[])
 
     useEffect(()=>{
@@ -63,7 +66,6 @@ const GeneratorListComponent =()=>{
 
         for(const generator of generatorsJson){
             generator.price=await nextPrice(generator.id)
-
             const amount=amountJson.find((amount)=>amount.generator.id===generator.id)
             if( amount){
                 generator.amount=amount.amount
@@ -72,10 +74,12 @@ const GeneratorListComponent =()=>{
             generator.amount=0
             }
         }
+        if (isGeneratedId===false){
+            isGeneratedId=true
+            generateSpritesOnInit(generatorsJson)
+        }
         setGenerators(generatorsJson)
     }
-
-    const {army,setArmy}= useContext(GenerateArmyContext)
 
     const onBuy=async (buyId,spriteId)=>{
         const requestOptions = {
@@ -86,7 +90,7 @@ const GeneratorListComponent =()=>{
         }
         const buyResponse= await fetch("http://server.bykovski.de:8000/generators/" + buyId + "/buy", requestOptions)
         await buyResponse.json();
-        if (buyResponse.ok) generateSprite(spriteId)
+        if (buyResponse.ok) generateSpriteOnAction(spriteId)
         await fetchData()
 
     }
@@ -102,41 +106,45 @@ const GeneratorListComponent =()=>{
         return await price.json()
     }
 
-    const generateSprite=(spriteId)=>{
+    const generateSpritesOnInit=(generatorsJson)=>{
+        for(const generator of generatorsJson.sort((a,b)=>a.income_rate-b.income_rate)){
+            generator.spriteId=spriteId
+            console.log(spriteId)
+            for(let i=0;i<=10;i++){
+                generateSpriteOnAction(spriteId)
+            }
+            spriteId+=1
+        }
+    }
+    const generateSpriteOnAction=(spriteId)=>{
         let sprite=undefined
         for (let element of generatorImages){
-            console.log(typeof element.id,typeof spriteId)
             if (element.id===spriteId){
                 sprite=element.srcB
             }
         }
+        generateSprite(sprite)
+    }
 
+    const generateSprite=(sprite)=>{
         setArmy(army=>[...army,
-            <img style={{position:"absolute",
+            <img alt="none" key={Math.random()} style={{position:"absolute",
                 bottom:30+Math.random()*30,
                 left:-20+Math.random()*1000}}
                  src={sprite}/>])
     }
 
-    /*
-    for testing: render all sprites
-    function showGen() {
-        for(let generator of generators){
-            for(let i=0;i<generator.amount;i++){
-                console.log(i)
-            }
-        }
-    }*/
+
     return(
         <Container>
             <h2 style={{color:"white"}}>Army</h2>
             <Container className="generatorList">
                 <Col>
                     <br/>
-                    {generators.sort((a,b)=>a.income_rate-b.income_rate).map((generator,index)=><GeneratorComponent
+                    {generators.sort((a,b)=>a.order-b.order).map((generator,index)=><GeneratorComponent
                                                                                     key = {generator.id}
                                                                                     buyId={generator.id}
-                                                                                    spriteId={index}
+                                                                                    spriteId={generator.spriteId}
                                                                                     image={generatorImages[index]}
                                                                                     income_rate={generator.income_rate}
                                                                                     amount={generator.amount}

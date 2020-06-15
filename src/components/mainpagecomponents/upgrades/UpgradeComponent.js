@@ -1,4 +1,4 @@
-import React,{useState} from "react"
+import React from "react"
 import "../../../pages/mainpage/mainpagecomponentstyle.css"
 import {Image, Popover, OverlayTrigger} from "react-bootstrap"
 

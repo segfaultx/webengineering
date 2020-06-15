@@ -1,5 +1,4 @@
 import React, {useState} from "react"
-import {useHistory} from "react-router-dom"
 import {Redirect} from "react-router-dom"
 import "./mainpagecomponentstyle.css"
 import dImg1 from "../../components/media/images/login_background_screen.jpg"
