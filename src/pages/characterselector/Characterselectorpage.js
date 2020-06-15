@@ -12,13 +12,14 @@ import mage from "../../components/media/images/characters/mage_character.png"
 import warrior from "../../components/media/images/characters/warrior_character.png"
 import dragoon from "../../components/media/images/characters/dragoon_character.png"
 import texts from "./characterTexts"
+import CharacterFadeComponent
+    from "../../components/characterselector/characterSelectorComponent/CharacterFadeInComponent";
 
 const Characterselectorpage = () => {
     const history = useHistory()
     const [showCharacters, setShowCharacters] = useState(false)
     useEffect(() => {
         setTimeout(() => setShowCharacters(true), 500)
-
     }, [])
 
     const setCharacter = (characterName) => {
@@ -33,63 +34,14 @@ const Characterselectorpage = () => {
                 </Container>
             </Row>
             <Row className={"characterSelectRow"}>
-                <Fade in={showCharacters}>
-                    <Col className={"characterColContainer"}>
-                        <Container className={"characterContainer"}>
-                            <img src={archer} alt={"archer"} className={"characterImage"}/>
-                            <div className={"characterName"}>The Archer</div>
-                            <div className={"characterDescription"}>
-                                {texts.archer}
-                            </div>
-                            <Button className={"formBtn"} onClick={() => setCharacter("archer")}>
-                                Select this Character
-                            </Button>
-                        </Container>
-
-                    </Col>
-                </Fade>
-                <Fade in={showCharacters}>
-                    <Col className={"characterColContainer"}>
-                        <Container className={"characterContainer"}>
-                            <img src={mage} alt={"mage"} className={"characterImage"}/>
-                            <div className={"characterName"}>The Mage</div>
-                            <div className={"characterDescription"}>
-                                {texts.mage}
-                            </div>
-                            <Button className={"formBtn"} onClick={() => setCharacter("mage")}>
-                                Select this Character
-                            </Button>
-                        </Container>
-                    </Col>
-                </Fade>
-                <Fade in={showCharacters}>
-                    <Col className={"characterColContainer"}>
-                        <Container className={"characterContainer"}>
-                            <img src={warrior} alt={"warrior"} className={"characterImage"}/>
-                            <div className={"characterName"}>The Warrior</div>
-                            <div className={"characterDescription"}>
-                                {texts.warrior}
-                            </div>
-                            <Button className={"formBtn"} onClick={() => setCharacter("warrior")}>
-                                Select this Character
-                            </Button>
-                        </Container>
-                    </Col>
-                </Fade>
-                <Fade in={showCharacters}>
-                    <Col className={"characterColContainer"}>
-                        <Container className={"characterContainer"}>
-                            <img src={dragoon} alt={"dragoon"} className={"characterImage"}/>
-                            <div className={"characterName"}>The Dragoon</div>
-                            <div className={"characterDescription"}>
-                                {texts.dragoon}
-                            </div>
-                            <Button className={"formBtn"} onClick={() => setCharacter("dragoon")}>
-                                Select this Character
-                            </Button>
-                        </Container>
-                    </Col>
-                </Fade>
+                <CharacterFadeComponent callbackfn={setCharacter} showCharacters={showCharacters} img={archer}
+                                        text={texts.archer} title={"The Archer"} type={"archer"}/>
+                <CharacterFadeComponent callbackfn={setCharacter} type={"mage"} showCharacters={showCharacters}
+                                        title={"The Mage"} text={texts.mage} img={mage}/>
+                <CharacterFadeComponent callbackfn={setCharacter} showCharacters={showCharacters} img={warrior}
+                                        type={"warrior"} text={texts.warrior} title={"The Warrior"}/>
+                <CharacterFadeComponent callbackfn={setCharacter} showCharacters={showCharacters} img={dragoon}
+                                        type={"dragoon"} text={texts.dragoon} title={"The Dragoon"}/>
             </Row>
         </Container>
     </Container>
