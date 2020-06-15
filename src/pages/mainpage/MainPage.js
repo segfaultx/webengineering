@@ -106,6 +106,7 @@ const MainPage = () => {
                                         </Row>
                                         <Row className={"armyArea"}>
                                             <Col>
+                                                <img className={"playerPlane"} src={PlayerPlane}/>
                                                 <img className={"avatar"} src={Avatar}/>
                                                 <ArmyArea/>
                                             </Col>
