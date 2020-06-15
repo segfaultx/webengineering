@@ -37,14 +37,14 @@ const MainPage = () => {
     })
 
     const [monsterImage,setMonsterImage]=useState({
-        "monsterImages":[level1Monster,level2Monster,level3Monster,level4Monster,level5Monster],
+        "monsterImages":[level1Monster,level3Monster,level2Monster,level4Monster,level5Monster],
         "currentMonster": level1Monster,
         "upgradeCounter": 0
     })
 
 
     function handleBackgroundChange() {
-        backgroundImage.backgroundCounter < backgroundImage.backgroundImages.length - 1
+        backgroundImage.backgroundCounter < backgroundImage.backgroundImages.length-1
             ?
             setBackgroundImage({
                 ...backgroundImage,
@@ -56,6 +56,22 @@ const MainPage = () => {
                 ...backgroundImage,
                 backgroundCounter: backgroundImage.backgroundCounter = 0,
                 currentBackground: backgroundImage.backgroundImages[backgroundImage.backgroundCounter]
+            })
+
+        console.log("MONSTERIMAGE",monsterImage)
+        monsterImage.upgradeCounter < monsterImage.monsterImages.length-1
+            ?
+
+            setMonsterImage({
+                upgradeCounter: monsterImage.upgradeCounter+=1,
+                currentMonster: monsterImage.monsterImages[monsterImage.upgradeCounter],
+                monsterImages: monsterImage.monsterImages
+            })
+            :
+            setMonsterImage({
+                upgradeCounter: monsterImage.upgradeCounter = 0,
+                currentMonster: monsterImage.monsterImages[monsterImage.upgradeCounter],
+                monsterImages: monsterImage.monsterImages
             })
     }
 
@@ -96,6 +112,7 @@ const MainPage = () => {
                                         </Row>
                                         <Row>
                                             <Col style={{zIndex:2}}>
+                                                <img className={"monster"} src={monsterImage.currentMonster} style={{zIndex:2}}/>
                                                 <img className={"monsterPlane"} src={MonsterPlane}/>
                                             </Col>
                                         </Row>

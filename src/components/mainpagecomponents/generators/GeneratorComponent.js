@@ -5,7 +5,6 @@ import Row from "react-bootstrap/Row";
 
 
 const GeneratorComponent =({buyId,spriteId,image,income_rate, onBuy,amount,price})=>{
-console.log('Image: ', image)
     return(
         <Container>
             <Row className={"character"}>
