@@ -10,3 +10,15 @@
     padding-top: 50px;
 }
 
+.redCircle{
+    margin-right:-150px;
+    margin-top: 130px;
+    opacity: 20%;
+    width: 100px;
+    height: 100px;
+
+}
+
+.monster{
+    margin-right: -120px;
+}
