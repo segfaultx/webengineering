@@ -49,3 +49,9 @@
 .gameCol {
     flex-grow: 2;
 }
+
+.armyContainer {
+    position: absolute;
+    top: 15vh;
+    z-index: 2;
+}

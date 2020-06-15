@@ -4,7 +4,7 @@ import GenerateSprite from "./GenerateSprite";
 
 const ArmyArea=()=>{
     return(
-        <Container>
+        <Container className={"armyContainer"}>
             <GenerateSprite/>
         </Container>
     )
