@@ -35,7 +35,12 @@ const GeneratorListComponent =()=>{
         {id: 5, srcF: redhat,srcB:redhatB, title: "Valkyrie"},
         {id: 6, srcF: skelletonKing,srcB:skelletonKingB, title: "Diablo"},
         {id: 7, srcF: undertaker,srcB:undertakerB, title: "Skelleton King"},
-        {id: 8, srcF: lizard,srcB:lizardB, title: "Undertaker" }
+        {id: 8, srcF: lizard,srcB:lizardB, title: "Undertaker" },
+        {id: 9, srcF: skelleton,srcB:skelletonB, title: "Skeleton"},
+        {id: 10, srcF: skelleton,srcB:skelletonB, title: "Skeleton"},
+        {id: 11, srcF: skelleton,srcB:skelletonB, title: "Skeleton"},
+        {id: 12, srcF: skelleton,srcB:skelletonB, title: "Skeleton"},
+        {id: 13, srcF: skelleton,srcB:skelletonB, title: "Skeleton"}
     ]
 
     const {cps}= useContext(CPSContext)

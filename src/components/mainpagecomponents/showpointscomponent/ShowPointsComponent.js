@@ -5,6 +5,7 @@ import {Container, Row} from "react-bootstrap"
 import Config from "../../../config"
 import Cookies from "js-cookie"
 
+import blood from '../../media/images/Blood_drop.png'
 
 const ShowPointsComponent=()=>{
     const {clicks,setClicks}=useContext(ClickContext)
@@ -26,7 +27,9 @@ const ShowPointsComponent=()=>{
     return(
         <Container>
             <Row className={"showPoints"}>
-                <h2>Blood:{clicks}</h2>
+                <img src={blood}  alt="Blood: " width="5%" height = "5%" style={{padding: "3px"}} />
+                <h2>{clicks}</h2>
+                <t style={{padding: "5px"}}> Bloodpoints</t>
             </Row>
         </Container>
     )
