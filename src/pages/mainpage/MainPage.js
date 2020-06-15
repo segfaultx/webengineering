@@ -8,12 +8,12 @@ import dImg3 from "../../components/media/images/kJVa6H.jpg"
 import dImg4 from "../../components/media/images/kZPyQB.jpg"
 import Avatar from "../../components/media/images/avatar.png"
 import PlayerPlane from "../../components/media/images/Player-Plane.png"
-import level1Monster from"../../components/media/images/monster/Megapack III Undead Warrior Benkei.png"
-import level2Monster from"../../components/media/images/monster/Megapack III Red Guard A.png"
-import level3Monster from"../../components/media/images/monster/Megapack III Fallen Kings Arcane King Jeffroy.png"
-import level5Monster from"../../components/media/images/monster/Megapack III Zodiac Aries.png"
-import level4Monster from"../../components/media/images/monster/Megapack III Elemental Lords Ice Maiden.png"
-import MonsterPlane from"../../components/media/images/Monster-Plane.png"
+import level1Monster from "../../components/media/images/monster/Megapack III Undead Warrior Benkei.png"
+import level2Monster from "../../components/media/images/monster/Megapack III Red Guard A.png"
+import level3Monster from "../../components/media/images/monster/Megapack III Fallen Kings Arcane King Jeffroy.png"
+import level5Monster from "../../components/media/images/monster/Megapack III Zodiac Aries.png"
+import level4Monster from "../../components/media/images/monster/Megapack III Elemental Lords Ice Maiden.png"
+import MonsterPlane from "../../components/media/images/Monster-Plane.png"
 import dImg5 from "../../components/media/images/binary-numbers-tunnel.jpg"
 import MainPageHeader from "../../components/mainpagecomponents/headercomponent/MainPageHeaderComponent"
 import GeneratorListComponent from "../../components/mainpagecomponents/generators/GeneratorListComponent"
@@ -36,8 +36,8 @@ const MainPage = () => {
         "backgroundCounter": 0
     })
 
-    const [monsterImage,setMonsterImage]=useState({
-        "monsterImages":[level1Monster,level2Monster,level3Monster,level4Monster,level5Monster],
+    const [monsterImage, setMonsterImage] = useState({
+        "monsterImages": [level1Monster, level2Monster, level3Monster, level4Monster, level5Monster],
         "currentMonster": level1Monster,
         "upgradeCounter": 0
     })
@@ -69,61 +69,57 @@ const MainPage = () => {
     let render = <Redirect to={"/login"}/>
     if (Cookies.get("token")) {
         render =
-            <div>
-                <GenerateArmyContextProvider>
-                    <ClickContextProvider>
-                        <CPSContextProvider>
-                            <VolumeContextProvider>
-                <MainPageHeader/>
-                <Container className="wrapper" fluid style={background}>
-
-                        <Row className="playarea">
-                            <Col style={{minWidth:300,zIndex:2}}>
-                                <GeneratorListComponent className="playareaComponents"/>
-                            </Col>
-                            <Col xs={6} >
-                                <Row className={"bossArea"}>
-                                    <Col>
-                                        <h2>BossArea</h2>
-                                        <Button name="backgroundCounter" variant="dark" className={"changeBackground"} onClick={() => {
-                                            handleBackgroundChange()}}>
-                                            change Background
-                                        </Button>
-                                        <Row >
-                                            <Col style={{zIndex:3}}>
-                                            <Clickercomponent initialCounterValue={0}/>
+            <GenerateArmyContextProvider>
+                <ClickContextProvider>
+                    <CPSContextProvider>
+                        <VolumeContextProvider>
+                            <Container className="wrapper" fluid style={background}>
+                                <Row>
+                                    <MainPageHeader/>
+                                </Row>
+                                <Row className="playarea">
+                                    <Col className={"generatorCol"}>
+                                        <GeneratorListComponent className="playareaComponents"/>
+                                    </Col>
+                                    <Col className={"gameCol"}>
+                                        <Row className={"bossArea"}>
+                                            <Col>
+                                                <h2>BossArea</h2>
+                                                <Button name="backgroundCounter" variant="dark"
+                                                        className={"changeBackground"} onClick={() => {
+                                                    handleBackgroundChange()
+                                                }}>
+                                                    change Background
+                                                </Button>
+                                                <Row>
+                                                    <Col>
+                                                        <Clickercomponent initialCounterValue={0}/>
+                                                    </Col>
+                                                </Row>
+                                                <Row>
+                                                    <Col>
+                                                        <img className={"monsterPlane"} src={MonsterPlane}/>
+                                                    </Col>
+                                                </Row>
                                             </Col>
+
                                         </Row>
-                                        <Row>
-                                            <Col style={{zIndex:2}}>
-                                                <img className={"monsterPlane"} src={MonsterPlane}/>
+                                        <Row className={"armyArea"}>
+                                            <Col>
+                                                <img className={"avatar"} src={Avatar}/>
+                                                <ArmyArea/>
                                             </Col>
                                         </Row>
                                     </Col>
-
-                                    </Row>
-                                    <Row  className={"armyArea"}>
-                                        <Col style={{zIndex:2}}>
-                                            <img className={"avatar"} src={Avatar}/>
-                                            <ArmyArea/>
-                                        </Col>
-                                    </Row>
-                                </Col>
-                                <Col style={{zIndex:2}}>
-                                    <UpgradeListComponent  className="playareaComponents"/>
-                                </Col>
-                                <Row>
-                                    <Col style={{zIndex:1}}>
-                                        <img className={"playerPlane"} src={PlayerPlane}/>
+                                    <Col className={"upgradeCol"}>
+                                        <UpgradeListComponent className="playareaComponents"/>
                                     </Col>
                                 </Row>
-                            </Row>
-                </Container>
-                            </VolumeContextProvider>
-                        </CPSContextProvider>
-                    </ClickContextProvider>
-                </GenerateArmyContextProvider>
-            </div>
+                            </Container>
+                        </VolumeContextProvider>
+                    </CPSContextProvider>
+                </ClickContextProvider>
+            </GenerateArmyContextProvider>
     }
     return render
 }

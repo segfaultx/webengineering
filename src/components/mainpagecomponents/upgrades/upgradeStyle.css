@@ -10,9 +10,10 @@
 }
 
 .upgradeContainer {
-    margin-left: 100px;
     font-family: "Game Sans Serif 7", serif ;
     color: whitesmoke;
+    display: flex;
+    flex-direction: column;
 }
 
 .upgradeImage {
@@ -20,4 +21,8 @@
     width: 45px;
     border-color: burlywood;
     border-style: ridge;
+}
+
+.upgradeHeader{
+    text-align: center;
 }
