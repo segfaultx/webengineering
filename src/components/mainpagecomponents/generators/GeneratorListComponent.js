@@ -51,7 +51,7 @@ const GeneratorListComponent =()=>{
     const {cps}= useContext(CPSContext)
     const [generators,setGenerators]=useState([])
     const {setArmy}= useContext(GenerateArmyContext)
-    const {armyAmount,setArmyAmount}=useContext(ArmyAmountContext)
+    const {setArmyAmount}=useContext(ArmyAmountContext)
 
 
     useEffect(()=> {
@@ -73,6 +73,7 @@ const GeneratorListComponent =()=>{
         const generatorsJson= await generatorsResponse.json()
         const amountResponse = await fetch("http://server.bykovski.de:8000/generators/current-user",requestOptions)
         const amountJson=await amountResponse.json()
+        let tempArmy={}
 
         for(const generator of generatorsJson.sort((a,b)=>a.order-b.order)){
             generator.spriteId=spriteId
@@ -85,7 +86,9 @@ const GeneratorListComponent =()=>{
              else{
             generator.amount=0
             }
+             tempArmy[spriteId-1]=generator.amount
         }
+        setArmyAmount(tempArmy)
         setGenerators(generatorsJson)
     }
 

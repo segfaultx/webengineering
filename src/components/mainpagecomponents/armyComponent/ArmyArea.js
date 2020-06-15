@@ -19,6 +19,7 @@ import undertakerB from "../../media/images/undertakerBackSprite.png";
 import lizard from "../../media/images/LizardFrontSprite.png";
 import lizardB from "../../media/images/LizardBackSprite.png";
 import {GenerateArmyContext} from "../../../contexts/generateArmyContext";
+import {ArmyAmountContext} from "../../../contexts/armyAmountContext";
 
 const ArmyArea=()=>{
 
@@ -39,15 +40,16 @@ const ArmyArea=()=>{
         {id: 13, srcF: skelleton,srcB:skelletonB, title: "Skeleton"}
     ]
 
-
     /*<img alt="none" key={Math.random()} style={{position:"absolute",
                 bottom:30+Math.random()*30,
                 left:-20+Math.random()*1000}}
                  src={sprite}/>*/
     const {army,setArmy}= useContext(GenerateArmyContext)
+    const {armyAmount}=useContext(ArmyAmountContext)
     return(
         <Container>
             {army}
+            {console.log(armyAmount)}
         </Container>
     )
 }
