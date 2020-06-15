@@ -1,4 +1,3 @@
-
 .maincontainer{
     display: flex;
     background: rgba(0,0,0,0.5);
@@ -12,10 +11,8 @@
 }
 
 .armyArea{
-    height: 20vh;
     text-align: center;
     color: white;
-    margin-top: 50px;
 }
 
 .changeBackground{
@@ -23,18 +20,12 @@
 }
 
 .playerPlane{
-    width:1520px;
-    height:180px;
-    margin-top:-200px;
-
-
-
+    width: 100vw;
+    height: 10vh;
 }
 
 .monsterPlane{
     margin-top: -30px;
-
-
 }
 
 .monster{
@@ -46,4 +37,13 @@
     width: 80px;
     height: 80px;
     margin-top: 50px;
+}
+.upgradeCol {
+    flex-grow: .5;
+}
+.generatorCol {
+    flex-grow: 1;
+}
+.gameCol {
+    flex-grow: 2;
 }

@@ -11,14 +11,16 @@
 }
 
 .redCircle{
-    margin-right:-150px;
-    margin-top: 130px;
+
     opacity: 20%;
     width: 100px;
     height: 100px;
 
 }
 
+.monsterDiv {
+    display: flex;
+    justify-content: center;
+}
 .monster{
-    margin-right: -120px;
 }
