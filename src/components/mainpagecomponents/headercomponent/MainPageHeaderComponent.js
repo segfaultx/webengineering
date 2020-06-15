@@ -1,7 +1,7 @@
-import React, {useContext, useState} from "react"
+import React, {useContext} from "react"
 import ShowPointsComponent from "../showpointscomponent/ShowPointsComponent"
 import ShowCPSComponent from "../showCPScomponent/ShowCPSComponent"
-import {Button, Col, Container, Navbar, Popover, OverlayTrigger} from "react-bootstrap"
+import {Button,Container, Navbar, Popover, OverlayTrigger} from "react-bootstrap"
 import "./mainPageHeaderStyle.css"
 import Cookies from "js-cookie";
 import {useHistory} from "react-router-dom";

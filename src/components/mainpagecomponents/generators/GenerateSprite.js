@@ -1,7 +1,5 @@
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import {Container} from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import skelleton from "../../media/images/skeletonFront.png"
 import {GenerateArmyContext} from "../../../contexts/generateArmyContext";
 
 

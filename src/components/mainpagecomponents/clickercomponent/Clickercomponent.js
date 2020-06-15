@@ -1,5 +1,5 @@
 import React, {useContext} from "react"
-import {useEffect, useRef, useState} from "react"
+import {useEffect, useState} from "react"
 import Cookies from "js-cookie"
 import Config from "../../../config"
 import {motion} from "framer-motion";
@@ -24,13 +24,11 @@ const Clickercomponent = ({initialCounterValue = 0}) => {
 
 
     function handleUpdate(message){
-        console.log(message)
         setCounter(counter + JSON.parse(message.data)["points"])
     }
 
     function handleClick() {
         if (ws !== null) {
-            //console.log("click send")
             ws.send(`token=${Cookies.get("token")}`)
             setShowDmg(true)
             setTimeout(setShowDmg, 300)
@@ -65,7 +63,7 @@ const Clickercomponent = ({initialCounterValue = 0}) => {
             >
                 +{counter}
             </motion.div>
-            <img src={monster} onMouseDown={start} onClick={handleClick}/>
+            <img alt={"monster"} src={monster} onMouseDown={start} onClick={handleClick}/>
 
         </div>
     )

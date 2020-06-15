@@ -1,5 +1,4 @@
 import React, {useState} from "react"
-import {useHistory} from "react-router-dom"
 import {Redirect} from "react-router-dom"
 import "./mainpagecomponentstyle.css"
 import dImg1 from "../../components/media/images/login_background_screen.jpg"
@@ -96,7 +95,7 @@ const MainPage = () => {
                                             </Row>
                                             <Row>
                                                 <Col style={{zIndex:2}}>
-                                                    <img className={"monsterPlane"} src={MonsterPlane}/>
+                                                    <img alt={"monsterPlane"} className={"monsterPlane"} src={MonsterPlane}/>
                                                 </Col>
                                             </Row>
                                         </Col>
@@ -104,7 +103,7 @@ const MainPage = () => {
                                     </Row>
                                     <Row  className={"armyArea"}>
                                         <Col style={{zIndex:2}}>
-                                            <img className={"avatar"} src={Avatar}/>
+                                            <img alt={"avatar"} className={"avatar"} src={Avatar}/>
                                             <ArmyArea/>
                                         </Col>
                                     </Row>
@@ -114,7 +113,7 @@ const MainPage = () => {
                                 </Col>
                                 <Row>
                                     <Col style={{zIndex:1}}>
-                                        <img className={"playerPlane"} src={PlayerPlane}/>
+                                        <img alt={"playerPlane"} className={"playerPlane"} src={PlayerPlane}/>
                                     </Col>
                                 </Row>
                             </Row>
