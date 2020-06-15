@@ -23,6 +23,7 @@ import lizardB from "../../media/images/LizardBackSprite.png"
 import skelletonKingB from "../../media/images/SkelletonKingBack.png"
 import undertakerB from "../../media/images/undertakerBackSprite.png"
 import {GenerateArmyContext} from "../../../contexts/generateArmyContext";
+import {ArmyAmountContext} from "../../../contexts/armyAmountContext";
 
 const GeneratorListComponent =()=>{
 
@@ -46,8 +47,8 @@ const GeneratorListComponent =()=>{
     const {cps}= useContext(CPSContext)
     const [generators,setGenerators]=useState([])
     const {setArmy}= useContext(GenerateArmyContext)
-    let spriteId=0
-    let isGeneratedId=false
+    const {setArmyAmount}=useContext(ArmyAmountContext)
+
 
     useEffect(()=> {
         fetchData().catch(console.error);
@@ -58,7 +59,7 @@ const GeneratorListComponent =()=>{
     },[cps])
 
     async function fetchData() {
-
+        let spriteId=0
         const requestOptions={
             method:'GET',
             headers:{
@@ -69,7 +70,9 @@ const GeneratorListComponent =()=>{
         const amountResponse = await fetch("http://server.bykovski.de:8000/generators/current-user",requestOptions)
         const amountJson=await amountResponse.json()
 
-        for(const generator of generatorsJson){
+        for(const generator of generatorsJson.sort((a,b)=>a.order-b.order)){
+            generator.spriteId=spriteId
+            spriteId+=1
             generator.price=await nextPrice(generator.id)
             const amount=amountJson.find((amount)=>amount.generator.id===generator.id)
             if( amount){
@@ -78,10 +81,6 @@ const GeneratorListComponent =()=>{
              else{
             generator.amount=0
             }
-        }
-        if (isGeneratedId===false){
-            isGeneratedId=true
-            generateSpritesOnInit(generatorsJson)
         }
         setGenerators(generatorsJson)
     }
@@ -95,7 +94,7 @@ const GeneratorListComponent =()=>{
         }
         const buyResponse= await fetch("http://server.bykovski.de:8000/generators/" + buyId + "/buy", requestOptions)
         await buyResponse.json();
-        if (buyResponse.ok) generateSpriteOnAction(spriteId)
+        if (buyResponse.ok) generateSpriteOnBuy(spriteId)
         await fetchData()
 
     }
@@ -111,27 +110,13 @@ const GeneratorListComponent =()=>{
         return await price.json()
     }
 
-    const generateSpritesOnInit=(generatorsJson)=>{
-        for(const generator of generatorsJson.sort((a,b)=>a.income_rate-b.income_rate)){
-            generator.spriteId=spriteId
-            console.log(spriteId)
-            for(let i=0;i<=10;i++){
-                generateSpriteOnAction(spriteId)
-            }
-            spriteId+=1
-        }
-    }
-    const generateSpriteOnAction=(spriteId)=>{
+    const generateSpriteOnBuy=(spriteId)=>{
         let sprite=undefined
         for (let element of generatorImages){
             if (element.id===spriteId){
                 sprite=element.srcB
             }
         }
-        generateSprite(sprite)
-    }
-
-    const generateSprite=(sprite)=>{
         setArmy(army=>[...army,
             <img alt="none" key={Math.random()} style={{position:"absolute",
                 bottom:30+Math.random()*30,
@@ -139,18 +124,17 @@ const GeneratorListComponent =()=>{
                  src={sprite}/>])
     }
 
-
     return(
         <Container>
             <h2 style={{color:"white"}}>Army</h2>
             <Container className="generatorList">
                 <Col>
                     <br/>
-                    {generators.sort((a,b)=>a.order-b.order).map((generator,index)=><GeneratorComponent
+                    {generators.sort((a,b)=>a.order-b.order).map((generator)=><GeneratorComponent
                                                                                     key = {generator.id}
                                                                                     buyId={generator.id}
                                                                                     spriteId={generator.spriteId}
-                                                                                    image={generatorImages[index]}
+                                                                                    image={generatorImages[generator.spriteId]}
                                                                                     income_rate={generator.income_rate}
                                                                                     amount={generator.amount}
                                                                                     price={generator.price}

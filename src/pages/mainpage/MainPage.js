@@ -23,8 +23,9 @@ import {CPSContextProvider} from "../../contexts/cpsContext"
 import {GenerateArmyContextProvider} from "../../contexts/generateArmyContext"
 import Cookies from "js-cookie"
 import Clickercomponent from "../../components/mainpagecomponents/clickercomponent/Clickercomponent"
-import ArmyArea from "../../components/mainpagecomponents/generators/ArmyArea";
+import ArmyArea from "../../components/mainpagecomponents/armyComponent/ArmyArea";
 import {VolumeContextProvider} from "../../contexts/volumeContext";
+import {ArmyAmountProvider} from "../../contexts/armyAmountContext";
 
 
 const MainPage = () => {
@@ -73,51 +74,52 @@ const MainPage = () => {
                     <ClickContextProvider>
                         <CPSContextProvider>
                             <VolumeContextProvider>
-                <MainPageHeader/>
-                <Container className="wrapper" fluid style={background}>
-
-                        <Row className="playarea">
-                            <Col style={{minWidth:300,zIndex:2}}>
-                                <GeneratorListComponent className="playareaComponents"/>
-                            </Col>
-                            <Col xs={6} >
-                                <Row className={"bossArea"}>
-                                    <Col>
-                                        <h2>BossArea</h2>
-                                        <Button name="backgroundCounter" variant="dark" className={"changeBackground"} onClick={() => {
-                                            handleBackgroundChange()}}>
-                                            change Background
-                                        </Button>
-                                        <Row >
-                                            <Col style={{zIndex:3}}>
-                                            <Clickercomponent initialCounterValue={0}/>
+                                <ArmyAmountProvider>
+                                    <MainPageHeader/>
+                                    <Container className="wrapper" fluid style={background}>
+                                        <Row className="playarea">
+                                            <Col style={{minWidth:300,zIndex:2}}>
+                                                <GeneratorListComponent className="playareaComponents"/>
                                             </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col style={{zIndex:2}}>
-                                                <img className={"monsterPlane"} src={MonsterPlane}/>
-                                            </Col>
-                                        </Row>
-                                    </Col>
+                                            <Col xs={6} >
+                                                <Row className={"bossArea"}>
+                                                    <Col>
+                                                        <h2>BossArea</h2>
+                                                        <Button name="backgroundCounter" variant="dark" className={"changeBackground"} onClick={() => {
+                                                            handleBackgroundChange()}}>
+                                                            change Background
+                                                        </Button>
+                                                        <Row >
+                                                            <Col style={{zIndex:3}}>
+                                                            <Clickercomponent initialCounterValue={0}/>
+                                                            </Col>
+                                                        </Row>
+                                                        <Row>
+                                                            <Col style={{zIndex:2}}>
+                                                                <img className={"monsterPlane"} src={MonsterPlane}/>
+                                                            </Col>
+                                                        </Row>
+                                                    </Col>
 
-                                    </Row>
-                                    <Row  className={"armyArea"}>
-                                        <Col style={{zIndex:2}}>
-                                            <img className={"avatar"} src={Avatar}/>
-                                            <ArmyArea/>
-                                        </Col>
-                                    </Row>
-                                </Col>
-                                <Col style={{zIndex:2}}>
-                                    <UpgradeListComponent  className="playareaComponents"/>
-                                </Col>
-                                <Row>
-                                    <Col style={{zIndex:1}}>
-                                        <img className={"playerPlane"} src={PlayerPlane}/>
-                                    </Col>
-                                </Row>
-                            </Row>
-                </Container>
+                                                    </Row>
+                                                    <Row  className={"armyArea"}>
+                                                        <Col style={{zIndex:2}}>
+                                                            <img className={"avatar"} src={Avatar}/>
+                                                            <ArmyArea/>
+                                                        </Col>
+                                                    </Row>
+                                                </Col>
+                                                <Col style={{zIndex:2}}>
+                                                    <UpgradeListComponent  className="playareaComponents"/>
+                                                </Col>
+                                                <Row>
+                                                    <Col style={{zIndex:1}}>
+                                                        <img className={"playerPlane"} src={PlayerPlane}/>
+                                                    </Col>
+                                                </Row>
+                                            </Row>
+                                    </Container>
+                                </ArmyAmountProvider>
                             </VolumeContextProvider>
                         </CPSContextProvider>
                     </ClickContextProvider>
