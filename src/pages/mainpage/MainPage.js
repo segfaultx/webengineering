@@ -27,21 +27,9 @@ import Clickercomponent from "../../components/mainpagecomponents/clickercompone
 import ArmyArea from "../../components/mainpagecomponents/armyComponent/ArmyArea";
 import {VolumeContextProvider} from "../../contexts/volumeContext";
 import {ArmyAmountProvider} from "../../contexts/armyAmountContext";
-
+import {levelUpContextProvider} from "../../contexts/levelUpContext";
 
 const MainPage = () => {
-
-    const [backgroundImage, setBackgroundImage] = useState({
-        "backgroundImages": [dImg1, dImg2, dImg3, dImg4, dImg5],
-        "currentBackground": dImg1,
-        "backgroundCounter": 0
-    })
-
-    const [monsterImage, setMonsterImage] = useState({
-        "monsterImages": [level1Monster, level2Monster, level3Monster, level4Monster, level5Monster],
-        "currentMonster": level1Monster,
-        "upgradeCounter": 0
-    })
 
 
     function handleBackgroundChange() {
@@ -87,6 +75,7 @@ const MainPage = () => {
             <GenerateArmyContextProvider>
                 <ClickContextProvider>
                     <CPSContextProvider>
+                        <levelUpContextProvider>
                         <VolumeContextProvider>
                             <ArmyAmountProvider>
                             <Container className="wrapper" fluid style={background}>
@@ -135,6 +124,7 @@ const MainPage = () => {
                             </Container>
                             </ArmyAmountProvider>
                         </VolumeContextProvider>
+                        </levelUpContextProvider>
                     </CPSContextProvider>
                 </ClickContextProvider>
             </GenerateArmyContextProvider>
