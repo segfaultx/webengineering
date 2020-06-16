@@ -7,10 +7,10 @@ import {motion} from "framer-motion";
 import RedCircle from"../../media/images/aua-circle.png"
 import './clickerComponentStyle.css'
 import damage from "../../media/audio/damage.mp3";
-import monster from"../../media/images/monster/Megapack III Undead Warrior Benkei.png"
+import m1 from"../../media/images/monster/Megapack III Undead Warrior Benkei.png"
 import {VolumeContext} from "../../../contexts/volumeContext";
 
-const Clickercomponent = ({initialCounterValue = 0}) => {
+const Clickercomponent = ({monster,initialCounterValue = 0}) => {
     const [ws, setWs] = useState(null)
     const [counter, setCounter] = useState(initialCounterValue)
     const {volume, setVolume} = useContext(VolumeContext)

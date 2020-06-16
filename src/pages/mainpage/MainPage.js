@@ -58,6 +58,20 @@ const MainPage = () => {
                 backgroundCounter: backgroundImage.backgroundCounter = 0,
                 currentBackground: backgroundImage.backgroundImages[backgroundImage.backgroundCounter]
             })
+        monsterImage.upgradeCounter< monsterImage.monsterImages.length-1
+        ?
+            setMonsterImage({
+                upgradeCounter: monsterImage.upgradeCounter+=1,
+                currentMonster: monsterImage.monsterImages[monsterImage.upgradeCounter],
+                monsterImages: monsterImage.monsterImages
+            })
+            :
+            setMonsterImage({
+                upgradeCounter: monsterImage.upgradeCounter=0,
+                currentMonster: monsterImage.monsterImages[monsterImage.upgradeCounter],
+                monsterImages: monsterImage.monsterImages
+
+            })
     }
 
     let background = {
@@ -95,7 +109,7 @@ const MainPage = () => {
                                                 </Button>
                                                 <Row>
                                                     <Col>
-                                                        <Clickercomponent initialCounterValue={0}/>
+                                                        <Clickercomponent monster={monsterImage.currentMonster} initialCounterValue={0}/>
                                                     </Col>
                                                 </Row>
                                                 <Row>
