@@ -5,6 +5,7 @@ import UpgradeComponent from "./UpgradeComponent"
 import Cookies from 'js-cookie'
 import {CPSContext} from "../../../contexts/cpsContext"
 import upgradeSound from '../../media/audio/buyUpgrade.mp3'
+import {BoughtUpgradeContext} from "../../../contexts/boughtUpgradesContext"
 
 const UpgradeListComponent = () => {
 
@@ -13,7 +14,7 @@ const UpgradeListComponent = () => {
     const [userToken] = useState(Cookies.get('token'))
     const [error, setError] = useState('')
     const [buyRequestSent, setBuyRequestSent] = useState(false)
-    const [boughtUpgrades, setBoughtUpgrades] = useState([])
+    const {boughtUpgrades,setBoughtUpgrades}=useContext(BoughtUpgradeContext)
 
     let audio = new Audio(upgradeSound)
     audio.preload = 'auto'

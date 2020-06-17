@@ -1,5 +1,5 @@
 .maincontainer{
-    display: flex;
+
     background: rgba(0,0,0,0.5);
 
 }
@@ -23,6 +23,8 @@
     position: absolute;
     right: 5vw;
     z-index: 1;
+    width: 100vw;
+
 }
 
 .monsterPlane{
@@ -43,12 +45,15 @@
 }
 .upgradeCol {
     flex-grow: .5;
+    z-index: 2;
 }
 .generatorCol {
     flex-grow: .75;
+    z-index: 2;
 }
 .gameCol {
     flex-grow: 2;
+    z-index: 2;
 }
 
 .armyContainer {
@@ -56,3 +61,19 @@
     height: 20vh;
     z-index: 2;
 }
+
+.playareaComponents{
+    z-index: 2;
+
+}
+
+
+.background{
+    z-index: 1;
+    margin-bottom: -100vh;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    right: 5vw;
+}
+

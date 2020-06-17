@@ -9,12 +9,16 @@ import './clickerComponentStyle.css'
 import damage from "../../media/audio/damage.mp3";
 import m1 from"../../media/images/monster/Megapack III Undead Warrior Benkei.png"
 import {VolumeContext} from "../../../contexts/volumeContext";
+import {LevelUpContext} from "../../../contexts/levelUpContext";
+import {BoughtUpgradeContext} from "../../../contexts/boughtUpgradesContext";
 
 const Clickercomponent = ({monster,initialCounterValue = 0}) => {
     const [ws, setWs] = useState(null)
     const [counter, setCounter] = useState(initialCounterValue)
     const {volume, setVolume} = useContext(VolumeContext)
     const [showDmg, setShowDmg] = useState(false)
+    const {boughtUpgrades}=useContext(BoughtUpgradeContext)
+    const {monsterImage,setMonsterImage}=useContext(LevelUpContext)
 
     useEffect(() => {
         let initWs = new WebSocket(`${Config.websocketUrl}/game/click?token=${Cookies.get("token")}`)
@@ -67,7 +71,7 @@ const Clickercomponent = ({monster,initialCounterValue = 0}) => {
                     +{counter}
                 </motion.div>
                 <img className={"redCircle"} style={{visibility: showDmg? "visible":"hidden"}} src={RedCircle}/>
-                <img className={"monster"} src={monster} style={{zIndex:2}} onMouseDown={start} onClick={handleClick}/>
+                <img className={"monster"} src={monsterImage.monsterImages[boughtUpgrades.length] } style={{zIndex:2}} onMouseDown={start} onClick={handleClick}/>
             </div>
     )
 

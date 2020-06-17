@@ -27,13 +27,15 @@ import Clickercomponent from "../../components/mainpagecomponents/clickercompone
 import ArmyArea from "../../components/mainpagecomponents/armyComponent/ArmyArea";
 import {VolumeContextProvider} from "../../contexts/volumeContext";
 import {ArmyAmountProvider} from "../../contexts/armyAmountContext";
-import {levelUpContextProvider} from "../../contexts/levelUpContext";
+import {LevelUpContextProvider} from "../../contexts/levelUpContext";
+import {BoughtUpgradeContextProvider} from "../../contexts/boughtUpgradesContext";
+import BackgroundComponent from "../../components/mainpagecomponents/backgroundComponent/BackgroundComponent";
 
 const MainPage = () => {
 
 
     function handleBackgroundChange() {
-        backgroundImage.backgroundCounter < backgroundImage.backgroundImages.length - 1
+       /* backgroundImage.backgroundCounter < backgroundImage.backgroundImages.length - 1
             ?
             setBackgroundImage({
                 ...backgroundImage,
@@ -59,26 +61,30 @@ const MainPage = () => {
                 currentMonster: monsterImage.monsterImages[monsterImage.upgradeCounter],
                 monsterImages: monsterImage.monsterImages
 
-            })
+            })*/
     }
 
-    let background = {
+    /*let background = {
         width: "100vw",
         height: "100vh",
         backgroundImage: `url(${backgroundImage.currentBackground})`,
         backgroundSize: "cover",
         backgroundColor: "black"
-    }
+    }*/
     let render = <Redirect to={"/login"}/>
     if (Cookies.get("token")) {
         render =
             <GenerateArmyContextProvider>
                 <ClickContextProvider>
                     <CPSContextProvider>
-                        <levelUpContextProvider>
+                        <BoughtUpgradeContextProvider>
+                        <LevelUpContextProvider>
                         <VolumeContextProvider>
                             <ArmyAmountProvider>
-                            <Container className="wrapper" fluid style={background}>
+                            <Container className="container" >
+                                <div className="background">
+                                <BackgroundComponent/>
+                                </div>
                                 <Row>
                                     <MainPageHeader/>
                                 </Row>
@@ -98,7 +104,7 @@ const MainPage = () => {
                                                 </Button>
                                                 <Row>
                                                     <Col>
-                                                        <Clickercomponent monster={monsterImage.currentMonster} initialCounterValue={0}/>
+                                                        <Clickercomponent initialCounterValue={0}/>
                                                     </Col>
                                                 </Row>
                                                 <Row>
@@ -124,7 +130,8 @@ const MainPage = () => {
                             </Container>
                             </ArmyAmountProvider>
                         </VolumeContextProvider>
-                        </levelUpContextProvider>
+                        </LevelUpContextProvider>
+                        </BoughtUpgradeContextProvider>
                     </CPSContextProvider>
                 </ClickContextProvider>
             </GenerateArmyContextProvider>

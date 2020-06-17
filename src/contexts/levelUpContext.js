@@ -10,8 +10,8 @@ import level3Monster from "../components/media/images/monster/Megapack III Falle
 import level4Monster from "../components/media/images/monster/Megapack III Elemental Lords Ice Maiden.png";
 import level5Monster from "../components/media/images/monster/Megapack III Zodiac Aries.png";
 
-export const levelUpContext= createContext()
-export const levelUpContextProvider=({children})=>{
+export const LevelUpContext= createContext()
+export const LevelUpContextProvider=({children})=>{
     const [backgroundImage, setBackgroundImage] = useState({
         "backgroundImages": [dImg1, dImg2, dImg3, dImg4, dImg5],
         "currentBackground": dImg1,
@@ -26,8 +26,8 @@ export const levelUpContextProvider=({children})=>{
 
     const value={backgroundImage,setBackgroundImage,monsterImage,setMonsterImage}
     return(
-        <levelUpContext.Provider value={value}>
+        <LevelUpContext.Provider value={value}>
             {children}
-        </levelUpContext.Provider>
+        </LevelUpContext.Provider>
     )
 };
