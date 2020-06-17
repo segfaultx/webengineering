@@ -9,6 +9,9 @@ import level2Monster from "../components/media/images/monster/Megapack III Red G
 import level3Monster from "../components/media/images/monster/Megapack III Fallen Kings Arcane King Jeffroy.png";
 import level4Monster from "../components/media/images/monster/Megapack III Elemental Lords Ice Maiden.png";
 import level5Monster from "../components/media/images/monster/Megapack III Zodiac Aries.png";
+import level6Monster from "../components/media/images/monster/Megapack III Elemental Lords Fire Lord.png";
+import level7Monster from "../components/media/images/monster/Megapack III Black Iron Minotaur Beef.png";
+import level8Monster from "../components/media/images/monster/Megapack III Dragonslayer Dwarf.png"
 
 export const LevelUpContext= createContext()
 export const LevelUpContextProvider=({children})=>{
@@ -19,7 +22,7 @@ export const LevelUpContextProvider=({children})=>{
     });
 
     const [monsterImage, setMonsterImage] = useState({
-        "monsterImages": [level1Monster, level2Monster, level3Monster, level4Monster, level5Monster],
+        "monsterImages": [level1Monster, level2Monster, level3Monster, level4Monster, level5Monster,level6Monster,level7Monster,level8Monster],
         "currentMonster": level1Monster,
         "upgradeCounter": 0
     });

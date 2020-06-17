@@ -10,7 +10,7 @@ const BackgroundComponent=()=>{
 
     return(
        
-            <img src={backgroundImage.backgroundImages[boughtUpgrades.length]} alt={"HIER IST BACKGROUND"} />
+            <img src={backgroundImage.backgroundImages[boughtUpgrades.length]} alt={"HIER IST DER BACKGROUND"} />
 
     )
 
