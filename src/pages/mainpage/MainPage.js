@@ -5,7 +5,6 @@ import dImg1 from "../../components/media/images/login_background_screen.jpg"
 import dImg2 from "../../components/media/images/UHpNxb.jpg"
 import dImg3 from "../../components/media/images/kJVa6H.jpg"
 import dImg4 from "../../components/media/images/kZPyQB.jpg"
-import Avatar from "../../components/media/images/avatar.png"
 import PlayerPlane from "../../components/media/images/Player-Plane.png"
 import level1Monster from "../../components/media/images/monster/Megapack III Undead Warrior Benkei.png"
 import level2Monster from "../../components/media/images/monster/Megapack III Red Guard A.png"
@@ -23,10 +22,10 @@ import {CPSContextProvider} from "../../contexts/cpsContext"
 import {GenerateArmyContextProvider} from "../../contexts/generateArmyContext"
 import Cookies from "js-cookie"
 import Clickercomponent from "../../components/mainpagecomponents/clickercomponent/Clickercomponent"
-import ArmyArea from "../../components/mainpagecomponents/armyComponent/ArmyArea";
-import {VolumeContextProvider} from "../../contexts/volumeContext";
-import {ArmyAmountProvider} from "../../contexts/armyAmountContext";
-
+import ArmyArea from "../../components/mainpagecomponents/armyComponent/ArmyArea"
+import {VolumeContextProvider} from "../../contexts/volumeContext"
+import {ArmyAmountProvider} from "../../contexts/armyAmountContext"
+import avatarConfig from "./avatarConfig"
 
 const MainPage = () => {
 
@@ -66,6 +65,7 @@ const MainPage = () => {
         backgroundSize: "cover",
         backgroundColor: "black"
     }
+    console.log(Cookies.get("character"))
     let render = <Redirect to={"/login"}/>
     if (Cookies.get("token")) {
         render =
@@ -108,7 +108,7 @@ const MainPage = () => {
                                         <Row className={"armyArea"}>
                                             <Col>
                                                 <img className={"playerPlane"} src={PlayerPlane}/>
-                                                <img className={"avatar"} src={Avatar}/>
+                                                <img className={"avatar"} src={avatarConfig[Cookies.get("character")]}/>
                                                 <ArmyArea/>
                                             </Col>
                                         </Row>
