@@ -2,13 +2,13 @@ import React, {useContext} from "react"
 import {useEffect, useState} from "react"
 import Cookies from "js-cookie"
 import Config from "../../../config"
-import {motion} from "framer-motion";
+import {motion} from "framer-motion"
 
 import RedCircle from"../../media/images/aua-circle.png"
 import './clickerComponentStyle.css'
-import damage from "../../media/audio/damage.mp3";
+import damage from "../../media/audio/damage.mp3"
 import monster from"../../media/images/monster/Megapack III Undead Warrior Benkei.png"
-import {VolumeContext} from "../../../contexts/volumeContext";
+import {VolumeContext} from "../../../contexts/volumeContext"
 
 const Clickercomponent = ({initialCounterValue = 0}) => {
     const [ws, setWs] = useState(null)
