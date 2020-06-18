@@ -14,6 +14,7 @@ import dragoon from "../../components/media/images/characters/dragoon_character.
 import texts from "./characterTexts"
 import CharacterFadeComponent
     from "../../components/characterselector/characterSelectorComponent/CharacterFadeInComponent"
+import Redirect from "react-router-dom/es/Redirect";
 
 const Characterselectorpage = () => {
     const history = useHistory()
@@ -26,6 +27,7 @@ const Characterselectorpage = () => {
         Cookies.set("character", characterName, {sameSite: "Strict", secure: false})
         history.push("/")
     }
+    if (!Cookies.get("token")) return <Redirect to={"/login"}/>
 
     return <Container fluid className={"bgContainer"}>
         <Container className={"characterSelectContainer"}>
