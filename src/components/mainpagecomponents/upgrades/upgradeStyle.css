@@ -3,23 +3,26 @@
     background-position: center;
     background-size: cover;
     background-color: transparent;
-    height: 350px;
-    width: 350px;
-    margin: 0px;
-    padding: 25px 80px;
-    object-fit: cover;
-    minWidth:300;
+    height: 230px;
+    width: 230px;
+    padding: 40px 60px 7px;
+    object-fit: contain;
 }
 
 .upgradeContainer {
-    font-family: "Helvetica Neue" ;
+    font-family: "Game Sans Serif 7", serif ;
     color: whitesmoke;
-    minWidth:300
+    display: flex;
+    flex-direction: column;
 }
 
 .upgradeImage {
-    height: 70px;
-    width: 70px;
+    height: 45px;
+    width: 45px;
     border-color: burlywood;
     border-style: ridge;
+}
+
+.upgradeHeader{
+    text-align: center;
 }

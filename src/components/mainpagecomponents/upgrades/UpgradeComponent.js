@@ -46,7 +46,6 @@ const UpgradeComponent = (props) => {
                 {upgImg.description}
                 <hr/>
                 Multiplier: x{props.multiplier}
-                <br/>
                 Cost: {props.cost}
             </Popover.Content>
         </Popover>
@@ -56,7 +55,6 @@ const UpgradeComponent = (props) => {
             placement='left'
             overlay={popover}>
             <div>
-                <br/>
                 <Image className='upgradeImage'
                        style={{
                            filter: props.boughtStatus ? 'opacity(50%)' : 'none'

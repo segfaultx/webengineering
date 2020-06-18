@@ -47,8 +47,8 @@ const MainPageHeader=()=> {
                    className="howToPlay"
                    src={helpIcon}
                    alt="Help"
-                   width="1.3%"
-                   height="1.3%"
+                   width="1.5%"
+                   height="35%"
                />
            </OverlayTrigger>
            <img
@@ -56,7 +56,7 @@ const MainPageHeader=()=> {
                src={volume ? volumeOn : volumeOff}
                alt={volume ? "Volume on" : "Volume off"}
                width="2%"
-               height="2%"
+               height="60%"
                onClick={() => {setVolume(!volume)}}
            />
            <Button
