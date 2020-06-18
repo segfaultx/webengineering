@@ -1,15 +1,15 @@
-import React, {useContext, useState} from "react"
+import React, {useContext} from "react"
 import ShowPointsComponent from "../showpointscomponent/ShowPointsComponent"
 import ShowCPSComponent from "../showCPScomponent/ShowCPSComponent"
-import {Button, Col, Container, Navbar, Popover, OverlayTrigger} from "react-bootstrap"
+import {Button,Container, Navbar, Popover, OverlayTrigger} from "react-bootstrap"
 import "./mainPageHeaderStyle.css"
 import Cookies from "js-cookie";
 import {useHistory} from "react-router-dom";
 import {VolumeContext} from "../../../contexts/volumeContext"
 
-import volumeOn from '../../media/images/volumeOn.png'
-import volumeOff from '../../media/images/volume_off.png'
-import helpIcon from '../../media/images/question-mark.png'
+import volumeOn from '../../media/images/navbar/volumeOn.png'
+import volumeOff from '../../media/images/navbar/volume_off.png'
+import helpIcon from '../../media/images/navbar/question-mark.png'
 
 const MainPageHeader=()=> {
     const {volume, setVolume} = useContext(VolumeContext)

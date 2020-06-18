@@ -12,6 +12,7 @@ import "./App.css"
 import Loginpage from "./pages/login/Loginpage"
 import Registerpage from "./pages/register/Registerpage"
 import MainPage from "./pages/mainpage/MainPage"
+import Characterselectorpage from "./pages/characterselector/Characterselectorpage"
 
 function App() {
 
@@ -29,6 +30,9 @@ function App() {
                     </Route>
                     <Route path={"/"} exact>
                         <MainPage/>
+                    </Route>
+                    <Route path={"/characterselect"}>
+                        <Characterselectorpage/>
                     </Route>
                 </Switch>
             </Router>

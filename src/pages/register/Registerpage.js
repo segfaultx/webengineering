@@ -10,7 +10,7 @@ import Alert from "react-bootstrap/Alert"
 
 import registerUser from "./RegisterHandler"
 
-import "../shared_styles/LoginLogoutPageStyle.css"
+import "../shared_styles/SharedPagesStyle.css"
 
 const Registerpage = () => {
 

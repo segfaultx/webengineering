@@ -10,7 +10,7 @@ import Alert from "react-bootstrap/Alert"
 
 import loginToServer from "./LoginHandler"
 
-import "../shared_styles/LoginLogoutPageStyle.css"
+import "../shared_styles/SharedPagesStyle.css"
 
 
 const Loginpage = () => {
@@ -33,7 +33,7 @@ const Loginpage = () => {
                 setShowAlert(true)
                 return
             }
-            history.push("/")
+            history.push("/characterselect")
         })
     }
 
