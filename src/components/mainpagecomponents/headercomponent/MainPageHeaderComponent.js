@@ -7,9 +7,9 @@ import Cookies from "js-cookie";
 import {useHistory} from "react-router-dom";
 import {VolumeContext} from "../../../contexts/volumeContext"
 
-import volumeOn from '../../media/images/volumeOn.png'
-import volumeOff from '../../media/images/volume_off.png'
-import helpIcon from '../../media/images/question-mark.png'
+import volumeOn from '../../media/images/navbar/volumeOn.png'
+import volumeOff from '../../media/images/navbar/volume_off.png'
+import helpIcon from '../../media/images/navbar/question-mark.png'
 
 const MainPageHeader=()=> {
     const {volume, setVolume} = useContext(VolumeContext)

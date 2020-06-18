@@ -4,7 +4,7 @@ import {Container, Row} from "react-bootstrap"
 import Config from "../../../config"
 import Cookies from "js-cookie"
 
-import pointer from '../../media/images/swordIcon.png'
+import pointer from '../../media/images/navbar/swordIcon.png'
 
 const ShowCPSComponent=()=>{
 

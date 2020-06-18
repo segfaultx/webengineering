@@ -5,7 +5,7 @@ import {Container, Row} from "react-bootstrap"
 import Config from "../../../config"
 import Cookies from "js-cookie"
 
-import blood from '../../media/images/Blood_drop.png'
+import blood from '../../media/images/navbar/Blood_drop.png'
 
 const ShowPointsComponent=()=>{
     const {clicks,setClicks}=useContext(ClickContext)

@@ -4,14 +4,14 @@ import {Image, Popover, OverlayTrigger} from "react-bootstrap"
 
 import './upgradeStyle.css'
 
-import d1 from '../../media/images/upgrade-1.png'
-import d2 from '../../media/images/upgrade-2.png'
-import d3 from '../../media/images/upgrade-3.png'
-import d4 from '../../media/images/upgrade-4.png'
-import d5 from '../../media/images/upgrade-5.png'
-import d6 from '../../media/images/upgrade-6.png'
-import d7 from '../../media/images/upgrade-7.png'
-import d8 from '../../media/images/upgrade-8.png'
+import d1 from '../../media/images/upgrades/upgrade-1.png'
+import d2 from '../../media/images/upgrades/upgrade-2.png'
+import d3 from '../../media/images/upgrades/upgrade-3.png'
+import d4 from '../../media/images/upgrades/upgrade-4.png'
+import d5 from '../../media/images/upgrades/upgrade-5.png'
+import d6 from '../../media/images/upgrades/upgrade-6.png'
+import d7 from '../../media/images/upgrades/upgrade-7.png'
+import d8 from '../../media/images/upgrades/upgrade-8.png'
 
 
 const upgradeImages = [

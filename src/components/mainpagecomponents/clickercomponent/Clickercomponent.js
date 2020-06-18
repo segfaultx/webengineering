@@ -4,7 +4,7 @@ import Cookies from "js-cookie"
 import Config from "../../../config"
 import {motion} from "framer-motion"
 
-import RedCircle from"../../media/images/aua-circle.png"
+import RedCircle from "../../media/images/clickercomp/aua-circle.png"
 import './clickerComponentStyle.css'
 import damage from "../../media/audio/damage.mp3"
 import monster from"../../media/images/monster/Megapack III Undead Warrior Benkei.png"
