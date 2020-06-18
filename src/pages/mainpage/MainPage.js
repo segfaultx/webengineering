@@ -67,6 +67,7 @@ const MainPage = () => {
     }
     console.log(Cookies.get("character"))
     let render = <Redirect to={"/login"}/>
+    if (!Cookies.get("character")) return <Redirect to={"/characterselect"}/>
     if (Cookies.get("token")) {
         render =
             <GenerateArmyContextProvider>
@@ -74,50 +75,51 @@ const MainPage = () => {
                     <CPSContextProvider>
                         <VolumeContextProvider>
                             <ArmyAmountProvider>
-                            <Container className="wrapper" fluid style={background}>
-                                <Row>
-                                    <MainPageHeader/>
-                                </Row>
-                                <Row className="playarea">
-                                    <Col className={"generatorCol"}>
-                                        <GeneratorListComponent className="playareaComponents"/>
-                                    </Col>
-                                    <Col className={"gameCol"}>
-                                        <Row className={"bossArea"}>
-                                            <Col>
-                                                <h2>BossArea</h2>
-                                                <Button name="backgroundCounter" variant="dark"
-                                                        className={"changeBackground"} onClick={() => {
-                                                    handleBackgroundChange()
-                                                }}>
-                                                    change Background
-                                                </Button>
-                                                <Row>
-                                                    <Col>
-                                                        <Clickercomponent initialCounterValue={0}/>
-                                                    </Col>
-                                                </Row>
-                                                <Row>
-                                                    <Col>
-                                                        <img className={"monsterPlane"} src={MonsterPlane}/>
-                                                    </Col>
-                                                </Row>
-                                            </Col>
+                                <Container className="wrapper" fluid style={background}>
+                                    <Row>
+                                        <MainPageHeader/>
+                                    </Row>
+                                    <Row className="playarea">
+                                        <Col className={"generatorCol"}>
+                                            <GeneratorListComponent className="playareaComponents"/>
+                                        </Col>
+                                        <Col className={"gameCol"}>
+                                            <Row className={"bossArea"}>
+                                                <Col>
+                                                    <h2>BossArea</h2>
+                                                    <Button name="backgroundCounter" variant="dark"
+                                                            className={"changeBackground"} onClick={() => {
+                                                        handleBackgroundChange()
+                                                    }}>
+                                                        change Background
+                                                    </Button>
+                                                    <Row>
+                                                        <Col>
+                                                            <Clickercomponent initialCounterValue={0}/>
+                                                        </Col>
+                                                    </Row>
+                                                    <Row>
+                                                        <Col>
+                                                            <img className={"monsterPlane"} src={MonsterPlane}/>
+                                                        </Col>
+                                                    </Row>
+                                                </Col>
 
-                                        </Row>
-                                        <Row className={"armyArea"}>
-                                            <Col>
-                                                <img className={"playerPlane"} src={PlayerPlane}/>
-                                                <img className={"avatar"} src={avatarConfig[Cookies.get("character")]}/>
-                                                <ArmyArea/>
-                                            </Col>
-                                        </Row>
-                                    </Col>
-                                    <Col className={"upgradeCol"}>
-                                        <UpgradeListComponent className="playareaComponents"/>
-                                    </Col>
-                                </Row>
-                            </Container>
+                                            </Row>
+                                            <Row className={"armyArea"}>
+                                                <Col>
+                                                    <img className={"playerPlane"} src={PlayerPlane}/>
+                                                    <img className={"avatar"}
+                                                         src={avatarConfig[Cookies.get("character")]}/>
+                                                    <ArmyArea/>
+                                                </Col>
+                                            </Row>
+                                        </Col>
+                                        <Col className={"upgradeCol"}>
+                                            <UpgradeListComponent className="playareaComponents"/>
+                                        </Col>
+                                    </Row>
+                                </Container>
                             </ArmyAmountProvider>
                         </VolumeContextProvider>
                     </CPSContextProvider>
