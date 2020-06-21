@@ -47,16 +47,16 @@ const MainPageHeader=()=> {
                    className="howToPlay"
                    src={helpIcon}
                    alt="Help"
-                   width="1.5%"
-                   height="35%"
+                   width="25vw"
+                   height="25vh"
                />
            </OverlayTrigger>
            <img
                className="volumeControl"
                src={volume ? volumeOn : volumeOff}
                alt={volume ? "Volume on" : "Volume off"}
-               width="2%"
-               height="60%"
+               width="40vw"
+               height="40vh"
                onClick={() => {setVolume(!volume)}}
            />
            <Button
