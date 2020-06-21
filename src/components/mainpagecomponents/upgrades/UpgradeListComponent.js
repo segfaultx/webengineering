@@ -1,16 +1,17 @@
 import React, {useState, useEffect, useContext} from "react"
 import "../../../pages/mainpage/mainpagecomponentstyle.css"
-import {Col, Container, Row} from "react-bootstrap"
+import {Container, Row} from "react-bootstrap"
 import UpgradeComponent from "./UpgradeComponent"
 import Cookies from 'js-cookie'
 import {CPSContext} from "../../../contexts/cpsContext"
 import upgradeSound from '../../media/audio/buyUpgrade.mp3'
-import upgradeBrowse from "../../media/audio/browsingUpgrades.mp3";
 import {VolumeContext} from "../../../contexts/volumeContext";
+import {ClickContext} from "../../../contexts/clickContext";
 
 const UpgradeListComponent = () => {
 
     const {cps} = useContext(CPSContext)
+    const {clicks} = useContext(ClickContext)
     const {volume} = useContext(VolumeContext)
 
     const [upgradeList, setUpgradeList] = useState([])
@@ -104,7 +105,7 @@ const UpgradeListComponent = () => {
                 cost={item.cost}
                 order={item.order}
                 buyUpgrade={handleBuy}
-                boughtStatus={false}
+                boughtStatus={((clicks - item.cost) <= 0)}
             />)
 
     return (

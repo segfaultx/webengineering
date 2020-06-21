@@ -14,7 +14,8 @@ import d5 from '../../media/images/upgrades/upgrade-5.png'
 import d6 from '../../media/images/upgrades/upgrade-6.png'
 import d7 from '../../media/images/upgrades/upgrade-7.png'
 import d8 from '../../media/images/upgrades/upgrade-8.png'
-import upgradeBrowse from "../../media/audio/browsingUpgrades.mp3";
+import upgradeBrowse from "../../media/audio/browsingUpgrades.mp3"
+import notEnough from "../../media/audio/noEffectClick.mp3"
 
 const upgradeImages = [
     {id: 1, src: d1, title: "Dainsleif", description: 'A common steel sword, used by many heroes'},
@@ -43,6 +44,11 @@ const UpgradeComponent = (props) => {
     const {volume} = useContext(VolumeContext)
 
     let audioBrowse = new Audio(upgradeBrowse)
+    audioBrowse.preload = 'auto'
+    audioBrowse.load()
+    audioBrowse.volume = 0.5
+
+    let clicked = new Audio(notEnough)
     audioBrowse.preload = 'auto'
     audioBrowse.load()
     audioBrowse.volume = 0.5
@@ -78,7 +84,7 @@ const UpgradeComponent = (props) => {
                        }}
                        src={upgImg.src}
                        alt={upgImg.title}
-                       onClick={() => !props.boughtStatus ? props.buyUpgrade(props.id) : 'none'}
+                       onClick={() => !props.boughtStatus ? props.buyUpgrade(props.id) : start(clicked) }
                        onMouseEnter={() => start(audioBrowse)}
                 />
             </motion.div>
