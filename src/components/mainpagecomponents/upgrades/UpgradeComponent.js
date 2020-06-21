@@ -1,6 +1,7 @@
 import React from "react"
 import "../../../pages/mainpage/mainpagecomponentstyle.css"
 import {Image, Popover, OverlayTrigger} from "react-bootstrap"
+import {motion} from "framer-motion";
 
 import './upgradeStyle.css'
 
@@ -54,7 +55,9 @@ const UpgradeComponent = (props) => {
         <OverlayTrigger
             placement='left'
             overlay={popover}>
-            <div>
+            <motion.div
+                whileHover={{ scale: 1.1}}
+                whileTap={{ scale: 0.9}}>
                 <Image className='upgradeImage'
                        style={{
                            filter: props.boughtStatus ? 'opacity(50%)' : 'none'
@@ -63,7 +66,7 @@ const UpgradeComponent = (props) => {
                        alt={upgImg.title}
                        onClick={() => !props.boughtStatus ? props.buyUpgrade(props.id) : 'none'}
                 />
-            </div>
+            </motion.div>
         </OverlayTrigger>
     )
 }
