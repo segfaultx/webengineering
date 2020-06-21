@@ -7,12 +7,14 @@ import {CPSContext} from "../../../contexts/cpsContext"
 import {GenerateArmyContext} from "../../../contexts/generateArmyContext";
 import {ArmyAmountContext} from "../../../contexts/armyAmountContext";
 import generatorImages from "./generatorImagesConfig";
+import {ClickContext} from "../../../contexts/clickContext";
 
 const GeneratorListComponent =()=>{
 
 
 
     const {cps}= useContext(CPSContext)
+    const {clicks} = useContext(ClickContext)
     const [generators,setGenerators]=useState([])
     const {army,setArmy}= useContext(GenerateArmyContext)
     const {armyAmount,setArmyAmount}=useContext(ArmyAmountContext)
@@ -94,6 +96,7 @@ const GeneratorListComponent =()=>{
                                                                                     income_rate={generator.income_rate}
                                                                                     amount={generator.amount}
                                                                                     price={generator.price}
+                                                                                    buyable = {clicks - generator.price >= 0}
                                                                                     onBuy={onBuy}/>)}
                 </Col>
             </Container>
