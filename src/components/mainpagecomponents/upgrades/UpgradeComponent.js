@@ -1,7 +1,8 @@
-import React from "react"
+import React, {useContext} from "react"
 import "../../../pages/mainpage/mainpagecomponentstyle.css"
 import {Image, Popover, OverlayTrigger} from "react-bootstrap"
-import {motion} from "framer-motion";
+import {motion} from "framer-motion"
+import {VolumeContext} from "../../../contexts/volumeContext"
 
 import './upgradeStyle.css'
 
@@ -13,7 +14,7 @@ import d5 from '../../media/images/upgrades/upgrade-5.png'
 import d6 from '../../media/images/upgrades/upgrade-6.png'
 import d7 from '../../media/images/upgrades/upgrade-7.png'
 import d8 from '../../media/images/upgrades/upgrade-8.png'
-
+import upgradeBrowse from "../../media/audio/browsingUpgrades.mp3";
 
 const upgradeImages = [
     {id: 1, src: d1, title: "Dainsleif", description: 'A common steel sword, used by many heroes'},
@@ -39,6 +40,18 @@ const upgradeImages = [
 
 
 const UpgradeComponent = (props) => {
+    const {volume} = useContext(VolumeContext)
+
+    let audioBrowse = new Audio(upgradeBrowse)
+    audioBrowse.preload = 'auto'
+    audioBrowse.load()
+    audioBrowse.volume = 0.5
+
+    const start = (sound) => {
+        let click = sound.cloneNode()
+        if(volume) click.play()
+    }
+
     const upgImg = upgradeImages.find(img => img.id === props.order)
     const popover = (
         <Popover id={'popover-basic'} className='upgradeOverlay'>
@@ -47,6 +60,7 @@ const UpgradeComponent = (props) => {
                 {upgImg.description}
                 <hr/>
                 Multiplier: x{props.multiplier}
+                <br/>
                 Cost: {props.cost}
             </Popover.Content>
         </Popover>
@@ -65,6 +79,7 @@ const UpgradeComponent = (props) => {
                        src={upgImg.src}
                        alt={upgImg.title}
                        onClick={() => !props.boughtStatus ? props.buyUpgrade(props.id) : 'none'}
+                       onMouseEnter={() => start(audioBrowse)}
                 />
             </motion.div>
         </OverlayTrigger>
