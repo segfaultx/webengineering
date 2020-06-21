@@ -52,6 +52,7 @@ const MainPageHeader=()=> {
                    alt="Change Character"
                    width="27vw"
                    height="27vh"
+                   onClick={() => {history.push("/characterselect")}}
                />
            </OverlayTrigger>
            <OverlayTrigger
