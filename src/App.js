@@ -12,6 +12,8 @@ import "./App.css"
 import Loginpage from "./pages/login/Loginpage"
 import Registerpage from "./pages/register/Registerpage"
 import MainPage from "./pages/mainpage/MainPage"
+import {LevelUpContext, LevelUpContextProvider} from "./contexts/levelUpContext";
+import {BoughtUpgradeContext, BoughtUpgradeContextProvider} from "./contexts/boughtUpgradesContext";
 
 function App() {
 
@@ -28,7 +30,11 @@ function App() {
                         <Registerpage/>
                     </Route>
                     <Route path={"/"} exact>
+                        <LevelUpContextProvider>
+                            <BoughtUpgradeContextProvider>
                         <MainPage/>
+                            </BoughtUpgradeContextProvider>
+                        </LevelUpContextProvider>
                     </Route>
                 </Switch>
             </Router>

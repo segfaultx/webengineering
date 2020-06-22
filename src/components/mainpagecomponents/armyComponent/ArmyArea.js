@@ -24,8 +24,8 @@ const ArmyArea=()=>{
                 for(let j=0;j<endLoop;j++){
                     tempArmy.push(<img alt="none" key={Math.random()}
                                                   style={{position:"absolute",
-                                                      bottom:-100+Math.random()*60,
-                                                      left:20+Math.random()*1000,
+                                                      bottom:Math.random()*60,
+                                                      left:200+Math.random()*1000,
                                                   zIndex:2}}
                                                   src={sprite}/>)
                         }

@@ -9,8 +9,8 @@ const BackgroundComponent=()=>{
     const {backgroundImage}=useContext(LevelUpContext)
 
     return(
-       
-            <img src={backgroundImage.backgroundImages[boughtUpgrades.length]} alt={"HIER IST DER BACKGROUND"} />
+
+            <img className={"background"} src={backgroundImage.backgroundImages[boughtUpgrades.length]} alt={"HIER IST DER BACKGROUND"} />
 
     )
 
