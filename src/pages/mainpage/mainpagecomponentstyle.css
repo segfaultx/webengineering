@@ -1,4 +1,4 @@
-@media only screen and (max-width: 1920px){
+
     .maincontainer {
 
         background: rgba(0, 0, 0, 0.5);
@@ -73,11 +73,7 @@
 
 
 
-
-}
-
-
-@media only screen and (max-width: 2560px) {
+@media only screen and (min-width: 1440px){
 
     .maincontainer {
 
