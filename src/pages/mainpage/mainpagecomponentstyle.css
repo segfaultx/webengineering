@@ -1,9 +1,15 @@
-@media only screen and (max-width: 1080px){
+@media only screen and (max-width: 1920px){
     .maincontainer {
 
         background: rgba(0, 0, 0, 0.5);
 
     }
+
+    .container{
+        max-width: 100vw;
+        max-height: 100vh;
+    }
+
 
     .bossArea {
         color: white;
@@ -14,6 +20,8 @@
     .armyArea {
         text-align: center;
         color: white;
+        margin-left: -25vw;
+        width: 100vw;
     }
 
     .changeBackground {
@@ -21,10 +29,9 @@
     }
 
     .playerPlane {
-        position: absolute;
-        right: 5vw;
         z-index: 1;
         width: 100vw;
+        height: 12vh;
 
     }
 
@@ -52,7 +59,8 @@
 
     .generatorCol {
         flex-grow: .75;
-        z-index: 2;
+        z-index: 5;
+
     }
 
     .gameCol {
@@ -70,96 +78,18 @@
         z-index: 2;
 
     }
+    .background{
+        width: 100vw;
+        height: 100vh;
+    }
+
+
 
 
 }
 
 
-@media only screen and (min-width: 1081px) {
-
-     .maincontainer {
-
-         background: rgba(0, 0, 0, 0.5);
-
-     }
-
-    .container{
-        max-width: 100vw;
-        max-height: 100vh;
-    }
-
-
-     .bossArea {
-         color: white;
-         text-align: center;
-         height: 70vh;
-     }
-
-     .armyArea {
-         text-align: center;
-         color: white;
-         margin-left: -25vw;
-         width: 100vw;
-     }
-
-     .changeBackground {
-         border: none;
-     }
-
-     .playerPlane {
-         z-index: 1;
-         width: 100vw;
-         height: 12vh;
-
-     }
-
-     .monsterPlane {
-         margin-top: -30px;
-     }
-
-     .monster {
-         padding-top: 150px;
-
-     }
-
-     .avatar {
-         position: absolute;
-         width: 80px;
-         height: 80px;
-         bottom: 1vh;
-         z-index: 2;
-     }
-
-     .upgradeCol {
-         flex-grow: .5;
-         z-index: 2;
-     }
-
-     .generatorCol {
-         flex-grow: .75;
-         z-index: 5;
-
-     }
-
-     .gameCol {
-         flex-grow: 2;
-         z-index: 2;
-     }
-
-     .armyContainer {
-         position: absolute;
-         height: 20vh;
-         z-index: 2;
-     }
-
-     .playareaComponents {
-         z-index: 2;
-
-     }
-     .background{
-         width: 100vw;
-         height: 100vh;
-     }
+@media only screen and (min-width: 1921px) {
 
 
  }
