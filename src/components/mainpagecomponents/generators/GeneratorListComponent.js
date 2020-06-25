@@ -9,8 +9,11 @@ import {ArmyAmountContext} from "../../../contexts/armyAmountContext";
 import generatorImages from "./generatorConfig";
 import {ClickContext} from "../../../contexts/clickContext";
 
-const GeneratorListComponent =()=>{
+import buyG from "../../media/audio/buyGenerator.mp3"
 
+
+
+const GeneratorListComponent =()=>{
 
 
     const {cps}= useContext(CPSContext)

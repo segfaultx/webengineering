@@ -1,13 +1,17 @@
-import React from "react"
+import React, {useContext} from "react"
 import {Button, Col} from "react-bootstrap"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row";
 import pointer from "../../media/images/navbar/swordIcon.png";
 import blood from "../../media/images/navbar/Blood_drop.png";
 import {motion} from "framer-motion";
+import notEnough from "../../media/audio/noEffectClick.mp3";
+import {VolumeContext} from "../../../contexts/volumeContext";
+import buyG from "../../media/audio/buyGenerator.mp3";
 
 
 const GeneratorComponent =({buyId,image,income_rate, onBuy,amount, price, buyable})=>{
+    const {volume} = useContext(VolumeContext)
 
     const shortening = (num) => {
         if(num < 1000000) return num
@@ -25,6 +29,23 @@ const GeneratorComponent =({buyId,image,income_rate, onBuy,amount, price, buyabl
 
         return abbreviatedNum
     }
+
+
+    let audioDenied = new Audio(notEnough)
+    audioDenied.preload = 'auto'
+    audioDenied.volume = 0.5
+    audioDenied.load()
+
+    let audioBuy = new Audio(buyG)
+    audioBuy.preload = 'auto'
+    audioBuy.volume = 0.5
+    audioBuy.load()
+
+    const start = (sound) => {
+        let click = sound.cloneNode()
+        if(volume) click.play()
+    }
+
 
     return(
         <Container>
@@ -48,11 +69,15 @@ const GeneratorComponent =({buyId,image,income_rate, onBuy,amount, price, buyabl
 
                     {buyable ?
                         <motion.div whileHover={{ scale: 1.1}} whileTap={{ scale: 0.9}}>
-                            <Button className="buyButtonGenerator" variant={"danger"} onClick={()=>{onBuy(buyId)}} >
+                            <Button className="buyButtonGenerator" variant={"danger"} onClick={()=>{
+                                onBuy(buyId);
+                                start(audioBuy)
+                            }} >
                                 Buy
                             </Button>
                         </motion.div>:
-                        <Button className="buyButtonGenerator" variant={"danger"} disabled >
+                        <Button className="buyButtonGenerator" variant={"danger"} style={{opacity:"50%"}}
+                                onClick={() => start(audioDenied)}>
                             Buy
                         </Button>
                     }
