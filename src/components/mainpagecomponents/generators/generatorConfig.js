@@ -30,12 +30,13 @@ const generatorImages = {
     4:{srcF: fighter,srcB:fighterB, title: "Monk"},
     5:{srcF: orkBow,srcB:orkBowB, title: "Bork"},
     6:{srcF: redhat,srcB:redhatB, title: "Valkyrie"},
-    7:{srcF: skelletonKing,srcB:skelletonKingB, title: "Skelleton King"},
+    7:{srcF: skelletonKing,srcB:skelletonKingB, title: "Zombie"},
     8:{srcF: undertaker,srcB:undertakerB, title: "Undertaker"},
     9:{srcF: lizard,srcB:lizardB, title: "Diablo" },
     10:{srcF: butcher,srcB:butcherB, title: "Butcher"},
     11:{srcF: magician,srcB:magicianB, title: "Magician"},
     12:{srcF: viking,srcB:vikingB, title: "Viking"}
 }
+
 
 export default generatorImages

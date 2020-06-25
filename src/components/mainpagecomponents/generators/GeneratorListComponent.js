@@ -6,7 +6,7 @@ import Cookies from "js-cookie"
 import {CPSContext} from "../../../contexts/cpsContext"
 import {GenerateArmyContext} from "../../../contexts/generateArmyContext";
 import {ArmyAmountContext} from "../../../contexts/armyAmountContext";
-import generatorImages from "./generatorImagesConfig";
+import generatorImages from "./generatorConfig";
 import {ClickContext} from "../../../contexts/clickContext";
 
 const GeneratorListComponent =()=>{
