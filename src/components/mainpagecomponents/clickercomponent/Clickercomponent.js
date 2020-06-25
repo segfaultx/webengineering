@@ -4,7 +4,6 @@ import Cookies from "js-cookie"
 import Config from "../../../config"
 import {motion} from "framer-motion"
 
-import RedCircle from "../../media/images/clickercomp/aua-circle.png"
 import './clickerComponentStyle.css'
 import damage from "../../media/audio/damage.mp3"
 import monster from"../../media/images/monster/Megapack III Undead Warrior Benkei.png"
@@ -13,7 +12,7 @@ import {VolumeContext} from "../../../contexts/volumeContext"
 const Clickercomponent = ({initialCounterValue = 0}) => {
     const [ws, setWs] = useState(null)
     const [counter, setCounter] = useState(initialCounterValue)
-    const {volume, setVolume} = useContext(VolumeContext)
+    const {volume} = useContext(VolumeContext)
     const [showDmg, setShowDmg] = useState(false)
 
     useEffect(() => {
@@ -41,13 +40,11 @@ const Clickercomponent = ({initialCounterValue = 0}) => {
     audio.load()
 
     const start = () => {
-        let click = audio.cloneNode()
-        if(volume){
-            click.volume = 0.1
-        } else {
-            click.volume = 0
+        if (volume) {
+            let click = audio.cloneNode()
+            click.volume = 0.25
+            click.play()
         }
-        click.play()
     }
 
     const variants = {
@@ -64,9 +61,14 @@ const Clickercomponent = ({initialCounterValue = 0}) => {
                 >
                     +{counter}
                 </motion.div>
-                <img className={"redCircle"} style={{visibility: showDmg? "visible":"hidden"}} src={RedCircle}/>
-                <img className={"monster"} src={monster} style={{zIndex:2}} onMouseDown={start} onClick={handleClick}/>
-            </div>
+                    <img className={"monster"}
+                         src={monster}
+                         alt = "Click Me"
+                         style={{zIndex:2}}
+                         onMouseDown={start}
+                         onClick={handleClick}
+                    />
+                </div>
     )
 
 }
