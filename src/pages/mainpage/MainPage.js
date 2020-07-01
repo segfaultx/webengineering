@@ -108,7 +108,6 @@ const MainPage = () => {
                                             </Row>
                                             <Row className={"armyArea"}>
                                                 <Col>
-                                                    <img className={"playerPlane"} src={PlayerPlane}/>
                                                     <img className={"avatar"}
                                                          src={avatarConfig[Cookies.get("character")]}/>
                                                     <ArmyArea/>
@@ -118,6 +117,9 @@ const MainPage = () => {
                                         <Col className={"upgradeCol"}>
                                             <UpgradeListComponent className="playareaComponents"/>
                                         </Col>
+                                    </Row>
+                                    <Row>
+                                        <img className={"playerPlane"} src={PlayerPlane}/>
                                     </Row>
                                 </Container>
                             </ArmyAmountProvider>
