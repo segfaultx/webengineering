@@ -1,10 +1,9 @@
 import React, {useContext} from "react"
-import {useEffect, useRef, useState} from "react"
+import {useEffect, useState} from "react"
 import Cookies from "js-cookie"
 import Config from "../../../config"
-import {motion} from "framer-motion";
+import {motion} from "framer-motion"
 
-import RedCircle from"../../media/images/aua-circle.png"
 import './clickerComponentStyle.css'
 import damage from "../../media/audio/damage.mp3";
 import m1 from"../../media/images/monster/Megapack III Undead Warrior Benkei.png"
@@ -15,7 +14,7 @@ import {BoughtUpgradeContext} from "../../../contexts/boughtUpgradesContext";
 const Clickercomponent = ({monster,initialCounterValue = 0}) => {
     const [ws, setWs] = useState(null)
     const [counter, setCounter] = useState(initialCounterValue)
-    const {volume, setVolume} = useContext(VolumeContext)
+    const {volume} = useContext(VolumeContext)
     const [showDmg, setShowDmg] = useState(false)
     const {boughtUpgrades}=useContext(BoughtUpgradeContext)
     const {monsterImage,setMonsterImage}=useContext(LevelUpContext)
@@ -29,13 +28,11 @@ const Clickercomponent = ({monster,initialCounterValue = 0}) => {
 
 
     function handleUpdate(message){
-        console.log(message)
         setCounter(counter + JSON.parse(message.data)["points"])
     }
 
     function handleClick() {
         if (ws !== null) {
-            //console.log("click send")
             ws.send(`token=${Cookies.get("token")}`)
             setShowDmg(true)
             setTimeout(setShowDmg, 300)
@@ -47,13 +44,11 @@ const Clickercomponent = ({monster,initialCounterValue = 0}) => {
     audio.load()
 
     const start = () => {
-        let click = audio.cloneNode()
-        if(volume){
-            click.volume = 0.1
-        } else {
-            click.volume = 0
+        if (volume) {
+            let click = audio.cloneNode()
+            click.volume = 0.25
+            click.play()
         }
-        click.play()
     }
 
     const variants = {
@@ -70,9 +65,14 @@ const Clickercomponent = ({monster,initialCounterValue = 0}) => {
                 >
                     +{counter}
                 </motion.div>
-                <img className={"redCircle"} style={{visibility: showDmg? "visible":"hidden"}} src={RedCircle}/>
-                <img className={"monster"} src={monsterImage.monsterImages[boughtUpgrades.length] } style={{zIndex:2}} onMouseDown={start} onClick={handleClick}/>
-            </div>
+                    <img className={"monster"}
+                         src={monster}
+                         alt = "Click Me"
+                         style={{zIndex:2}}
+                         onMouseDown={start}
+                         onClick={handleClick}
+                    />
+                </div>
     )
 
 }

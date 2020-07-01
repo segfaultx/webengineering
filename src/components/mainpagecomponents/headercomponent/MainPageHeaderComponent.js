@@ -1,15 +1,16 @@
-import React, {useContext, useState} from "react"
+import React, {useContext} from "react"
 import ShowPointsComponent from "../showpointscomponent/ShowPointsComponent"
 import ShowCPSComponent from "../showCPScomponent/ShowCPSComponent"
-import {Button, Col, Container, Navbar, Popover, OverlayTrigger} from "react-bootstrap"
+import {Button, Container, Navbar, Popover, OverlayTrigger, Tooltip} from "react-bootstrap"
 import "./mainPageHeaderStyle.css"
 import Cookies from "js-cookie";
 import {useHistory} from "react-router-dom";
 import {VolumeContext} from "../../../contexts/volumeContext"
 
-import volumeOn from '../../media/images/volumeOn.png'
-import volumeOff from '../../media/images/volume_off.png'
-import helpIcon from '../../media/images/question-mark.png'
+import volumeOn from '../../media/images/navbar/volumeOn.png'
+import volumeOff from '../../media/images/navbar/volume_off.png'
+import helpIcon from '../../media/images/navbar/question-mark.png'
+import changeChar from '../../media/images/navbar/changeChar.png'
 
 const MainPageHeader=()=> {
     const {volume, setVolume} = useContext(VolumeContext)
@@ -41,24 +42,44 @@ const MainPageHeader=()=> {
                <ShowCPSComponent className="showCPS"/>
            </Container>
            <OverlayTrigger
+               placement='bottom'
+               overlay={
+                   <Tooltip id='change Character'> Back to character selection </Tooltip>
+               }>
+               <img
+                   className="characterSelection"
+                   src={changeChar}
+                   alt="Change Character"
+                   width="27vw"
+                   height="27vh"
+                   onClick={() => {history.push("/characterselect")}}
+               />
+           </OverlayTrigger>
+           <OverlayTrigger
                placement = 'left'
                overlay = {popover} >
                <img
                    className="howToPlay"
                    src={helpIcon}
                    alt="Help"
-                   width="1.5%"
-                   height="35%"
+                   width="25vw"
+                   height="25vh"
                />
            </OverlayTrigger>
-           <img
-               className="volumeControl"
-               src={volume ? volumeOn : volumeOff}
-               alt={volume ? "Volume on" : "Volume off"}
-               width="2%"
-               height="60%"
-               onClick={() => {setVolume(!volume)}}
-           />
+           <OverlayTrigger
+               placement='bottom'
+               overlay={
+                   <Tooltip id='change Character'> {volume ? 'Turn off volume' : 'Turn on volume'} </Tooltip>
+               }>
+               <img
+                   className="volumeControl"
+                   src={volume ? volumeOn : volumeOff}
+                   alt={volume ? "Volume on" : "Volume off"}
+                   width="40vw"
+                   height="40vh"
+                   onClick={() => {setVolume(!volume)}}
+               />
+           </OverlayTrigger>
            <Button
                className="logoutBtn"
                size="lg"

@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from "react";
 import {Container} from "react-bootstrap";
 import {GenerateArmyContext} from "../../../contexts/generateArmyContext";
 import {ArmyAmountContext} from "../../../contexts/armyAmountContext";
-import generatorImages from "../generators/generatorImagesConfig";
+import generatorImages from "../generators/generatorConfig";
 
 const ArmyArea=()=>{
 

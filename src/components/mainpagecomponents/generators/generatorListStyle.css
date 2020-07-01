@@ -1,19 +1,60 @@
 .character{
-    border-style: solid;
-    border-color: black;
+    background-color: transparent;
+    background-image: url("../../media/images/generators/backgroundG.jpg");
+    background-size: cover;
+    border-style: ridge;
+    border-color: darkred;
+    margin-top: -2vh;
 }
 
 .buyButtonGenerator{
-    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
 .generatorList{
-    background: rgba(255,0,0,0.2);
+    background: transparent;
     color: white;
-    border-style: solid ;
-    border-color: rgb(0,0,0);
     overflow-y: scroll;
     max-height: 65vh;
     z-index: 2;
-
+    max-height: 80vh;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.generatorList::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE and Edge and Firefox*/
+.generatorList {
+    -ms-overflow-style: none;
+}
+
+.cps{
+    font-weight: bold;
+    color: green;
+    margin-left: -2.5vw;
+    margin-bottom: 2vh;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.cps img{
+    margin-left: 4px;
+}
+
+.price{
+    font-weight: bold;
+    color: red;
+    margin-left: -2.5vw;
+    margin-bottom: 2vh;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.price img{
+    margin-left: 4px;
+    margin-bottom: 4px;
+}
+
+

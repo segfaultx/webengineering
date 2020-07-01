@@ -35,6 +35,7 @@ const MainPage = () => {
         backgroundColor: "black"
     }
     let render = <Redirect to={"/login"}/>
+    if (!Cookies.get("character")) return <Redirect to={"/characterselect"}/>
     if (Cookies.get("token")) {
         render =
             <GenerateArmyContextProvider>
@@ -69,9 +70,10 @@ const MainPage = () => {
                                         </Row>
                                         <Row className={"armyArea"}>
                                             <Col>
-                                                <ArmyArea/>
-                                                <img className={"avatar"} src={Avatar}/>
+                                                <img className={"avatar"}
+                                                     src={avatarConfig[Cookies.get("character")]}/>
                                                 <img className={"playerPlane"} src={PlayerPlane}/>
+                                                <ArmyArea/>
                                             </Col>
                                         </Row>
                                     </Col>
