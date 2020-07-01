@@ -1,13 +1,13 @@
 import React, {createContext, useState} from "react"
-import dImg1 from "../components/media/images/login_background_screen.jpg";
-import dImg2 from "../components/media/images/dungeon1.jpg";
-import dImg3 from "../components/media/images/kJVa6H.jpg";
-import dImg4 from "../components/media/images/dungeon5.jpg";
-import dImg5 from "../components/media/images/kZPyQB.jpg";
-import dImg6 from "../components/media/images/dungeon2.jpg";
-import dImg7 from "../components/media/images/dungeon3.jpg";
-import dImg8 from "../components/media/images/dungeon4.jpg";
-import dImg9 from "../components/media/images/binary-numbers-tunnel.jpg";
+import dImg1 from "../components/media/images/backgrounds/login_background_screen.jpg";
+import dImg2 from "../components/media/images/backgrounds/dungeon1.jpg";
+import dImg3 from "../components/media/images/backgrounds/dungeon_stairs.jpg";
+import dImg4 from "../components/media/images/backgrounds/dungeon5.jpg";
+import dImg5 from "../components/media/images/backgrounds/text_wall.jpg";
+import dImg6 from "../components/media/images/backgrounds/dungeon2.jpg";
+import dImg7 from "../components/media/images/backgrounds/dungeon3.jpg";
+import dImg8 from "../components/media/images/backgrounds/dungeon4.jpg";
+import dImg9 from "../components/media/images/backgrounds/binary-numbers-tunnel.jpg";
 import level1Monster from "../components/media/images/monster/Megapack III Undead Warrior Benkei.png";
 import level2Monster from "../components/media/images/monster/Megapack III Red Guard A.png";
 import level3Monster from "../components/media/images/monster/Megapack III Fallen Kings Arcane King Jeffroy.png";

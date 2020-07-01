@@ -3,9 +3,9 @@ import {useHistory} from "react-router-dom"
 import {Redirect} from "react-router-dom"
 import "./mainpagecomponentstyle.css"
 
-import Avatar from "../../components/media/images/avatar.png"
-import PlayerPlane from "../../components/media/images/Player-Plane.png"
-import MonsterPlane from "../../components/media/images/Monster-Plane.png"
+
+import PlayerPlane from "../../components/media/images/generators/Player-Plane.png"
+import MonsterPlane from "../../components/media/images/clickercomp/Monster-Plane.png"
 import MainPageHeader from "../../components/mainpagecomponents/headercomponent/MainPageHeaderComponent"
 import GeneratorListComponent from "../../components/mainpagecomponents/generators/GeneratorListComponent"
 import UpgradeListComponent from "../../components/mainpagecomponents/upgrades/UpgradeListComponent"
@@ -21,6 +21,7 @@ import {ArmyAmountProvider} from "../../contexts/armyAmountContext";
 import {LevelUpContext, LevelUpContextProvider} from "../../contexts/levelUpContext";
 import {BoughtUpgradeContext, BoughtUpgradeContextProvider} from "../../contexts/boughtUpgradesContext";
 import BackgroundComponent from "../../components/mainpagecomponents/backgroundComponent/BackgroundComponent";
+import avatarConfig from "./avatarConfig";
 
 const MainPage = () => {
 

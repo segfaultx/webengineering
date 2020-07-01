@@ -66,7 +66,7 @@ const Clickercomponent = ({monster,initialCounterValue = 0}) => {
                     +{counter}
                 </motion.div>
                     <img className={"monster"}
-                         src={monster}
+                         src={monsterImage.monsterImages[boughtUpgrades.length]}
                          alt = "Click Me"
                          style={{zIndex:2}}
                          onMouseDown={start}

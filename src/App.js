@@ -33,12 +33,12 @@ function App() {
                     <Route path={"/"} exact>
                         <LevelUpContextProvider>
                             <BoughtUpgradeContextProvider>
-                        <MainPage/>
+                                <MainPage/>
+                            </BoughtUpgradeContextProvider>
+                        </LevelUpContextProvider>
                     </Route>
                     <Route path={"/characterselect"}>
                         <Characterselectorpage/>
-                            </BoughtUpgradeContextProvider>
-                        </LevelUpContextProvider>
                     </Route>
                 </Switch>
             </Router>
