@@ -40,7 +40,7 @@ const MainPage = () => {
                     <CPSContextProvider>
                         <VolumeContextProvider>
                             <ArmyAmountProvider>
-                            <Container className="container" fluid style={background} >
+                            <Container className="wrapper" fluid style={background} >
                                 <Row>
                                     <MainPageHeader/>
                                 </Row>
