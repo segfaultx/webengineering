@@ -28,6 +28,7 @@
 /* Hide scrollbar for IE and Edge and Firefox*/
 .generatorList {
     -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .cps{
