@@ -20,9 +20,8 @@
 }
 
 .playerPlane{
-    position: absolute;
-    right: 5vw;
     z-index: 1;
+    bottom: 0vh;
 }
 
 .monsterPlane{
