@@ -69,7 +69,7 @@ const MainPage = () => {
                                                 <Col>
                                                     <img className={"avatar"}
                                                          src={avatarConfig[Cookies.get("character")]}/>
-                                                    <ArmyArea/>
+
                                                 </Col>
                                             </Row>
                                         </Col>
@@ -78,7 +78,7 @@ const MainPage = () => {
                                         </Col>
                                     </Row>
                                     <Row className={"playerPlaneContainer"}>
-                                        <img className={"playerPlane"} src={PlayerPlane}/>
+                                        <ArmyArea/>
                                     </Row>
                                 </Container>
                             </ArmyAmountProvider>

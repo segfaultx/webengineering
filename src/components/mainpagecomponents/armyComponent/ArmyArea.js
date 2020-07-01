@@ -1,8 +1,9 @@
 import React, {useContext, useEffect, useState} from "react";
-import {Container} from "react-bootstrap";
+import {Container, Row} from "react-bootstrap";
 import {GenerateArmyContext} from "../../../contexts/generateArmyContext";
 import {ArmyAmountContext} from "../../../contexts/armyAmountContext";
 import generatorImages from "../generators/generatorConfig";
+import PlayerPlane from "../../media/images/generators/Player-Plane.png";
 
 const ArmyArea=()=>{
 
@@ -24,8 +25,8 @@ const ArmyArea=()=>{
                 for(let j=0;j<endLoop;j++){
                     tempArmy.push(<img alt="none" key={Math.random()}
                                                   style={{position:"absolute",
-                                                      bottom:Math.random()*60,
-                                                      left:200+Math.random()*1000,
+                                                      bottom: 50 + Math.random()*10,
+                                                      left:450 + Math.random()*1000,
                                                   zIndex:2}}
                                                   src={sprite}/>)
                         }
@@ -36,9 +37,12 @@ const ArmyArea=()=>{
     },[armyAmount])
 
     return(
-        <Container>
+        <div>
             {army}
-        </Container>
+            <img className={"playerPlane"} src={PlayerPlane}/>
+        </div>
+
+
     )
 }
 
