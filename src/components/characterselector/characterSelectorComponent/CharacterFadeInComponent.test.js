@@ -5,7 +5,7 @@ import CharacterFadeComponent from "./CharacterFadeInComponent"
 
 test("CharacterFadeInComponent", () => {
     const mockCallbackFn = jest.fn()
-    render(<CharacterFadeComponent callbackfn={mockCallbackFn}
+    render(<CharacterFadeComponent onClick={mockCallbackFn}
                                    showCharacters={true}
                                    title={"The Archer"}
                                    img={null}
