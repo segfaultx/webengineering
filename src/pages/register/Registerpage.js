@@ -24,14 +24,15 @@ const Registerpage = () => {
         setFormState({...formState, [target]: value})
     }
 
-    function handleSubmit(username, pass) {
+    function handleSubmit(event) {
+        event.preventDefault()
         if (formState.password !== formState.confirmpassword) {
             setShowAlert(true)
             setErrormsg("Passwords do not match")
             console.log("made it to pw check")
             return
         }
-        registerUser(username, pass).then((response) => {
+        registerUser(formState.username, formState.password).then((response) => {
             clearProps()
             if (!response) {
                 setShowAlert(true)
@@ -68,7 +69,7 @@ const Registerpage = () => {
         <Row>
             <Container className={"formContainer"}>
                 <Row className={"formRowContainer"}>
-                    <Form className={"form"}>
+                    <Form className={"form"} onSubmit={handleSubmit}>
                         <Form.Group>
                             <Form.Label className={"formFont"}>Email address / User name</Form.Label>
                             <Form.Control type="username"
@@ -77,8 +78,7 @@ const Registerpage = () => {
                                           placeholder="Enter E-Mail or Username"
                                           value={formState.username || ""}
                                           className={"formInputfield"}
-                                          onChange={(event) => handleChange(event.target.name, event.target.value)}
-                                          onKeyPress={(event) => checkKeyboardEvent(event.key)}/>
+                                          onChange={(event) => handleChange(event.target.name, event.target.value)}/>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label className={"formFont"}>Password</Form.Label>
@@ -88,8 +88,7 @@ const Registerpage = () => {
                                           placeholder="Password"
                                           value={formState.password || ""}
                                           className={"formInputfield"}
-                                          onChange={(event) => handleChange(event.target.name, event.target.value)}
-                                          onKeyPress={(event) => checkKeyboardEvent(event.key)}/>
+                                          onChange={(event) => handleChange(event.target.name, event.target.value)}/>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label className={"formFont"}>Confirm Password</Form.Label>
@@ -99,12 +98,11 @@ const Registerpage = () => {
                                           placeholder="Confirm Password"
                                           value={formState.confirmpassword || ""}
                                           className={"formInputfield"}
-                                          onChange={(event) => handleChange(event.target.name, event.target.value)}
-                                          onKeyPress={(event) => checkKeyboardEvent(event.key)}/>
+                                          onChange={(event) => handleChange(event.target.name, event.target.value)}/>
                         </Form.Group>
                         <Container className={"formBtnContainer"}>
                             <Button variant="primary"
-                                    onClick={() => handleSubmit(formState.username, formState.password)}
+                                    type={"submit"}
                                     className={"formBtn"} aria-controls={"fade-alert"}
                                     aria-expanded={showAlert}>{"Register"}</Button>
                         </Container>
