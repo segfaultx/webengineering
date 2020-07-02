@@ -23,7 +23,7 @@ const Characterselectorpage = () => {
         setTimeout(() => setShowCharacters(true), 500)
     }, [])
 
-    const setCharacter = (characterName) => {
+    function setCharacter(characterName) {
         Cookies.set("character", characterName, {sameSite: "Strict", secure: false})
         history.push("/")
     }
