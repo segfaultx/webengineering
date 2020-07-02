@@ -1,5 +1,4 @@
-import React, {createContext, useState} from "react";
-import {LevelUpContext} from "./levelUpContext";
+import React, {createContext, useState} from "react"
 
 export const BoughtUpgradeContext= createContext()
 export const BoughtUpgradeContextProvider=({children})=>{

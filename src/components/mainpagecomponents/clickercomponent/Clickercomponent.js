@@ -5,11 +5,10 @@ import Config from "../../../config"
 import {motion} from "framer-motion"
 
 import './clickerComponentStyle.css'
-import damage from "../../media/audio/damage.mp3";
-import m1 from"../../media/images/monster/Megapack III Undead Warrior Benkei.png"
-import {VolumeContext} from "../../../contexts/volumeContext";
-import {LevelUpContext} from "../../../contexts/levelUpContext";
-import {BoughtUpgradeContext} from "../../../contexts/boughtUpgradesContext";
+import damage from "../../media/audio/damage.mp3"
+import {VolumeContext} from "../../../contexts/volumeContext"
+import {LevelUpContext} from "../../../contexts/levelUpContext"
+import {BoughtUpgradeContext} from "../../../contexts/boughtUpgradesContext"
 
 const Clickercomponent = ({monster,initialCounterValue = 0}) => {
     const [ws, setWs] = useState(null)

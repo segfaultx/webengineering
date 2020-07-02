@@ -4,12 +4,9 @@ import {Col, Container} from "react-bootstrap"
 import GeneratorComponent from "./GeneratorComponent"
 import Cookies from "js-cookie"
 import {CPSContext} from "../../../contexts/cpsContext"
-import {GenerateArmyContext} from "../../../contexts/generateArmyContext";
-import {ArmyAmountContext} from "../../../contexts/armyAmountContext";
-import generatorImages from "./generatorConfig";
-import {ClickContext} from "../../../contexts/clickContext";
-
-import buyG from "../../media/audio/buyGenerator.mp3"
+import {ArmyAmountContext} from "../../../contexts/armyAmountContext"
+import generatorImages from "./generatorConfig"
+import {ClickContext} from "../../../contexts/clickContext"
 
 
 
@@ -19,7 +16,6 @@ const GeneratorListComponent =()=>{
     const {cps}= useContext(CPSContext)
     const {clicks} = useContext(ClickContext)
     const [generators,setGenerators]=useState([])
-    const {army,setArmy}= useContext(GenerateArmyContext)
     const {armyAmount,setArmyAmount}=useContext(ArmyAmountContext)
 
 

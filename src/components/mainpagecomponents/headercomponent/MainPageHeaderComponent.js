@@ -3,8 +3,8 @@ import ShowPointsComponent from "../showpointscomponent/ShowPointsComponent"
 import ShowCPSComponent from "../showCPScomponent/ShowCPSComponent"
 import {Button, Container, Navbar, Popover, OverlayTrigger, Tooltip} from "react-bootstrap"
 import "./mainPageHeaderStyle.css"
-import Cookies from "js-cookie";
-import {useHistory} from "react-router-dom";
+import Cookies from "js-cookie"
+import {useHistory} from "react-router-dom"
 import {VolumeContext} from "../../../contexts/volumeContext"
 
 import volumeOn from '../../media/images/navbar/volumeOn.png'
