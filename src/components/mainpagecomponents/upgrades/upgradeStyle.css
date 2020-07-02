@@ -1,0 +1,29 @@
+.upgradeList {
+    background-image: url("../../media/images/upgrades/boxHover.png");
+    background-position: center;
+    background-size: cover;
+    background-color: transparent;
+    height: 230px;
+    width: 230px;
+    padding: 40px 60px 7px;
+    object-fit: contain;
+}
+
+.upgradeContainer {
+    font-family: "Game Sans Serif 7", serif ;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+}
+
+.upgradeImage {
+    height: 45px;
+    width: 45px;
+    border-color: burlywood;
+    border-style: ridge;
+}
+
+.upgradeHeader{
+    text-align: center;
+}
