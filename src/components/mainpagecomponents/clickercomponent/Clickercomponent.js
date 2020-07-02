@@ -10,7 +10,7 @@ import {VolumeContext} from "../../../contexts/volumeContext"
 import {LevelUpContext} from "../../../contexts/levelUpContext"
 import {BoughtUpgradeContext} from "../../../contexts/boughtUpgradesContext"
 
-const Clickercomponent = ({monster,initialCounterValue = 0}) => {
+const Clickercomponent = ({initialCounterValue = 0}) => {
     const [ws, setWs] = useState(null)
     const [counter, setCounter] = useState(initialCounterValue)
     const {volume} = useContext(VolumeContext)
