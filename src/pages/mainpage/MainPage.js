@@ -2,6 +2,7 @@ import React, {useContext} from "react"
 
 import {Redirect} from "react-router-dom"
 import Cookies from "js-cookie"
+import {Container, Row, Col} from "react-bootstrap"
 
 import "./mainpagecomponentstyle.css"
 
@@ -9,7 +10,7 @@ import MonsterPlane from "../../components/media/images/clickercomp/Monster-Plan
 import MainPageHeader from "../../components/mainpagecomponents/headercomponent/MainPageHeaderComponent"
 import GeneratorListComponent from "../../components/mainpagecomponents/generators/GeneratorListComponent"
 import UpgradeListComponent from "../../components/mainpagecomponents/upgrades/UpgradeListComponent"
-import {Container, Row, Col} from "react-bootstrap"
+
 import {ClickContextProvider} from "../../contexts/clickContext"
 import {CPSContextProvider} from "../../contexts/cpsContext"
 import {GenerateArmyContextProvider} from "../../contexts/generateArmyContext"
@@ -19,7 +20,7 @@ import {VolumeContextProvider} from "../../contexts/volumeContext"
 import {ArmyAmountProvider} from "../../contexts/armyAmountContext"
 import {LevelUpContext, LevelUpContextProvider} from "../../contexts/levelUpContext"
 import {BoughtUpgradeContext, BoughtUpgradeContextProvider} from "../../contexts/boughtUpgradesContext"
-import avatarConfig from "./avatarConfig";
+import avatarConfig from "./avatarConfig"
 
 const MainPage = () => {
 
