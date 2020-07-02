@@ -26,16 +26,15 @@ const Loginpage = () => {
         setFormState({...formState, [target]: value})
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault()
-        loginToServer(formState.username, formState.password).then((response) => {
-            clearProps()
-            if (!response) {
-                setShowAlert(true)
-                return
-            }
-            history.push("/characterselect")
-        })
+        let response = await loginToServer(formState.username, formState.password)
+        clearProps()
+        if (!response) {
+            setShowAlert(true)
+            return
+        }
+        history.push("/characterselect")
     }
 
     function clearProps() {

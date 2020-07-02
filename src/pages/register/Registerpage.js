@@ -24,7 +24,7 @@ const Registerpage = () => {
         setFormState({...formState, [target]: value})
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault()
         if (formState.password !== formState.confirmpassword) {
             setShowAlert(true)
@@ -32,21 +32,14 @@ const Registerpage = () => {
             console.log("made it to pw check")
             return
         }
-        registerUser(formState.username, formState.password).then((response) => {
-            clearProps()
-            if (!response) {
-                setShowAlert(true)
-                setErrormsg(defaultErrormsg)
-                return
-            }
-            history.push("/login")
-        })
-    }
-
-    function checkKeyboardEvent(key) {
-        if (key === "Enter") {
-            handleSubmit(formState.username, formState.password)
+        let response = await registerUser(formState.username, formState.password)
+        clearProps()
+        if (!response) {
+            setShowAlert(true)
+            setErrormsg(defaultErrormsg)
+            return
         }
+        history.push("/login")
     }
 
     function clearProps() {
