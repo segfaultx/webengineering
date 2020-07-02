@@ -26,10 +26,14 @@ const Registerpage = () => {
 
     async function handleSubmit(event) {
         event.preventDefault()
+        if (formState.username === "" || formState.password === ""){
+            setShowAlert(true)
+            setErrormsg("Please enter a username or password")
+            return
+        }
         if (formState.password !== formState.confirmpassword) {
             setShowAlert(true)
             setErrormsg("Passwords do not match")
-            console.log("made it to pw check")
             return
         }
         let response = await registerUser(formState.username, formState.password)
