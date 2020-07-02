@@ -1,22 +1,24 @@
-import React, {useContext, useState} from "react"
+import React, {useContext} from "react"
+
 import {Redirect} from "react-router-dom"
+import Cookies from "js-cookie"
+
 import "./mainpagecomponentstyle.css"
-import PlayerPlane from "../../components/media/images/generators/Player-Plane.png"
+
 import MonsterPlane from "../../components/media/images/clickercomp/Monster-Plane.png"
 import MainPageHeader from "../../components/mainpagecomponents/headercomponent/MainPageHeaderComponent"
 import GeneratorListComponent from "../../components/mainpagecomponents/generators/GeneratorListComponent"
 import UpgradeListComponent from "../../components/mainpagecomponents/upgrades/UpgradeListComponent"
-import {Container, Row, Col, Button} from "react-bootstrap"
+import {Container, Row, Col} from "react-bootstrap"
 import {ClickContextProvider} from "../../contexts/clickContext"
 import {CPSContextProvider} from "../../contexts/cpsContext"
 import {GenerateArmyContextProvider} from "../../contexts/generateArmyContext"
-import Cookies from "js-cookie"
 import Clickercomponent from "../../components/mainpagecomponents/clickercomponent/Clickercomponent"
-import ArmyArea from "../../components/mainpagecomponents/armyComponent/ArmyArea";
-import {VolumeContextProvider} from "../../contexts/volumeContext";
-import {ArmyAmountProvider} from "../../contexts/armyAmountContext";
-import {LevelUpContext, LevelUpContextProvider} from "../../contexts/levelUpContext";
-import {BoughtUpgradeContext, BoughtUpgradeContextProvider} from "../../contexts/boughtUpgradesContext";
+import ArmyArea from "../../components/mainpagecomponents/armyComponent/ArmyArea"
+import {VolumeContextProvider} from "../../contexts/volumeContext"
+import {ArmyAmountProvider} from "../../contexts/armyAmountContext"
+import {LevelUpContext, LevelUpContextProvider} from "../../contexts/levelUpContext"
+import {BoughtUpgradeContext, BoughtUpgradeContextProvider} from "../../contexts/boughtUpgradesContext"
 import avatarConfig from "./avatarConfig";
 
 const MainPage = () => {

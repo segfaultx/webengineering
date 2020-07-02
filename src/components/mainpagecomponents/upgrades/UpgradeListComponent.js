@@ -6,8 +6,8 @@ import Cookies from 'js-cookie'
 import {CPSContext} from "../../../contexts/cpsContext"
 import upgradeSound from '../../media/audio/buyUpgrade.mp3'
 import {BoughtUpgradeContext} from "../../../contexts/boughtUpgradesContext"
-import {VolumeContext} from "../../../contexts/volumeContext";
-import {ClickContext} from "../../../contexts/clickContext";
+import {VolumeContext} from "../../../contexts/volumeContext"
+import {ClickContext} from "../../../contexts/clickContext"
 
 const UpgradeListComponent = () => {
 

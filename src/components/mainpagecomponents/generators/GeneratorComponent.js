@@ -1,13 +1,13 @@
 import React, {useContext} from "react"
 import {Button, Col} from "react-bootstrap"
 import Container from "react-bootstrap/Container"
-import Row from "react-bootstrap/Row";
-import pointer from "../../media/images/navbar/swordIcon.png";
-import blood from "../../media/images/navbar/Blood_drop.png";
-import {motion} from "framer-motion";
-import notEnough from "../../media/audio/noEffectClick.mp3";
-import {VolumeContext} from "../../../contexts/volumeContext";
-import buyG from "../../media/audio/buyGenerator.mp3";
+import Row from "react-bootstrap/Row"
+import pointer from "../../media/images/navbar/swordIcon.png"
+import blood from "../../media/images/navbar/Blood_drop.png"
+import {motion} from "framer-motion"
+import notEnough from "../../media/audio/noEffectClick.mp3"
+import {VolumeContext} from "../../../contexts/volumeContext"
+import buyG from "../../media/audio/buyGenerator.mp3"
 
 
 const GeneratorComponent =({buyId,image,income_rate, onBuy,amount, price, buyable})=>{

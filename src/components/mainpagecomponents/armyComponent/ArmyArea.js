@@ -1,9 +1,8 @@
-import React, {useContext, useEffect, useState} from "react";
-import {Container, Row} from "react-bootstrap";
-import {GenerateArmyContext} from "../../../contexts/generateArmyContext";
-import {ArmyAmountContext} from "../../../contexts/armyAmountContext";
-import generatorImages from "../generators/generatorConfig";
-import PlayerPlane from "../../media/images/generators/Player-Plane.png";
+import React, {useContext, useEffect, useState} from "react"
+import {GenerateArmyContext} from "../../../contexts/generateArmyContext"
+import {ArmyAmountContext} from "../../../contexts/armyAmountContext"
+import generatorImages from "../generators/generatorConfig"
+import PlayerPlane from "../../media/images/generators/Player-Plane.png"
 
 const ArmyArea=()=>{
 
@@ -19,7 +18,6 @@ const ArmyArea=()=>{
                 sprite=generatorImages[i].srcB
                 let endLoop= armyAmount[i]
                 if(prevAmount!==undefined){
-                    //if(prevAmount[i]>=10) continue
                     endLoop=armyAmount[i]-prevAmount[i]
                 }
                 for(let j=0;j<endLoop;j++){

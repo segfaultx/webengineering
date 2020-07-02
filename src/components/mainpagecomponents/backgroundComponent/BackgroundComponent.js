@@ -1,6 +1,6 @@
-import React, {useContext} from "react";
-import {LevelUpContext} from "../../../contexts/levelUpContext";
-import {BoughtUpgradeContext} from "../../../contexts/boughtUpgradesContext";
+import React, {useContext} from "react"
+import {LevelUpContext} from "../../../contexts/levelUpContext"
+import {BoughtUpgradeContext} from "../../../contexts/boughtUpgradesContext"
 
 
 const BackgroundComponent=()=>{
