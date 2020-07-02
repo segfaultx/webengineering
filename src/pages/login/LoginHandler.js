@@ -26,13 +26,13 @@ async function postLoginToServer(username, pass) {
 }
 
 async function loginToServer(username, pass){
-    let token = null
-    await postLoginToServer(username, pass).then(value => token = value)
-    if (token !== null){
-        Cookies.set('token', token.access_token, {sameSite: "Strict", secure: false})
-        Cookies.set('username', username)
-        return true
-    }
-    return false
+    return postLoginToServer(username, pass).then(response => {
+        if (response){
+            Cookies.set('token', response.access_token, {sameSite: "Strict", secure: false})
+            Cookies.set('username', username)
+            return true
+        }
+            return false
+    })
 }
 export default loginToServer
