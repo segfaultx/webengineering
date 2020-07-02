@@ -2,7 +2,7 @@ import React from "react"
 import {Button, Col, Container, Fade} from "react-bootstrap";
 
 
-const CharacterFadeComponent = ({showCharacters, callbackfn, text, type, img, title}) => {
+const CharacterFadeComponent = ({showCharacters, onClick, text, type, img, title}) => {
 
 
     return (
@@ -14,7 +14,7 @@ const CharacterFadeComponent = ({showCharacters, callbackfn, text, type, img, ti
                     <div className={"characterDescription"}>
                         {text}
                     </div>
-                    <Button className={"formBtn"} onClick={() => callbackfn(type)}>
+                    <Button className={"formBtn"} onClick={() => onClick(type)}>
                         Select this Character
                     </Button>
                 </Container>

@@ -37,13 +37,13 @@ const Characterselectorpage = () => {
                 </Container>
             </Row>
             <Row className={"characterSelectRow"}>
-                <CharacterFadeComponent callbackfn={setCharacter} showCharacters={showCharacters} img={archer}
+                <CharacterFadeComponent onClick={setCharacter} showCharacters={showCharacters} img={archer}
                                         text={texts.archer} title={"The Archer"} type={"archer"}/>
-                <CharacterFadeComponent callbackfn={setCharacter} showCharacters={showCharacters} img={mage}
+                <CharacterFadeComponent onClick={setCharacter} showCharacters={showCharacters} img={mage}
                                         type={"mage"} text={texts.mage} title={"The Mage"}/>
-                <CharacterFadeComponent callbackfn={setCharacter} showCharacters={showCharacters} img={warrior}
+                <CharacterFadeComponent onClick={setCharacter} showCharacters={showCharacters} img={warrior}
                                         type={"warrior"} text={texts.warrior} title={"The Warrior"}/>
-                <CharacterFadeComponent callbackfn={setCharacter} showCharacters={showCharacters} img={dragoon}
+                <CharacterFadeComponent onClick={setCharacter} showCharacters={showCharacters} img={dragoon}
                                         type={"dragoon"} text={texts.dragoon} title={"The Dragoon"}/>
             </Row>
         </Container>
