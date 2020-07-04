@@ -16,7 +16,7 @@ const Clickercomponent = ({initialCounterValue = 0}) => {
     const {volume} = useContext(VolumeContext)
     const [showDmg, setShowDmg] = useState(false)
     const {boughtUpgrades}=useContext(BoughtUpgradeContext)
-    const {monsterImage,setMonsterImage}=useContext(LevelUpContext)
+    const {monsterImage}=useContext(LevelUpContext)
 
     useEffect(() => {
         let initWs = new WebSocket(`${Config.websocketUrl}/game/click?token=${Cookies.get("token")}`)

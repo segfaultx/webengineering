@@ -18,8 +18,8 @@ import Clickercomponent from "../../components/mainpagecomponents/clickercompone
 import ArmyArea from "../../components/mainpagecomponents/armyComponent/ArmyArea"
 import {VolumeContextProvider} from "../../contexts/volumeContext"
 import {ArmyAmountProvider} from "../../contexts/armyAmountContext"
-import {LevelUpContext, LevelUpContextProvider} from "../../contexts/levelUpContext"
-import {BoughtUpgradeContext, BoughtUpgradeContextProvider} from "../../contexts/boughtUpgradesContext"
+import {LevelUpContext} from "../../contexts/levelUpContext"
+import {BoughtUpgradeContext} from "../../contexts/boughtUpgradesContext"
 import avatarConfig from "./avatarConfig"
 
 const MainPage = () => {
@@ -62,7 +62,7 @@ const MainPage = () => {
                                                 </Row>
                                                 <Row>
                                                     <Col>
-                                                        <img className={"monsterPlane"} src={MonsterPlane}/>
+                                                        <img className={"monsterPlane"} src={MonsterPlane} alt={"monsterplane bild"}/>
                                                     </Col>
                                                 </Row>
                                             </Col>
@@ -71,7 +71,7 @@ const MainPage = () => {
                                             <Row className={"armyArea"}>
                                                 <Col>
                                                     <img className={"avatar"}
-                                                         src={avatarConfig[Cookies.get("character")]}/>
+                                                         src={avatarConfig[Cookies.get("character")]} alt={"avatarbild"}/>
 
                                                 </Col>
                                             </Row>

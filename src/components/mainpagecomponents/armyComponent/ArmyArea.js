@@ -37,7 +37,7 @@ const ArmyArea=()=>{
     return(
         <div>
             {army}
-            <img className={"playerPlane"} src={PlayerPlane}/>
+            <img className={"playerPlane"} src={PlayerPlane} alt={"alternativtext"}/>
         </div>
 
 
