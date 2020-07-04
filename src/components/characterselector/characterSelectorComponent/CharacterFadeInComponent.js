@@ -14,7 +14,7 @@ const CharacterFadeComponent = ({showCharacters, onClick, text, type, img, title
                     <div className={"characterDescription"}>
                         {text}
                     </div>
-                    <Button className={"formBtn"} onClick={() => onClick(type)}>
+                    <Button className={"formBtn"} onClick={() => onClick(type)} id={`${type}_btn`}>
                         Select this Character
                     </Button>
                 </Container>
