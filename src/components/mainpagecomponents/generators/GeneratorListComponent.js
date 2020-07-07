@@ -8,7 +8,16 @@ import {ArmyAmountContext} from "../../../contexts/armyAmountContext"
 import generatorImages from "./generatorConfig"
 import {ClickContext} from "../../../contexts/clickContext"
 
-
+/**
+ * Component which renders all available generators in a list.
+ * It also fetches the available from the server via "GET"-requests
+ * and sets the armyAmountContext. This Component re-renders after changes in cps to display new available generators.
+ *
+ * It also offers the onBuy-function for buying a generator.
+ *
+ * @returns {*}
+ * @constructor
+ */
 
 const GeneratorListComponent =()=>{
 

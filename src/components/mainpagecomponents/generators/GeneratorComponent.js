@@ -9,6 +9,19 @@ import notEnough from "../../media/audio/noEffectClick.mp3"
 import {VolumeContext} from "../../../contexts/volumeContext"
 import buyG from "../../media/audio/buyGenerator.mp3"
 
+/**
+ * This Component renders one Generator based on its parameters
+ *
+ * @param buyId for sending the required id to the server for buying a generator
+ * @param image simply shows the image for this generator
+ * @param income_rate property given by the server
+ * @param onBuy function which requires a buyId for sending a request to the server
+ * @param amount displays the current amount of bought generators
+ * @param price displays the price of the next generator
+ * @param buyable property for conditional rendering
+ * @returns {*}
+ * @constructor
+ */
 
 const GeneratorComponent =({buyId,image,income_rate, onBuy,amount, price, buyable})=>{
     const {volume} = useContext(VolumeContext)
