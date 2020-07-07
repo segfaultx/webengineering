@@ -4,6 +4,15 @@ import {ArmyAmountContext} from "../../../contexts/armyAmountContext"
 import generatorImages from "../generators/generatorConfig"
 import PlayerPlane from "../../media/images/generators/Player-Plane.png"
 
+/**
+ * Component which depends on the armyAmountContext.
+ * Based on this context this component sets the image and computes the position of each image and puts it into the GenerateArmyContext.
+ * Out of GenerateArmyContext this Component renders each image.
+ *
+ * @returns {*}
+ * @constructor
+ */
+
 const ArmyArea=()=>{
 
     const {army,setArmy}= useContext(GenerateArmyContext)
