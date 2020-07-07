@@ -12,6 +12,12 @@ import volumeOff from '../../media/images/navbar/volume_off.png'
 import helpIcon from '../../media/images/navbar/question-mark.png'
 import changeChar from '../../media/images/navbar/changeChar.png'
 
+/**
+ * Header of the application, renders current balance, cps as well as buttons for volume, character selection,
+ * howToPlay, volume toggle and logout
+ * @returns {*}
+ * @constructor
+ */
 const MainPageHeader=()=> {
     const {volume, setVolume} = useContext(VolumeContext)
     const history = useHistory()

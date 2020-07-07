@@ -9,6 +9,11 @@ import {BoughtUpgradeContext} from "../../../contexts/boughtUpgradesContext"
 import {VolumeContext} from "../../../contexts/volumeContext"
 import {ClickContext} from "../../../contexts/clickContext"
 
+/**
+ * Container for Upgrades. Either buyable upgrades or bought upgrades
+ * @returns {*}
+ * @constructor
+ */
 const UpgradeListComponent = () => {
 
     const {cps} = useContext(CPSContext)
