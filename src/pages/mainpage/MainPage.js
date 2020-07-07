@@ -22,6 +22,13 @@ import {LevelUpContext} from "../../contexts/levelUpContext"
 import {BoughtUpgradeContext} from "../../contexts/boughtUpgradesContext"
 import avatarConfig from "./avatarConfig"
 
+/**
+ * Mainpage component, which represents the application in a logged in state.
+ * Contains Upgrades on left hand side, click element in the middle and upgrades on the right hand side.
+ * Bottom contains the army area where our generators are being rendered
+ * @returns {*}
+ * @constructor
+ */
 const MainPage = () => {
 
     const {boughtUpgrades}=useContext(BoughtUpgradeContext)
