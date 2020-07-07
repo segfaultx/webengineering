@@ -1,4 +1,5 @@
-import Config from "../../config";
+import Config from "../../config"
+
 async function registerUser(username, pass) {
     let response = await fetch(`${Config.serverUrl}/users/register`, {
         method: "POST",
