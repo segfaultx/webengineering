@@ -10,7 +10,7 @@ test('Upgrade onClick', () => {
     render(
         <VolumeContextProvider>
             <UpgradeComponent
-                key={testId} id={testId}
+                id={testId}
                 multiplier={10}
                 cost={0}
                 order={3}
