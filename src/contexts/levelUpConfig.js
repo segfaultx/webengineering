@@ -6,7 +6,7 @@ import level5Monster from "../components/media/images/monster/Megapack III Zodia
 import level6Monster from "../components/media/images/monster/Megapack III Elemental Lords Fire Lord.png"
 import level7Monster from "../components/media/images/monster/Megapack III Black Iron Minotaur Beef.png"
 import level8Monster from "../components/media/images/monster/Megapack III Dragonslayer Dwarf.png"
-import level9Monster from "../components/media/images/monster/Megapack III Behemoth.png"
+import level9Monster from "../components/media/images/monster/404-Error.gif"
 import dImg1 from "../components/media/images/backgrounds/dungeon-mouth.jpg"
 import dImg2 from "../components/media/images/backgrounds/dungeon1.jpg"
 import dImg3 from "../components/media/images/backgrounds/dungeon_stairs.jpg"
