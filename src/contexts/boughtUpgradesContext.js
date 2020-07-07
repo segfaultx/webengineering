@@ -1,6 +1,13 @@
 import React, {createContext, useState} from "react"
 
 export const BoughtUpgradeContext= createContext()
+/**
+ *
+ * @param children
+ * @returns {*}
+ * @constructor
+ * This Context provider contains a List of boughtUpgrade elements
+ */
 export const BoughtUpgradeContextProvider=({children})=>{
     const [boughtUpgrades, setBoughtUpgrades] = useState([])
 

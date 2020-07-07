@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react"
+ import React, {useContext, useEffect, useState} from "react"
 import "../headercomponent/mainPageHeaderStyle.css"
 import {ClickContext} from "../../../contexts/clickContext"
 import {Container, Row} from "react-bootstrap"
