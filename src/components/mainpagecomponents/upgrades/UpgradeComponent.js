@@ -6,7 +6,7 @@ import {VolumeContext} from "../../../contexts/volumeContext"
 
 import upgradeBrowse from "../../media/audio/browsingUpgrades.mp3"
 import notEnough from "../../media/audio/noEffectClick.mp3"
-import upgradeImages from "./UpgradeConfig";
+import upgradeImages from "./UpgradeConfig"
 
 import './upgradeStyle.css'
 
