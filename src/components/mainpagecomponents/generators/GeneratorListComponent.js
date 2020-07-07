@@ -75,9 +75,6 @@ const GeneratorListComponent =()=>{
         if (response.ok){
             setArmyAmount({...armyAmount,[response.generator.id]:response.amount})
         }
-
-        await fetchData()
-
     }
 
     const nextPrice=async (id)=>{
