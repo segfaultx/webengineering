@@ -67,7 +67,7 @@ const MainPage = () => {
                                                     </Col>
                                                 </Row>
                                                 <Row>
-                                                    <Col>
+                                                    <Col style={{ visibility: boughtUpgrades.length === 8 ? 'hidden' : 'visible'}}>
                                                         <img className={"monsterPlane"} src={MonsterPlane} alt={"monsterplane bild"}/>
                                                     </Col>
                                                 </Row>
