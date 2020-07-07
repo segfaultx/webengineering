@@ -69,13 +69,14 @@ const GeneratorComponent =({buyId,image,income_rate, onBuy,amount, price, buyabl
 
                     {buyable ?
                         <motion.div whileHover={{ scale: 1.1}} whileTap={{ scale: 0.9}}>
-                            <Button className="buyButtonGenerator" variant={"danger"} onClick={()=>{
+                            <Button data-testid={`${buyId}_GeneratorTest`} className="buyButtonGenerator" variant={"danger"} onClick={()=>{
                                 onBuy(buyId);
                                 start(audioBuy)
                             }} >
                                 Buy
                             </Button>
-                        </motion.div>:
+                        </motion.div>
+                        :
                         <Button className="buyButtonGenerator" variant={"danger"} style={{opacity:"50%"}}
                                 onClick={() => start(audioDenied)}>
                             Buy
