@@ -7,7 +7,7 @@ import level6Monster from "../components/media/images/monster/Megapack III Eleme
 import level7Monster from "../components/media/images/monster/Megapack III Black Iron Minotaur Beef.png"
 import level8Monster from "../components/media/images/monster/Megapack III Dragonslayer Dwarf.png"
 import level9Monster from "../components/media/images/monster/Megapack III Behemoth.png"
-import dImg1 from "../components/media/images/backgrounds/login_background_screen.jpg"
+import dImg1 from "../components/media/images/backgrounds/dungeon-mouth.jpg"
 import dImg2 from "../components/media/images/backgrounds/dungeon1.jpg"
 import dImg3 from "../components/media/images/backgrounds/dungeon_stairs.jpg"
 import dImg4 from "../components/media/images/backgrounds/dungeon5.jpg"
@@ -15,7 +15,7 @@ import dImg5 from "../components/media/images/backgrounds/cthulu_dungeon.jpg"
 import dImg6 from "../components/media/images/backgrounds/dungeon2.jpg"
 import dImg7 from "../components/media/images/backgrounds/dungeon3.jpg"
 import dImg8 from "../components/media/images/backgrounds/dungeon4.jpg"
-import dImg9 from "../components/media/images/backgrounds/dungeon-mouth.jpg"
+import dImg9 from "../components/media/images/backgrounds/binary-numbers-tunnel.jpg"
 
 export const monsterList={
     "monsterImages": [level1Monster, level2Monster, level3Monster, level4Monster, level5Monster,level6Monster,level7Monster,level8Monster,level9Monster],
