@@ -8,7 +8,7 @@ describe("volumeContext", () => {
         const TestComponent = () => {
             const {volume, setVolume} = useContext(VolumeContext)
             return <div>
-                <div data-testid={"volumeBool"}>{volume}</div>
+                <div data-testid={"volumeBool"}>{volume.toString()}</div>
                 <button onClick={() => setVolume(expectedVolumeBool)}>Set Volume</button>
             </div>
         }
@@ -16,6 +16,6 @@ describe("volumeContext", () => {
             <TestComponent/>
         </VolumeContextProvider>)
         fireEvent.click(screen.getByText("Set Volume"))
-        expect(screen.getByTestId("volumeBool")).toBeTruthy()
+        expect(screen.getByTestId("volumeBool").textContent).toBe(expectedVolumeBool.toString())
     })
 })
