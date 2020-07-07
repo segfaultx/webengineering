@@ -3,8 +3,8 @@ import ShowPointsComponent from "../showpointscomponent/ShowPointsComponent"
 import ShowCPSComponent from "../showCPScomponent/ShowCPSComponent"
 import {Button, Container, Navbar, Popover, OverlayTrigger, Tooltip} from "react-bootstrap"
 import "./mainPageHeaderStyle.css"
-import Cookies from "js-cookie";
-import {useHistory} from "react-router-dom";
+import Cookies from "js-cookie"
+import {useHistory} from "react-router-dom"
 import {VolumeContext} from "../../../contexts/volumeContext"
 
 import volumeOn from '../../media/images/navbar/volumeOn.png'
@@ -12,6 +12,12 @@ import volumeOff from '../../media/images/navbar/volume_off.png'
 import helpIcon from '../../media/images/navbar/question-mark.png'
 import changeChar from '../../media/images/navbar/changeChar.png'
 
+/**
+ * Header of the application, renders current balance, cps as well as buttons for volume, character selection,
+ * howToPlay, volume toggle and logout
+ * @returns {*}
+ * @constructor
+ */
 const MainPageHeader=()=> {
     const {volume, setVolume} = useContext(VolumeContext)
     const history = useHistory()

@@ -12,8 +12,8 @@ import "./App.css"
 import Loginpage from "./pages/login/Loginpage"
 import Registerpage from "./pages/register/Registerpage"
 import MainPage from "./pages/mainpage/MainPage"
-import {LevelUpContext, LevelUpContextProvider} from "./contexts/levelUpContext";
-import {BoughtUpgradeContext, BoughtUpgradeContextProvider} from "./contexts/boughtUpgradesContext";
+import {LevelUpContextProvider} from "./contexts/levelUpContext"
+import {BoughtUpgradeContextProvider} from "./contexts/boughtUpgradesContext"
 import Characterselectorpage from "./pages/characterselector/Characterselectorpage"
 
 function App() {

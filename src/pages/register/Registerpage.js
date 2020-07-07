@@ -12,6 +12,13 @@ import registerUser from "./RegisterHandler"
 
 import "../shared_styles/SharedPagesStyle.css"
 
+/**
+ * Registerpage for users, provides a username field as well as 2x password field,
+ * passwords must match in order to start the register process. Shows error toast in case of failure.
+ * @link{registerUser} used for register process
+ * @returns {*}
+ * @constructor
+ */
 const Registerpage = () => {
 
     const history = useHistory()
@@ -24,28 +31,26 @@ const Registerpage = () => {
         setFormState({...formState, [target]: value})
     }
 
-    function handleSubmit(username, pass) {
+    async function handleSubmit(event) {
+        event.preventDefault()
+        if (formState.username === "" || formState.password === ""){
+            setShowAlert(true)
+            setErrormsg("Please enter a username or password")
+            return
+        }
         if (formState.password !== formState.confirmpassword) {
             setShowAlert(true)
             setErrormsg("Passwords do not match")
-            console.log("made it to pw check")
             return
         }
-        registerUser(username, pass).then((response) => {
-            clearProps()
-            if (!response) {
-                setShowAlert(true)
-                setErrormsg(defaultErrormsg)
-                return
-            }
-            history.push("/login")
-        })
-    }
-
-    function checkKeyboardEvent(key) {
-        if (key === "Enter") {
-            handleSubmit(formState.username, formState.password)
+        let response = await registerUser(formState.username, formState.password)
+        clearProps()
+        if (!response) {
+            setShowAlert(true)
+            setErrormsg(defaultErrormsg)
+            return
         }
+        history.push("/login")
     }
 
     function clearProps() {
@@ -68,7 +73,7 @@ const Registerpage = () => {
         <Row>
             <Container className={"formContainer"}>
                 <Row className={"formRowContainer"}>
-                    <Form className={"form"}>
+                    <Form className={"form"} onSubmit={handleSubmit}>
                         <Form.Group>
                             <Form.Label className={"formFont"}>Email address / User name</Form.Label>
                             <Form.Control type="username"
@@ -77,8 +82,7 @@ const Registerpage = () => {
                                           placeholder="Enter E-Mail or Username"
                                           value={formState.username || ""}
                                           className={"formInputfield"}
-                                          onChange={(event) => handleChange(event.target.name, event.target.value)}
-                                          onKeyPress={(event) => checkKeyboardEvent(event.key)}/>
+                                          onChange={(event) => handleChange(event.target.name, event.target.value)}/>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label className={"formFont"}>Password</Form.Label>
@@ -88,8 +92,7 @@ const Registerpage = () => {
                                           placeholder="Password"
                                           value={formState.password || ""}
                                           className={"formInputfield"}
-                                          onChange={(event) => handleChange(event.target.name, event.target.value)}
-                                          onKeyPress={(event) => checkKeyboardEvent(event.key)}/>
+                                          onChange={(event) => handleChange(event.target.name, event.target.value)}/>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label className={"formFont"}>Confirm Password</Form.Label>
@@ -99,12 +102,11 @@ const Registerpage = () => {
                                           placeholder="Confirm Password"
                                           value={formState.confirmpassword || ""}
                                           className={"formInputfield"}
-                                          onChange={(event) => handleChange(event.target.name, event.target.value)}
-                                          onKeyPress={(event) => checkKeyboardEvent(event.key)}/>
+                                          onChange={(event) => handleChange(event.target.name, event.target.value)}/>
                         </Form.Group>
                         <Container className={"formBtnContainer"}>
                             <Button variant="primary"
-                                    onClick={() => handleSubmit(formState.username, formState.password)}
+                                    type={"submit"}
                                     className={"formBtn"} aria-controls={"fade-alert"}
                                     aria-expanded={showAlert}>{"Register"}</Button>
                         </Container>

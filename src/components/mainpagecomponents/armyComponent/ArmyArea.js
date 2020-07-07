@@ -1,9 +1,17 @@
-import React, {useContext, useEffect, useState} from "react";
-import {Container, Row} from "react-bootstrap";
-import {GenerateArmyContext} from "../../../contexts/generateArmyContext";
-import {ArmyAmountContext} from "../../../contexts/armyAmountContext";
-import generatorImages from "../generators/generatorConfig";
-import PlayerPlane from "../../media/images/generators/Player-Plane.png";
+import React, {useContext, useEffect, useState} from "react"
+import {GenerateArmyContext} from "../../../contexts/generateArmyContext"
+import {ArmyAmountContext} from "../../../contexts/armyAmountContext"
+import generatorImages from "../generators/generatorConfig"
+import PlayerPlane from "../../media/images/generators/Player-Plane.png"
+
+/**
+ * Component which depends on the armyAmountContext.
+ * Based on this context this component sets the image and computes the position of each image and puts it into the GenerateArmyContext.
+ * Out of GenerateArmyContext this Component renders each image.
+ *
+ * @returns {*}
+ * @constructor
+ */
 
 const ArmyArea=()=>{
 
@@ -19,7 +27,6 @@ const ArmyArea=()=>{
                 sprite=generatorImages[i].srcB
                 let endLoop= armyAmount[i]
                 if(prevAmount!==undefined){
-                    //if(prevAmount[i]>=10) continue
                     endLoop=armyAmount[i]-prevAmount[i]
                 }
                 for(let j=0;j<endLoop;j++){
@@ -39,7 +46,7 @@ const ArmyArea=()=>{
     return(
         <div>
             {army}
-            <img className={"playerPlane"} src={PlayerPlane}/>
+            <img className={"playerPlane"} src={PlayerPlane} alt={"alternativtext"}/>
         </div>
 
 

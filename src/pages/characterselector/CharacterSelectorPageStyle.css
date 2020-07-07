@@ -14,7 +14,7 @@
     align-self: flex-start;
     color: darkred;
     text-align: center;
-    font-family: Pieces, Serif;
+    font-family: Pieces, Serif, sans-serif;
 }
 
 .characterSelectRow {

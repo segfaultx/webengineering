@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react"
+ import React, {useContext, useEffect, useState} from "react"
 import "../headercomponent/mainPageHeaderStyle.css"
 import {ClickContext} from "../../../contexts/clickContext"
 import {Container, Row} from "react-bootstrap"
@@ -29,7 +29,7 @@ const ShowPointsComponent=()=>{
             <Row className={"showPoints"}>
                 <img src={blood}  alt="Blood: " width="25vh" height = "30vh" style={{padding: "3px"}} />
                 <h2>{clicks}</h2>
-                <t style={{padding: "5px"}}> Bloodpoints</t>
+                <span style={{padding: "5px"}}> Bloodpoints</span>
             </Row>
         </Container>
     )

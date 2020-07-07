@@ -4,14 +4,20 @@ import {Col, Container} from "react-bootstrap"
 import GeneratorComponent from "./GeneratorComponent"
 import Cookies from "js-cookie"
 import {CPSContext} from "../../../contexts/cpsContext"
-import {GenerateArmyContext} from "../../../contexts/generateArmyContext";
-import {ArmyAmountContext} from "../../../contexts/armyAmountContext";
-import generatorImages from "./generatorConfig";
-import {ClickContext} from "../../../contexts/clickContext";
+import {ArmyAmountContext} from "../../../contexts/armyAmountContext"
+import generatorImages from "./generatorConfig"
+import {ClickContext} from "../../../contexts/clickContext"
 
-import buyG from "../../media/audio/buyGenerator.mp3"
-
-
+/**
+ * Component which renders all available generators in a list.
+ * It also fetches the available from the server via "GET"-requests
+ * and sets the armyAmountContext. This Component re-renders after changes in cps to display new available generators.
+ *
+ * It also offers the onBuy-function for buying a generator.
+ *
+ * @returns {*}
+ * @constructor
+ */
 
 const GeneratorListComponent =()=>{
 
@@ -19,7 +25,6 @@ const GeneratorListComponent =()=>{
     const {cps}= useContext(CPSContext)
     const {clicks} = useContext(ClickContext)
     const [generators,setGenerators]=useState([])
-    const {army,setArmy}= useContext(GenerateArmyContext)
     const {armyAmount,setArmyAmount}=useContext(ArmyAmountContext)
 
 
@@ -70,9 +75,6 @@ const GeneratorListComponent =()=>{
         if (response.ok){
             setArmyAmount({...armyAmount,[response.generator.id]:response.amount})
         }
-
-        await fetchData()
-
     }
 
     const nextPrice=async (id)=>{

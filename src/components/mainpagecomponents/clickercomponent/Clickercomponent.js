@@ -5,19 +5,25 @@ import Config from "../../../config"
 import {motion} from "framer-motion"
 
 import './clickerComponentStyle.css'
-import damage from "../../media/audio/damage.mp3";
-import m1 from"../../media/images/monster/Megapack III Undead Warrior Benkei.png"
-import {VolumeContext} from "../../../contexts/volumeContext";
-import {LevelUpContext} from "../../../contexts/levelUpContext";
-import {BoughtUpgradeContext} from "../../../contexts/boughtUpgradesContext";
+import damage from "../../media/audio/damage.mp3"
+import {VolumeContext} from "../../../contexts/volumeContext"
+import {LevelUpContext} from "../../../contexts/levelUpContext"
+import {BoughtUpgradeContext} from "../../../contexts/boughtUpgradesContext"
 
-const Clickercomponent = ({monster,initialCounterValue = 0}) => {
+/**
+ * Shows a clickable monster image. Clicking adds a static amount of "bloodpoints" to user balance. Plays a sound
+ * when clicked and filters the image in a red color
+ * @param initialCounterValue
+ * @returns {*}
+ * @constructor
+ */
+const Clickercomponent = ({initialCounterValue = 0}) => {
     const [ws, setWs] = useState(null)
     const [counter, setCounter] = useState(initialCounterValue)
     const {volume} = useContext(VolumeContext)
     const [showDmg, setShowDmg] = useState(false)
     const {boughtUpgrades}=useContext(BoughtUpgradeContext)
-    const {monsterImage,setMonsterImage}=useContext(LevelUpContext)
+    const {monsterImage}=useContext(LevelUpContext)
 
     useEffect(() => {
         let initWs = new WebSocket(`${Config.websocketUrl}/game/click?token=${Cookies.get("token")}`)

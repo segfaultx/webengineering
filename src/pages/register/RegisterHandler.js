@@ -1,17 +1,18 @@
-import Config from "../../config";
+import Config from "../../config"
+
+/**
+ * Method to send a post request to server in an attempt to register the user,
+ * returns true if success, else false
+ * @param username
+ * @param pass
+ * @returns {Promise<boolean>}
+ */
 async function registerUser(username, pass) {
-    return await fetch(`${Config.serverUrl}/users/register`, {
+    let response = await fetch(`${Config.serverUrl}/users/register`, {
         method: "POST",
         body: JSON.stringify({"username": username, "password": pass})
     })
-        .then(result => {
-            return result.status === 200;
-
-        })
-        .catch(error => {
-            console.error(error)
-            return false
-        })
+    return response.status === 200;
 }
 
 export default registerUser

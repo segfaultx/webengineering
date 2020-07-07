@@ -6,9 +6,14 @@ import Cookies from 'js-cookie'
 import {CPSContext} from "../../../contexts/cpsContext"
 import upgradeSound from '../../media/audio/buyUpgrade.mp3'
 import {BoughtUpgradeContext} from "../../../contexts/boughtUpgradesContext"
-import {VolumeContext} from "../../../contexts/volumeContext";
-import {ClickContext} from "../../../contexts/clickContext";
+import {VolumeContext} from "../../../contexts/volumeContext"
+import {ClickContext} from "../../../contexts/clickContext"
 
+/**
+ * Container for Upgrades. Either buyable upgrades or bought upgrades
+ * @returns {*}
+ * @constructor
+ */
 const UpgradeListComponent = () => {
 
     const {cps} = useContext(CPSContext)
@@ -36,31 +41,25 @@ const UpgradeListComponent = () => {
     };
 
     const fetchAvailableUpgrades = async () => {
-        await fetch('http://server.bykovski.de:8000/upgrades/available', config)
-            .then(response => {
-                if (response.status === 200) {
-                    response.json()
-                        .then(data => setUpgradeList(data))
-                }
-            })
-            .catch(err => {
-                setError(err.message)
-                console.log(error)
-            })
+        const response = await fetch('http://server.bykovski.de:8000/upgrades/available', config)
+        const responseJson = await response.json()
+        if(response.status === 200){
+            setUpgradeList(responseJson)
+        } else {
+            setError(response.status)
+        }
+
     }
 
     const fetchBoughtUpgrades = async () => {
-        await fetch('http://server.bykovski.de:8000/upgrades/current-user', config)
-            .then(response => {
-                if (response.status === 200) {
-                    response.json()
-                        .then(data => setBoughtUpgrades(data))
-                }
-            })
-            .catch(err => {
-                setError(err.message)
-                console.log(error)
-            })
+        const response = await fetch('http://server.bykovski.de:8000/upgrades/current-user', config)
+        const responseJson = await response.json()
+        if(response.status === 200){
+            setBoughtUpgrades(responseJson)
+        } else {
+            setError(response.status)
+        }
+
     }
 
     useEffect(() => {
@@ -74,16 +73,15 @@ const UpgradeListComponent = () => {
 
     const handleBuy = async (upgrade_id) => {
         setBuyRequestSent(true)
-        await fetch(`http://server.bykovski.de:8000/upgrades/${upgrade_id}/buy`, config)
-            .then(response => {
-                if (response.status === 200) {
-                    start(audioBuy)
-                    setBuyRequestSent(false)
-                } else {
-                    response.json()
-                        .then(detail => setError(detail))
-                }
-            })
+        const response = await fetch(`http://server.bykovski.de:8000/upgrades/${upgrade_id}/buy`, config)
+        const responseJson = await response.json()
+        if(response.status === 200){
+            start(audioBuy)
+            setBuyRequestSent(false)
+        } else {
+            setError(responseJson.detail)
+        }
+
     }
 
     let boughtUpgradeComponents = boughtUpgrades

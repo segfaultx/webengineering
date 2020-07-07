@@ -12,7 +12,13 @@ import loginToServer from "./LoginHandler"
 
 import "../shared_styles/SharedPagesStyle.css"
 
-
+/**
+ * Login page for users, provides a username and password field aswell as login button
+ * to log user in to application
+ * @link{loginToServer} used to login user to server
+ * @returns {*}
+ * @constructor
+ */
 const Loginpage = () => {
     const history = useHistory()
 
@@ -26,21 +32,15 @@ const Loginpage = () => {
         setFormState({...formState, [target]: value})
     }
 
-    function handleSubmit(username, pass) {
-        loginToServer(username, pass).then((response) => {
-            clearProps()
-            if (!response) {
-                setShowAlert(true)
-                return
-            }
-            history.push("/characterselect")
-        })
-    }
-
-    function checkKeyboardEvent(key) {
-        if (key === "Enter") {
-            handleSubmit(formState.username, formState.password)
+    async function handleSubmit(event) {
+        event.preventDefault()
+        let response = await loginToServer(formState.username, formState.password)
+        clearProps()
+        if (!response) {
+            setShowAlert(true)
+            return
         }
+        history.push("/characterselect")
     }
 
     function clearProps() {
@@ -63,7 +63,7 @@ const Loginpage = () => {
         <Row>
             <Container className={"formContainer"}>
                 <Row className={"formRowContainer"}>
-                    <Form className={"form"}>
+                    <Form className={"form"} onSubmit={handleSubmit}>
                         <Form.Group>
                             <Form.Label className={"formFont"}>Email address / User name</Form.Label>
                             <Form.Control type="username"
@@ -72,8 +72,7 @@ const Loginpage = () => {
                                           placeholder="Enter E-Mail or Username"
                                           value={formState.username || ""}
                                           className={"formInputfield"}
-                                          onChange={(event) => handleChange(event.target.name, event.target.value)}
-                                          onKeyPress={(event) => checkKeyboardEvent(event.key)}/>
+                                          onChange={(event) => handleChange(event.target.name, event.target.value)}/>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label className={"formFont"}>Password</Form.Label>
@@ -83,14 +82,12 @@ const Loginpage = () => {
                                           placeholder="Password"
                                           value={formState.password || ""}
                                           className={"formInputfield"}
-                                          onChange={(event) => handleChange(event.target.name, event.target.value)}
-                                          onKeyPress={(event) => checkKeyboardEvent(event.key)}/>
+                                          onChange={(event) => handleChange(event.target.name, event.target.value)}/>
                         </Form.Group>
                         <Container className={"formBtnContainer"}>
                             <Button variant="primary"
-                                    onClick={() => handleSubmit(formState.username, formState.password)}
                                     className={"formBtn"} aria-controls={"fade-alert"}
-                                    aria-expanded={showAlert}>{"Login"}</Button>
+                                    aria-expanded={showAlert} type={"submit"}>{"Login"}</Button>
                         </Container>
                     </Form>
                 </Row>
