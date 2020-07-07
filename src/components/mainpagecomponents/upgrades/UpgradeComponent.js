@@ -84,6 +84,7 @@ const UpgradeComponent = (props) => {
                        }}
                        src={upgImg.src}
                        alt={upgImg.title}
+                       data-testid = {`${props.id}_buyImg`}
                        onClick={() => !props.boughtStatus ? props.buyUpgrade(props.id) : start(clicked) }
                        onMouseEnter={() => start(audioBrowse)}
                 />

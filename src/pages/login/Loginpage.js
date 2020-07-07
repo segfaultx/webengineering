@@ -12,7 +12,13 @@ import loginToServer from "./LoginHandler"
 
 import "../shared_styles/SharedPagesStyle.css"
 
-
+/**
+ * Login page for users, provides a username and password field aswell as login button
+ * to log user in to application
+ * @link{loginToServer} used to login user to server
+ * @returns {*}
+ * @constructor
+ */
 const Loginpage = () => {
     const history = useHistory()
 

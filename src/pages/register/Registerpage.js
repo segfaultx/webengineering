@@ -12,6 +12,13 @@ import registerUser from "./RegisterHandler"
 
 import "../shared_styles/SharedPagesStyle.css"
 
+/**
+ * Registerpage for users, provides a username field as well as 2x password field,
+ * passwords must match in order to start the register process. Shows error toast in case of failure.
+ * @link{registerUser} used for register process
+ * @returns {*}
+ * @constructor
+ */
 const Registerpage = () => {
 
     const history = useHistory()

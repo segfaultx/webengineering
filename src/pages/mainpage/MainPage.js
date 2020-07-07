@@ -54,7 +54,6 @@ const MainPage = () => {
                                     <Col className={"gameCol"}>
                                         <Row className={"bossArea"}>
                                             <Col>
-                                                <h2>BossArea</h2>
                                                 <Row>
                                                     <Col>
                                                         <Clickercomponent initialCounterValue={0}/>

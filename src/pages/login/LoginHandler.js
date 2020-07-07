@@ -1,6 +1,12 @@
 import Config from "../../config"
 import Cookies from "js-cookie"
 
+/**
+ * function to send a post request to server to attempt and log user in
+ * @param username
+ * @param pass
+ * @returns {Promise<Response>}
+ */
 async function postLoginToServer(username, pass) {
     let requestBody = new URLSearchParams()
     requestBody.append("username", username)
@@ -25,6 +31,13 @@ async function postLoginToServer(username, pass) {
         })
 }
 
+/**
+ * Function to be called by components, returns true/false depending on response status from
+ * @link{postLoginToServer}
+ * @param username
+ * @param pass
+ * @returns {Promise<Response>}
+ */
 async function loginToServer(username, pass){
     return postLoginToServer(username, pass).then(response => {
         if (response){
