@@ -2,7 +2,7 @@ import React from "react"
 import {fireEvent, screen, render} from "@testing-library/react"
 import GeneratorComponent from "./GeneratorComponent"
 import {VolumeContextProvider} from "../../../contexts/volumeContext"
-import generatorImages from "./generatorConfig"
+
 
 window.HTMLMediaElement.prototype.load=()=>{}
 window.HTMLMediaElement.prototype.play=()=>{}
