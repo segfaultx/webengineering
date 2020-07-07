@@ -1,8 +1,7 @@
-import React from "react"
+import React from "react";
 import { render, fireEvent, screen} from "@testing-library/react"
-import UpgradeComponent from "./UpgradeComponent"
-import {VolumeContextProvider} from "../../../contexts/volumeContext"
-
+import UpgradeComponent from "./UpgradeComponent";
+import {VolumeContextProvider} from "../../../contexts/volumeContext";
 window.HTMLMediaElement.prototype.load = () => {}
 
 test('Upgrade onClick', () => {

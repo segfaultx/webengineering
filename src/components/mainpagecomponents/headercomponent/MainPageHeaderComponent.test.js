@@ -12,7 +12,7 @@ jest.mock('react-router-dom', () => ({
     useHistory: () => ({
         push: jest.fn(),
     }),
-}));
+}))
 
 test('Logout onClick',  done => {
     function callback() {
